@@ -1,0 +1,48 @@
+<app-header></app-header>
+<div class="request-hero-section">
+  <div class="container-xl">
+    <div class="row">
+      <div class="col-md-12 col-lg-6">
+        <div class="sections-container">
+          <h2 class="super-large-headings">APIs to</h2>
+          <h1 class="super-large-headings">make NFTs</h1>
+          <p class="p-para">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum
+            netus fames viverra facilisis. Vulputate sed lectus augue senectus
+            et. Et ipsum congue senectus viverra semper lectus nisl.
+          </p>
+          <form id="myForm" class="mt-5" [formGroup]="loginForm"
+          #accessToNft="ngForm"
+          (ngSubmit)="login(accessToNft.value)">
+            <input
+              type="text"
+              formControlName="api_key"
+              class="form-control form-control-lg our-form-styles"
+              placeholder="Enter Your Key"
+            />
+            <div id="button-cont" class="mt-4">
+              <button id="myFormSubmit" type="submit" class="btn-faded">
+                Continue
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-6">
+        <div class="sections-image-container">
+          <img
+            class="img-fluid resp-image-baloon"
+            src="assets/images/nft-air-delivery.png"
+            alt="NFTs Air Delivery"
+          />
+          <img
+            class="img-fluid"
+            src="assets/images/sitting-boy.png"
+            alt=""
+            style="margin-top: -15%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

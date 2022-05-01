@@ -1,0 +1,29 @@
+<div
+  id="mySidenav"
+  class="sidenav"
+  [ngStyle]="{ width: isSidenavActive && isAuthenticated && isDashboardUrl ? '250px' : '0px' }"
+>
+  <div class="box-container">
+    <p class="headings">API Key</p>
+    <p class="keys">af314eba-6c32-4d56-8503-a2984411d7be</p>
+    <button class="copy-btn">Copy Token ID</button>
+  </div>
+  <hr class="divider" />
+  <a
+    href="javascript:void(0)"
+    id="cls-button"
+    class="closebtn"
+    [ngStyle]="{ display: isMenuActive && isAuthenticated ? 'block' : 'none' }"
+    (click)="toggleSideNav()"
+    >Dismiss</a
+  >
+  <a routerLink="/dashboard/create-nft" [ngClass]="page === 1 ? 'active' : ''" (click)="navigatePage(1)"
+    >Create NFTs</a
+  >
+  <a routerLink="/dashboard/read-nft" [ngClass]="page === 2 ? 'active' : ''" (click)="navigatePage(2)"
+    >Read NFTs</a
+  >
+  <a routerLink="/dashboard/list-nft" [ngClass]="page === 3 ? 'active' : ''" (click)="navigatePage(3)"
+    >List NFTs</a
+  >
+</div>

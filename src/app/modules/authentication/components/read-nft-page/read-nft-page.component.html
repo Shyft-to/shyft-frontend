@@ -1,0 +1,176 @@
+<div class="outer-content-area">
+  <div class="inner-content-area">
+    <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span> -->
+    <div class="row pt-5">
+      <div class="col-md-8">
+        <h1 class="dash-medium-headings">Explore Astonishing NFTs</h1>
+        <p class="p-para">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum
+          netus fames viverra facilisis. Vulputate sed lectus augue senectus.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum
+          netus fames viverra facilisis. Vulputate sed lectus augue
+          senectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Interdum netus fames viverra facilisis. Vulputate sed lectus augue
+          senectus.
+        </p>
+        <div class="forms-container">
+          <div class="search-boxes">
+            <form>
+              <div class="row">
+                <div class="col-sm-8">
+                  <input
+                    class="transparent-inputs"
+                    type="text"
+                    placeholder="Enter token Id"
+                  />
+                </div>
+                <div class="col-sm-4">
+                  <button class="search-button" type="submit">Search</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12 col-lg-5">
+        <div class="details-container">
+          <h5 class="edit-medium-headings">Token ID: 79770</h5>
+
+          <p class="p-para">Title</p>
+          <p class="p-para-normal">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum
+            netus fames viverra facil
+          </p>
+          <div class="pt-2 pb-3">
+            <img class="img-fluid" src="assets/images/ListedNFT.png" alt="" />
+          </div>
+          <h5 class="edit-medium-headings">Details</h5>
+          <div class="row">
+            <div class="col">
+              <p class="p-para">Blockchain</p>
+            </div>
+            <div class="col">
+              <p class="p-para-normal">Etherium</p>
+            </div>
+          </div>
+          <p class="p-para">Mint - to - Address</p>
+          <p class="p-para-normal">
+            0xb1efd79be9ac1fe6deaeeef3c56d04bccdc68130
+          </p>
+          <p class="p-para">Meta Data</p>
+          <p class="p-para-normal">
+            ipfs://bafkreiaq25jbftokfte6rg7wfox237zwukbwg5njjr2mgitowzi42d5yby
+          </p>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-1">
+        <!-- Gap creator -->
+      </div>
+      <div class="col-md-12 col-lg-5">
+        <div class="row">
+          <div class="col-md-12 col-md-6 col-lg-12 col-xl-12 p-1">
+            <div class="request-boxes mt-4">
+              <div class="heading-box">
+                <table>
+                  <tr>
+                    <td
+                      class="headings"
+                      style="width: 270px; padding: 20px 20px"
+                    >
+                      Shell/cURL
+                    </td>
+                    <td><button class="copy-btn">Copy</button></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box-body">
+                <textarea class="transparent-inputs"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-md-6 col-lg-12 col-xl-12 p-1">
+            <div class="request-boxes mt-4">
+              <div class="heading-box">
+                <table>
+                  <tr>
+                    <td
+                      class="headings"
+                      style="width: 222px; padding: 20px 20px"
+                    >
+                      Response
+                    </td>
+                    <td><button class="copy-btn">Copy Token ID</button></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box-body">
+                <textarea class="transparent-inputs">
+"response": "OK","chain": "polygon","contract_address": "0x47C7FF137D7a6644a9A96F1D44f5a6f857D9023f","transaction_hash": "0xa6869c0c2bd62f549558b68b045b834b087dec5e4644aed3841a0aa31a205e0a", "transaction_external_url": "https://polygonscan.com/tx/0xa6869c0c2bd62f549558b68b045b834b087dec5e4644aed3841a0aa31a205e0a","mint_to_address": "0xEaC2DAeB9AC99EFbb45c0Cb87f1d350eb2C552f9","name": "refer","description": "art","error": null
+                              </textarea
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-12 col-lg-5">
+        <h5 class="edit-medium-headings">List all your minted NFTs</h5>
+        <p class="p-para-normal">
+          <strong class="p-para">GET</strong>
+          https://api.nftport.xyz/v0/me/mints
+        </p>
+
+        <p class="p-para-normal">
+          Returns a list of all the NFTs you’ve previously minted with Easy
+          minting w/URL, Easy minting w/file upload or Customizable minting. For
+          recently minted NFTs, it may take a few minutes until they appear in
+          this response.
+        </p>
+
+        <p class="p-para-normal">
+          <strong>Useful for:</strong>
+          Retrieving your NFT minting history.
+        </p>
+        <p class="p-para-normal">
+          <strong>Related:</strong>
+          To see all the contracts you've previously deployed, see List all your
+          deployed contracts. To see all your previous IPFS uploads, see List
+          all your IPFS uploads.
+        </p>
+        <p class="p-para">
+          Request Query Parameters chain string Blockchain where the NFTs have
+          been minted. Allowed values: polygon rinkeby page_number integer The
+          page number of the results to return. The first page is 1.>= 1
+          Default: 1 page_size integer The number of results returned per page.
+          Limit can range between 1 and 50, and the default is 50. >= 1 <= 50
+          Default: 50
+        </p>
+      </div>
+      <div class="col-md-12 col-lg-1"></div>
+      <div class="col-md-12 col-lg-5">
+        <div class="request-boxes mt-4">
+          <div class="heading-box">
+            <table>
+              <tr>
+                <td class="headings" style="padding: 20px 20px">
+                  Sample Response
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="box-body">
+            <textarea class="transparent-inputs">
+"response": "OK","chain": "polygon","contract_address": "0x47C7FF137D7a6644a9A96F1D44f5a6f857D9023f","transaction_hash": "0xa6869c0c2bd62f549558b68b045b834b087dec5e4644aed3841a0aa31a205e0a", "transaction_external_url": "https://polygonscan.com/tx/0xa6869c0c2bd62f549558b68b045b834b087dec5e4644aed3841a0aa31a205e0a","mint_to_address": "0xEaC2DAeB9AC99EFbb45c0Cb87f1d350eb2C552f9","name": "refer","description": "art","error": null
+                      </textarea
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

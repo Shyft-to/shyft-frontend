@@ -1,0 +1,89 @@
+<app-header></app-header>
+<div class="new-request-hero-section">
+  <div class="container-xl">
+    <div class="row">
+      <div class="col-md-12 col-lg-6">
+        <div class="sections-container mt-5">
+          <h2 class="medium-large-headings mt-3">Get Free API Key</h2>
+
+          <p class="p-para">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum
+            netus fames viverra facilisis. Vulputate sed lectus augue senectus
+            et. Et ipsum congue senectus viverra semper lectus nisl.
+          </p>
+          <form
+            id="myForm"
+            class="mt-3"
+            [formGroup]="registerForm"
+            #getApiForm="ngForm"
+            (ngSubmit)="getApiKey(getApiForm.value)"
+          >
+            <label for="email" class="form-label p-para">Email Address</label>
+            <input
+              type="email"
+              class="form-control form-control-lg our-form-styles"
+              formControlName="emailId"
+              [ngClass]="{ 'is-invalid': isSubmitted && f.emailId.errors }"
+              placeholder="Enter email address"
+            />
+            <div *ngIf="isSubmitted && f.emailId.errors" class="invalid-feedback">
+              <div *ngIf="f.emailId.errors.required">Email is required</div>
+              <div *ngIf="f.emailId.errors.email">
+                Email must be a valid email address
+              </div>
+            </div>
+            <div id="button-cont" class="mt-4 pt-5">
+              <button id="myFormSubmit" type="submit" class="btn-faded">
+                Continue
+              </button>
+            </div>
+            <p class="p-para-normal">
+              By signing up, I agree to Shift’s <a><b>Terms of Use</b></a> and
+              <a><b>Privacy Policy</b></a>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-6">
+        <div class="sections-image-container">
+          <img
+            class="img-fluid resp-image-baloon"
+            src="assets/images/nft-air-delivery.png"
+            alt="NFTs Air Delivery"
+          />
+          <img
+            class="img-fluid"
+            src="assets/images/login-lock.png"
+            alt=""
+            style="margin-top: -5%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div [ngClass]="isSubmitted ? 'modal fade show active-modal': 'modal fade'" id="myModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-2 pl-5" style="border-radius: 20px">
+      <!-- Modal Header -->
+      <div class="modal-header border-0" style="height: 50px">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          (click)="closeModal()"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body pb-5">
+        <h3 class="modal-heads">Yayy!!! All Set to Create NFTS</h3>
+        <h3 class="modal-heads">CHECK YOUR EMAIL!</h3>
+        <p class="p-para-normal">
+          We sent the API key to your registered email address.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
