@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { GetApiService } from 'src/app/core/http/get-api.service';
 
 @Component({
@@ -11,7 +12,11 @@ export class GetApiPageComponent implements OnInit {
   isSubmitted: boolean = false;
   registerForm!: FormGroup;
   isSuccessResponse: boolean = false;
-  constructor(private _getApiService: GetApiService, private formBuilder: FormBuilder) {}
+  constructor(
+    private _getApiService: GetApiService,
+    private formBuilder: FormBuilder,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -33,5 +38,6 @@ export class GetApiPageComponent implements OnInit {
 
   public closeModal() {
     this.isSuccessResponse = false;
+    this.router.navigate(['/access-to-nft']);
   }
 }
