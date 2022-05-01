@@ -11,17 +11,28 @@
             netus fames viverra facilisis. Vulputate sed lectus augue senectus
             et. Et ipsum congue senectus viverra semper lectus nisl.
           </p>
-          <form id="myForm" class="mt-5" [formGroup]="loginForm"
-          #accessToNft="ngForm"
-          (ngSubmit)="login(accessToNft.value)">
+          <form
+            id="myForm"
+            class="mt-5"
+            #formcontrol="ngForm"
+            [formGroup]="loginForm"
+            #accessToNft="ngForm"
+            (ngSubmit)="login(accessToNft.value)"
+          >
             <input
               type="text"
               formControlName="api_key"
               class="form-control form-control-lg our-form-styles"
               placeholder="Enter Your Key"
+              [required]="true"
             />
             <div id="button-cont" class="mt-4">
-              <button id="myFormSubmit" type="submit" class="btn-faded">
+              <button
+                id="myFormSubmit"
+                type="submit"
+                class="btn-faded"
+                [disabled]="!formcontrol.form.valid"
+              >
                 Continue
               </button>
             </div>

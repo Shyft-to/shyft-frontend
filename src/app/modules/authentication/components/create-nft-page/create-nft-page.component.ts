@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-nft-page.component.scss']
 })
 export class CreateNftPageComponent implements OnInit {
-
+  apiKey: string | null = "";
   constructor() { }
 
   ngOnInit(): void {
+    this.apiKey = localStorage.getItem("api_key");
   }
 
 }

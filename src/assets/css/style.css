@@ -1298,3 +1298,7 @@ html {
   display: block;
   backdrop-filter: blur(5px);
 }
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}

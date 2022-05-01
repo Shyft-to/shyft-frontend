@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 })
 export class AccessToNftComponent implements OnInit {
   loginForm!: FormGroup;
-  isFormSubmitted: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router) {}
 
@@ -20,7 +19,6 @@ export class AccessToNftComponent implements OnInit {
   }
   public login(body: any) {
     localStorage.setItem("api_key", body.api_key);
-    this.isFormSubmitted = true;
     this.router.navigate(['/dashboard']);
   }
 

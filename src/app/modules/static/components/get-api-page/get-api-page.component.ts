@@ -10,6 +10,7 @@ import { GetApiService } from 'src/app/core/http/get-api.service';
 export class GetApiPageComponent implements OnInit {
   isSubmitted: boolean = false;
   registerForm!: FormGroup;
+  isSuccessResponse: boolean = false;
   constructor(private _getApiService: GetApiService, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
@@ -19,6 +20,9 @@ export class GetApiPageComponent implements OnInit {
   }
   public getApiKey(body: any) {
     this.isSubmitted = true;
+    if (this.isSubmitted && this.registerForm.valid) {
+      this.isSuccessResponse = true;
+    }
     this._getApiService.getApiKey(body).subscribe((res) => {
       console.log(res);
     }, (errors: any) => {
@@ -28,6 +32,6 @@ export class GetApiPageComponent implements OnInit {
   get f() { return this.registerForm.controls; }
 
   public closeModal() {
-    this.isSubmitted = false;
+    this.isSuccessResponse = false;
   }
 }

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +12,14 @@ export class HeaderComponent implements OnInit {
   @Input() isAuthenticated: boolean = false;
   isSidenavActive: boolean = false;
   isMenuActive: boolean = false;
-  constructor(public breakpointObserver: BreakpointObserver, private auth: AuthService) {}
+  isDashboardUrl: boolean = false;
+  constructor(
+    public breakpointObserver: BreakpointObserver,
+    private auth: AuthService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
+    this.isDashboardUrl = this.router.url.includes('/dashboard');
     this.isAuthenticated = this.auth.IsLoggedIn();
     this.breakpointObserver
       .observe(['(min-width: 1100px)'])
@@ -20,11 +27,9 @@ export class HeaderComponent implements OnInit {
         if (state.matches && this.isAuthenticated) {
           this.isSidenavActive = true;
           this.isMenuActive = false;
-          console.log('Viewport width is 500px or greater!');
         } else {
           this.isSidenavActive = false;
           this.isMenuActive = true;
-          console.log('Viewport width is less than 500px!');
         }
       });
   }
