@@ -20,7 +20,9 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: ()=>import('./modules/authentication/authentication.module').then(a=>a.AuthenticationModule), canActivate: [AuthGuardService]
+    loadChildren: () => import('./modules/authentication/authentication.module')
+      .then(a=>a.AuthenticationModule),
+      // canActivate: [AuthGuardService],
   }
 ];
 

@@ -6,8 +6,7 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { ReadNftPageComponent } from './components/read-nft-page/read-nft-page.component';
 import { ListNftPageComponent } from './components/list-nft-page/list-nft-page.component';
 import { AuthenticationComponent } from './authentication.component';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +17,8 @@ import { AuthenticationComponent } from './authentication.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     AuthenticationRoutingModule,
   ]

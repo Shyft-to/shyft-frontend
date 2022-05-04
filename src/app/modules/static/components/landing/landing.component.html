@@ -1,21 +1,31 @@
 <app-header></app-header>
+<!-- Hero Section -->
 <div class="container-fluid hero-section">
-  <div class="container pt-5 pb-3">
+  <div class="container-lg pt-1 pb-3">
     <div class="row">
-      <div class="col-lg-12 col-xl-8">
+      <div class="col-sm-12 col-md-6 col-lg-8">
         <div class="hero-text-box">
           <h1 class="text-uppercase hero-heading">shyft</h1>
-          <h3 class="hero-sub-heading">APIs to make NFTs</h3>
-          <div class="mt-5 pb-5">
-            <a routerLink="/get-api-key"><button class="btn-solid-reg">Try Shift for Free</button></a>
+          <h3 class="hero-sub-heading">
+            APIs For Frictionless NFT integration
+          </h3>
+          <div class="hero-padded-section">
+            <p class="p-para-hero">
+              Build your web3.0 products using our NFT CRUD APIs in days, not
+              months and manage them using our intuitive dashboard
+            </p>
+          </div>
+          <div class="hero-button-container">
+           <a routerLink="/get-api-key"><button class="btn-solid-reg">Try Shift for Free</button></a>
             <p class="p-para-normal">
               If you already have an API key,
-              <a routerLink="/access-to-nft"><b>click here</b></a> to continue
+              <a class="gradient-text" routerLink="/dashboard"><b>click here</b></a> to
+              continue
             </p>
           </div>
         </div>
       </div>
-      <div class="col-lg-12 col-xl-4">
+      <div class="col-sm-12 col-md-6 col-lg-4">
         <div class="style-circle-container">
           <div class="style-circle">
             <img class="image-rocket" src="assets/images/rocket.svg" />
@@ -31,194 +41,205 @@
             />
           </div>
         </div>
+        <div class="hero-button-container-2 text-center">
+          <a routerLink="/get-api-key"><button class="btn-solid-reg">Try Shift for Free</button></a>
+          <p class="p-para-normal">
+            If you already have an API key,
+            <a class="gradient-text" routerLink="/dashboard"><b>click here</b></a> to continue
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<!-- <div class="container-fluid" style="overflow: hidden; padding-top: 200px; padding-bottom: 50px; height: 150px;">
-  <div style="width: 110%; margin-top: -5%; margin-left: -5%; height: 500px; transform: rotate(-4deg); position: relative; z-index: -2; background-color: #D6EDFF;">
 
-  </div>
-</div> -->
-<div class="container-fluid upper-angular-region"></div>
 <div class="container-fluid donut-background">
-  <div class="container support-chain">
-    <div class="row custom-padding-10">
-      <div class="col-sm-12">
-        <div class="pt-5">
-          <h3 class="section-sub-heading">Our Support Chain</h3>
+  <div class="container-lg why-us">
+    <div class="why-us-text-container">
+      <div>
+        <h3 class="section-sub-heading">Why Us?</h3>
+      </div>
+    </div>
+    <div class="icon-points">
+      <div class="row gx-1 gy-1">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="row pt-5">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+              <div class="why-us-img-container">
+                <img
+                  src="assets/images/MultiChainSupport.png"
+                  alt="Multi Support Chain"
+                />
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
+              <div class="why-us-text-features text-center text-md-start">
+                <h6 class="why-us-text-headings">Multi-chain support</h6>
+                <p class="p-para-normal">
+                  Single API and code base for building magic on different
+                  blockchains. (Currently, Solana and polygon more coming soon)
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="row text-center mt-5 pt-4">
-      <div class="col-6 col-sm-6 col-md-6 col-xl-3 pt-3">
-        <img
-          class="img-fluid blockchain-img"
-          src="assets/images/ethereum.png"
-          alt="Ethereum"
-        />
-        <p class="p-caption">Ethereum</p>
-      </div>
-      <div class="col-6 col-sm-6 col-md-6 col-xl-3 pt-3">
-        <img
-          class="img-fluid blockchain-img"
-          src="assets/images/polygon.png"
-          alt="Polygon"
-        />
-        <p class="p-caption">Polygon</p>
-      </div>
-      <div class="col-6 col-sm-6 col-md-6 col-xl-3 pt-3">
-        <img
-          class="img-fluid blockchain-img"
-          src="assets/images/solana-sol-cryptocurrency.png"
-          alt="Solana"
-        />
-        <p class="p-caption">Solana</p>
-      </div>
-      <div class="col-6 col-sm-6 col-md-6 col-xl-3 pt-3">
-        <img
-          class="img-fluid blockchain-img"
-          src="assets/images/celo.png"
-          alt="Celo"
-        />
-        <p class="p-caption">Celo</p>
-      </div>
-    </div>
-  </div>
-  <div class="container why-us">
-    <div class="row">
-      <div class="col-sm-12 col-md-6">
-        <div class="why-us-text-container">
-          <div>
-            <h3 class="section-sub-heading">Why Us?</h3>
-          </div>
-          <div>
-            <p class="p-para">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum
-              netus fames viverra facilisis. Vulputate sed lectus augue senectus
-              et. Et ipsum congue senectus viverra semper lectus nisl.
-            </p>
-          </div>
-          <div class="list-container">
-            <ul class="list-unstyled li-space-lg indent">
-              <li class="media">
-                <i class="fas fa-square"></i>
-                <div class="media-body">Dead Simple</div>
-              </li>
-              <li class="media">
-                <i class="fas fa-square"></i>
-                <div class="media-body">Cost Effective</div>
-              </li>
-              <li class="media">
-                <i class="fas fa-square"></i>
-                <div class="media-body">Time to market is very low</div>
-              </li>
-            </ul>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="row pt-5">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+              <div class="why-us-img-container">
+                <img src="assets/images/Money-bag-man.png" alt="Cost Effective" />
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
+              <div class="why-us-text-features text-center text-md-start">
+                <h6 class="why-us-text-headings">Cost Effective</h6>
+                <p class="p-para-normal">
+                  No prior web 3 development experience
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-6">
-        <div class="money-man-container" style="position: relative">
-          <img
-            class="floater-img money-bag-man-img"
-            src="assets/images/Money-bag-man.png"
-            alt="Success"
-          />
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="row pt-5">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
+              <div class="why-us-img-container">
+                <img
+                  src="assets/images/business-marketing-dashboard.png"
+                  alt="Dashboard"
+                />
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
+              <div class="why-us-text-features text-center text-md-start">
+                <h6 class="why-us-text-headings">Dashboard</h6>
+                <p class="p-para-normal">GUI for managing your product NFTs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="row pt-5">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
+              <div class="why-us-img-container">
+                <img src="assets/images/Brain-Storm.png" alt="Crud" />
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
+              <div class="why-us-text-features text-center text-md-start">
+                <h6 class="why-us-text-headings">Crud</h6>
+                <p class="p-para-normal">
+                  Automate complex operations with our dead simple crud/NFT
+                  apis.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- <div class="container-fluid" style="overflow: hidden; padding-top: 165px; padding-bottom: 10px; height: 100px; background-color: transparent; margin-top: -100px;">
-  <div style="width: 120%; margin-top: -5%; margin-left: -5%; height: 500px; transform: rotate(-4deg); position: relative; z-index: 4; background-color: #FFF;">
-
-  </div>
-  <div style="height: 500px; background-color: #D6EDFF; width: 120%; position: relative; z-index: 3; margin-top: -500px; margin-left: -2%;">
-      
-  </div>
-</div> -->
-<div class="container-fluid lower-angular-region"></div>
 <div class="container-fluid partner-with-container">
-  <div class="container">
-    <div class="container partner-with">
-      <div class="row partner-with-us-text-section">
-        <div class="col-sm-12 col-md-9">
-          <div class="why-us-text-container">
-            <div class="pt-4">
-              <h3 class="section-sub-heading">Partner with us</h3>
-            </div>
-            <div>
-              <p class="p-para">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Interdum netus fames viverra facilisis. Vulputate sed lectus
-                augue senectus et. Et ipsum congue senectus viverra semper
-                lectus nisl.
-              </p>
-            </div>
-            <div class="pt-3">
-              <p class="p-para">Follow Us and Subscribe us on:</p>
-            </div>
+  <div class="container-lg">
+    <div class="support-chain">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="pt-5 pb-5">
+            <h3 class="section-sub-heading">Our Support Chain</h3>
           </div>
         </div>
       </div>
-      <!-- Logo Sections -->
-      <div class="logo-section-container">
-        <div class="row">
-          <div class="col-6 col-sm-6 col-md-6 col-xl-3 p-3">
-            <div class="box-gradient-container">
-              <div class="box-gradient-outline">
-                <img
-                  class="grower-img"
-                  src="assets/images/discord.png"
-                  alt="Discord"
-                />
-              </div>
-              <div class="fixed-button-container pl-3 pr-3">
-                <button class="fixed-width-button">Discord</button>
-              </div>
-            </div>
+      <div class="row text-center">
+        <div class="col-3">
+          <img
+            class="img-fluid blockchain-img"
+            src="assets/images/ethereum.png"
+            alt="Ethereum"
+          />
+          <p class="p-caption">Ethereum</p>
+        </div>
+        <div class="col-3">
+          <img
+            class="img-fluid blockchain-img"
+            src="assets/images/polygon.png"
+            alt="Polygon"
+          />
+          <p class="p-caption">Polygon</p>
+        </div>
+        <div class="col-3">
+          <img
+            class="img-fluid blockchain-img"
+            src="assets/images/solana-sol-cryptocurrency.png"
+            alt="Solana"
+          />
+          <p class="p-caption">Solana</p>
+        </div>
+        <div class="col-3">
+          <img
+            class="img-fluid blockchain-img"
+            src="assets/images/celo.png"
+            alt="Celo"
+          />
+          <p class="p-caption">Celo</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-lg">
+    <div class="engage-section">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="pt-5">
+            <h3 class="section-sub-heading">Engage With Us</h3>
           </div>
-          <div class="col-6 col-sm-6 col-md-6 col-xl-3 p-3">
-            <div class="box-gradient-container">
-              <div class="box-gradient-outline">
-                <img
-                  class="grower-img-inverse"
-                  src="assets/images/twitter.png"
-                  alt="Twitter"
-                />
-              </div>
-              <div class="fixed-button-container pl-3 pr-3">
-                <button class="fixed-width-button">Twitter</button>
-              </div>
-            </div>
+        </div>
+      </div>
+      <div class="row reversal">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="pt-3 text-center text-md-start">
+            <span class="inline-image"
+              ><a href="#"
+                ><img src="assets/images/Icons/discord.svg" alt="" /><span
+                  >Discord</span
+                ></a
+              ></span
+            >
           </div>
-          <div class="col-6 col-sm-6 col-md-6 col-xl-3 p-3">
-            <div class="box-gradient-container">
-              <div class="box-gradient-outline">
-                <img
-                  class="grower-img"
-                  src="assets/images/email-resized.png"
-                  alt="Email"
-                />
-              </div>
-              <div class="fixed-button-container pl-3 pr-3">
-                <button class="fixed-width-button">Newsletter</button>
-              </div>
-            </div>
+          <p class="p-para text-center text-md-start">
+            Get in touch to our discord community, know more about Shyft,
+            request features and get support on our channel.
+          </p>
+          <div class="text-center text-md-start">
+            <button class="btn-solid-reg">Join community</button>
           </div>
-          <div class="col-6 col-sm-6 col-md-6 col-xl-3 p-3">
-            <div class="box-gradient-container">
-              <div class="box-gradient-outline">
-                <img
-                  class="grower-img-inverse"
-                  src="assets/images/faq-resized.png"
-                  alt="Faq"
-                />
-              </div>
-              <div class="fixed-button-container pl-3 pr-3">
-                <button class="fixed-width-button">FAQs</button>
-              </div>
-            </div>
+          <p class="p-para text-center text-md-start">
+            Show some love on our social handles...Follow us
+          </p>
+          <div class="text-center text-md-start">
+            <span class="icon"
+              ><a href="#"><img src="assets/images/Icons/twitter.svg" alt="" /></a
+            ></span>
+            <span class="icon"
+              ><a href="#"><img src="assets/images/Icons/gitlab.svg" alt="" /></a
+            ></span>
+          </div>
+          <p class="p-para text-center text-md-start">
+            Discuss your project’s NFT requirements.
+          </p>
+          <div class="text-center text-md-start">
+            <button class="btn-solid-reg">E mail Us</button>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="img-news">
+            <img
+              class="img-fluid floater-img"
+              src="assets/images/newsletter-1.png"
+              alt="Subscribe"
+            />
           </div>
         </div>
       </div>
@@ -226,4 +247,3 @@
   </div>
 </div>
 <app-footer></app-footer>
-

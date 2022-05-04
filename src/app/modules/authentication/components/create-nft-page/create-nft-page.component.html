@@ -9,14 +9,14 @@
       </div>
       <div class="row">
           <div class="col-md-12 col-lg-5">
-              <form action="">
+              <form [formGroup]="createNftForm" (ngSubmit)="onSubmit()">
                   <div>
                       <label for="auth" class="form-label p-para">Authorization</label>
-                      <input type="text" class="form-control form-control-lg our-form-styles" placeholder="Authorization Key" [value]="apiKey">
+                      <input type="text" formControlName="authorizationKey" class="form-control form-control-lg our-form-styles" placeholder="Authorization Key" [(ngModel)]="authorizationKey">
                   </div>
                   <div class="pt-2">
                       <label for="mint" class="form-label p-para">Mint - to - address</label>
-                      <input type="text" class="form-control form-control-lg our-form-styles" placeholder="Mint-to-address" value="0xb1efd79be9ac1fe6deaeeef3c56d04bccdc68130">
+                      <input type="text" formControlName="mintTo" class="form-control form-control-lg our-form-styles" placeholder="Mint-to-address" [(ngModel)]="mintTo">
                   </div>
                   <div class="pt-2">
                       <label class="form-label p-para">Upload File</label>
@@ -26,15 +26,16 @@
                   <div class="pt-2">
                       <div class="row">
                           <div class="col-4">
-                              <img class="img-fluid" src="assets/images/Sample-image.svg" alt="">
+                              <!-- <img class="img-fluid" src="assets/images/Sample-image.svg" alt=""> -->
+                              <img class="img-fluid" [src]="image" alt="">
                           </div>
                           <div class="col-8 pt-3">
                               <div class="file-up-container">
                                   <button class="file-up-full">Upload File</button>
-                                  <input type="file" name="filename" class="file-up">
+                                  <input type="file" name="file" class="file-up" (change)="onSelectedFile($event)">
                               </div>
                               <label class="form-label dash-para-head">Name</label>
-                              <input type="text" class="form-control form-control-lg our-form-styles" placeholder="Enter Asset Name" value="Distruction">
+                              <input type="text" formControlName="name" class="form-control form-control-lg our-form-styles" placeholder="Enter Asset Name" value="Distruction">
                           </div>
                       </div>
                       
@@ -52,10 +53,10 @@
                   <div>
                       <label for="desc" class="form-label p-para">Description</label>
                       <p class="p-para-light">The description will be included on the item's detail page underneath its image. Markdown syntax is supported.</p>
-                      <textarea class="form-control our-form-styles-textarea" rows="5" id="desc"></textarea>
+                      <textarea formControlName="description" class="form-control our-form-styles-textarea" rows="5" id="desc"></textarea>
                   </div>
                   <div class="pt-4">
-                      <button class="dash-button">Send API Request</button>
+                      <button class="dash-button" type="submit">Send API Request</button>
                   </div>
               </form>
           </div>

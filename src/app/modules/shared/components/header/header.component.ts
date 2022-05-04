@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { AuthService } from 'src/app/services/auth/auth.service';
+// import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,16 +15,16 @@ export class HeaderComponent implements OnInit {
   isDashboardUrl: boolean = false;
   constructor(
     public breakpointObserver: BreakpointObserver,
-    private auth: AuthService,
+    // private auth: AuthService,
     private router: Router
   ) {}
   ngOnInit(): void {
     this.isDashboardUrl = this.router.url.includes('/dashboard');
-    this.isAuthenticated = this.auth.IsLoggedIn();
+    // this.isAuthenticated = this.auth.IsLoggedIn();
     this.breakpointObserver
       .observe(['(min-width: 1100px)'])
       .subscribe((state: BreakpointState) => {
-        if (state.matches && this.isAuthenticated) {
+        if (state.matches && this.isDashboardUrl) {
           this.isSidenavActive = true;
           this.isMenuActive = false;
         } else {

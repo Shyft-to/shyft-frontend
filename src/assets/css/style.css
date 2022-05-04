@@ -1,28 +1,30 @@
-/* @font-face {
-    font-family: Avenir Next LT Pro;
-    src: url(../webfonts/AvenirNextLTPro-Regular.otf);
-  } */
-
-/* 
-    Colors Palette:
-    dark green: #112f4a;
-    purple: #4E58CD;
-
-*/
 body,
 html {
-  /* width: 100%;
-    height: 100%; */
   overflow-x: hidden;
 }
 .hero-section {
   padding-top: 12rem;
+  padding-bottom: 11rem;
   background-color: #fff;
-  background: url(../images/Top-ellipse.png), #fff;
-  /* background-size: 100% auto; */
-  background-repeat: no-repeat;
-  background-position: left top;
-  background-size: auto 98%;
+  background: url(../images/Top-ellipse.png),
+    url(../images/hero-bottom-angle.png), #fff;
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right bottom;
+  background-size: auto 85%, 100% auto;
+}
+
+.icon-points
+{
+	padding-bottom: 40px;
+}
+.icon-points .p-para-normal
+{
+    color: #112F4A;
+    font: 500 1rem/1.8125rem "Poppins", sans-serif;
+    /* letter-spacing: 0.1em; */
+	letter-spacing: 1px;
+    margin-top: 1rem;
+	
 }
 
 .hero-heading {
@@ -36,41 +38,85 @@ html {
   letter-spacing: 4px;
   color: #112f4a;
 }
+.hero-padded-section {
+  padding-right: 100px;
+}
 @media (max-width: 1200px) {
   .hero-section {
     padding-top: 12rem;
+    padding-bottom: 8rem;
     background-color: #fff;
-    background: url(../images/Top-ellipse.png), #fff;
-    /* background-size: 100% auto; */
-    background-repeat: no-repeat;
-    background-position: left top;
-    background-size: auto 45%;
+    background: url(../images/Top-ellipse.png),
+      url(../images/hero-bottom-angle.png), #fff;
+    background-repeat: no-repeat, no-repeat;
+    background-position: left top, right bottom;
+    background-size: auto 50%, 100% auto;
+    border-bottom: none;
   }
   .hero-heading {
-    font: 700 4rem/4.25rem "Montserrat", sans-serif;
+    font: 700 52px/70px "Montserrat", sans-serif;
     text-transform: uppercase;
     letter-spacing: 6px;
     color: #112f4a;
   }
   .hero-sub-heading {
-    font: 700 3.5rem/4.125rem "Montserrat", sans-serif;
-    letter-spacing: 4px;
+    font: 700 25px/32px "Montserrat", sans-serif;
+    letter-spacing: 2px;
     color: #112f4a;
+  }
+  .hero-padded-section {
+    padding-right: 0px;
   }
   .add-padd {
     padding: 20px 20px;
   }
+  .engage-section .section-sub-heading {
+    font: 700 3.125rem/4rem "Montserrat", sans-serif;
+    letter-spacing: 4px;
+    color: #112f4a;
+  }
+  .engage-section .btn-solid-reg {
+    display: inline-block;
+    padding: 0.8rem 1.5rem 0.8rem 1.5rem;
+    /* border: 0.3rem solid rgba(89, 101, 243, 0.5); */
+    /* border: 0.3rem solid white; */
+    border: none;
+    border-radius: 2.5rem;
+    background-color: rgba(89, 101, 243, 0.29);
+    background: linear-gradient(
+      90.8deg,
+      rgba(224, 73, 155, 1) 3.34%,
+      rgba(89, 101, 243, 1) 100%
+    );
+    color: #fff;
+    font: 600 0.9rem/1.2rem "Poppins", sans-serif;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .engage-section .btn-solid-reg:hover {
+    transform: scale(1.1);
+  }
+  .icon-points .p-para-normal
+	{
+		font: 500 0.8rem/1.15rem "Poppins", sans-serif;
+	}
+}
+
+.hero-button-container-2 {
+  display: none;
 }
 
 @media (max-width: 576px) {
   .hero-section {
     padding-top: 7rem;
+    padding-bottom: 0px;
     background-color: #fff;
-    background: url(../images/Top-ellipse.png), #fff;
-    /* background-size: 100% auto; */
-    background-repeat: no-repeat;
-    background-position: left top;
-    background-size: auto 45%;
+    background: url(../images/Top-ellipse.png),
+      url(../images/Mobile-angles-1.png), #fff;
+    background-repeat: no-repeat, no-repeat;
+    background-position: left top, right bottom;
+    background-size: auto 35%, 100% auto;
   }
   .hero-heading {
     font: 700 3rem/3.25rem "Montserrat", sans-serif;
@@ -83,8 +129,47 @@ html {
     letter-spacing: 4px;
     color: #112f4a;
   }
+  .hero-padded-section {
+    padding-right: auto;
+  }
   .add-padd {
     padding: 10px 10px;
+  }
+  .engage-section .section-sub-heading {
+    font: 700 2.5rem/3.75rem "Montserrat", sans-serif;
+    letter-spacing: 4px;
+    color: #112f4a;
+  }
+  .hero-button-container {
+    display: none;
+  }
+  .hero-button-container-2 {
+    display: inline-block;
+  }
+  .hero-button-container-2 .btn-solid-reg {
+    display: inline-block;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    border: none;
+    border-radius: 2.5rem;
+    background-color: rgba(89, 101, 243, 0.29);
+    background: linear-gradient(
+      90.8deg,
+      rgba(224, 73, 155, 1) 3.34%,
+      rgba(89, 101, 243, 1) 100%
+    );
+    color: #fff;
+    font: 600 0.8rem/1.2rem "Poppins", sans-serif;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-top: 80px;
+  }
+  .hero-button-container-2 .btn-solid-reg:hover {
+    transform: scale(1.1);
+  }
+  .reversal {
+    display: flex;
+    flex-flow: column-reverse;
   }
 }
 .style-circle-container {
@@ -102,22 +187,25 @@ html {
 .image-rocket {
   position: absolute;
   z-index: 2;
-  width: 735px;
-  height: 459px;
-  left: -275px;
+  width: 775px;
+  height: 483px;
+  left: -153px;
   top: 117px;
 }
 .image-investor {
-  margin-top: -9rem;
+  margin-top: -6.5rem;
   position: absolute;
   z-index: 3;
+  width: 55%;
+  left: 109px;
 }
 .image-marketer {
-  margin-top: -9rem;
+  margin-top: -7rem;
   position: absolute;
+  width: 50%;
   z-index: 3;
-  left: -342px;
-  top: 470px;
+  left: -150px;
+  top: 432px;
 }
 
 .btn-solid-reg {
@@ -358,7 +446,6 @@ html {
   background-color: #d6edff;
   background: url(../images/donut-shape.svg), url(../images/Capsules.svg),
     #d6edff;
-  /* background-size: 100% auto; */
   background-repeat: no-repeat, no-repeat;
   background-position: 0rem 20rem, right bottom;
   background-size: 35% auto, auto auto;
@@ -411,6 +498,10 @@ html {
     color: #112f4a;
     letter-spacing: 0.1em;
   }
+  .donut-background {
+    background-position: 0rem 4rem, right bottom;
+    background-size: 32% auto, auto 20%;
+  }
 }
 
 @media (max-width: 576px) {
@@ -428,6 +519,10 @@ html {
     font: 600 0.8rem/1.25rem "Poppins", sans-serif;
     color: #112f4a;
     letter-spacing: 0.1em;
+  }
+  .donut-background {
+    background-position: 0rem 4rem, right bottom;
+    background-size: 32% auto, auto 6%;
   }
 }
 .why-us .media {
@@ -515,13 +610,14 @@ html {
 }
 
 .partner-with-container {
-  background-color: #d6edff;
-  background: url(../images/mid-ellipse.png), url(../images/CapsuleBack.png),
-    #fff;
-  /* background-size: 100% auto; */
-  background-repeat: no-repeat, no-repeat;
-  background-position: right top, left bottom;
-  background-size: auto auto, 100% auto;
+  background-color: #fff;
+  background: url(../images/capsule-shape.png), url(../images/section3-top.png),
+    url(../images/mid-ellipse.png), url(../images/Last-section-bottom.png), #fff;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: right top, left top, right center, left bottom;
+  background-size: auto auto, 100% auto, auto auto, 100% auto;
+  padding-top: 150px;
+  padding-bottom: 150px;
 }
 .logo-section-container {
   padding-bottom: 10rem;
@@ -573,33 +669,33 @@ html {
     position: absolute;
     z-index: 2;
     width: 100%;
-    /* height: 459px;  */
-    /* left: -275px;  */
-    left: -175px;
-    top: -20px;
+    left: -75px;
+    top: -52px;
   }
   .image-investor {
-    /* margin-top: -9rem;  */
     position: absolute;
-    width: 80%;
+    width: 60%;
     z-index: 3;
     top: 0;
     right: 0;
+    left: 51px;
   }
   .image-marketer {
-    /* display: none; */
-    /* margin-top: -9rem;  */
     position: absolute;
     z-index: 3;
-    width: 60%;
-    left: -142px;
-    top: 470px;
+    width: 50%;
+    left: -77px;
+    top: 335px;
   }
   .money-bag-man-img {
     position: absolute;
     z-index: 7;
     margin-top: 220px;
     width: 410px;
+  }
+  .partner-with-container {
+    background-position: right top, left top, right center, left bottom;
+    background-size: auto 10%, 100% auto, auto auto, 100% auto;
   }
 }
 @media (max-width: 576px) {
@@ -612,11 +708,18 @@ html {
   .why-us .why-us-text-container {
     padding-top: 50px;
   }
+  .why-us-text-headings {
+    font: 700 1rem/1.5rem "Poppins", sans-serif;
+  }
   .p-para {
     color: #112f4a;
     font: 600 0.8rem/1.25rem "Poppins", sans-serif;
     letter-spacing: 0.1em;
     margin-top: 2rem;
+  }
+  .partner-with-container {
+    background-position: right top, left top, right 450px, left bottom;
+    background-size: auto 5%, 100% auto, auto 20%, 100% auto;
   }
 }
 @media (max-width: 600px) {
@@ -641,13 +744,10 @@ html {
     position: absolute;
     z-index: 2;
     width: 100%;
-    /* height: 459px;  */
-    /* left: -275px;  */
-    left: -125px;
+    left: -56px;
     top: -80px;
   }
   .image-investor {
-    /* margin-top: -9rem;  */
     position: absolute;
     width: 80%;
     z-index: 3;
@@ -655,12 +755,10 @@ html {
     right: 0;
   }
   .image-marketer {
-    /* display: none; */
-    /* margin-top: -9rem;  */
     position: absolute;
     z-index: 3;
     width: 55%;
-    left: -92px;
+    left: -70px;
     top: 320px;
   }
 }
@@ -680,6 +778,17 @@ html {
   background-repeat: no-repeat;
   background-size: 100%;
   margin-top: -1px;
+}
+/* New home page styles */
+.why-us-img-container img {
+  width: 100%;
+}
+.why-us-text-headings {
+  color: #112f4a;
+  font: 700 1.5rem/2rem "Poppins", sans-serif;
+  /* letter-spacing: 0.1em; */
+  letter-spacing: 1px;
+  margin-top: 2rem;
 }
 
 /* New Styles for screens after homepage - Screens 2 and 3 */
@@ -876,6 +985,9 @@ html {
   }
   .resp-image-baloon {
     width: 35%;
+  }
+  .why-us-text-headings {
+    font: 700 1rem/1.5rem "Poppins", sans-serif;
   }
 }
 @media (max-width: 992px) {
@@ -1301,4 +1413,55 @@ html {
 button:disabled {
   cursor: not-allowed;
   pointer-events: all !important;
+}
+.engage-section {
+  padding-top: 100px;
+}
+
+.engage-section .section-sub-heading {
+  font: 700 3.75rem/5.625rem "Montserrat", sans-serif;
+  letter-spacing: 4px;
+  color: #112f4a;
+}
+
+.engage-section .inline-image a {
+  text-decoration: none;
+}
+.engage-section .inline-image img {
+  margin-top: -10px;
+}
+.engage-section .inline-image span {
+  font: 600 1.3rem/1.7rem "Poppins", sans-serif;
+  letter-spacing: 1px;
+  color: #112f4a;
+  margin-left: 10px;
+}
+.engage-section .p-para {
+  color: #112f4a;
+  font: 600 1rem/1.8125rem "Poppins", sans-serif;
+  letter-spacing: 0.1em;
+  /* margin-top: 2rem; */
+}
+.engage-section .icon {
+  padding-right: 10px;
+}
+.engage-section .img-news {
+  padding: 20px 0px;
+}
+.footer-2 .footer-logo {
+  font: 600 24px/35px "Poppins", sans-serif;
+  letter-spacing: 2px;
+}
+.footer-2 .footer-icons {
+  padding-right: 10px;
+}
+.gradient-text {
+  background: -webkit-linear-gradient(
+    30deg,
+    rgba(224, 73, 155, 1),
+    rgba(89, 101, 243, 1)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

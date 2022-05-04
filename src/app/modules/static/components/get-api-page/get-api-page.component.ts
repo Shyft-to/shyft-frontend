@@ -38,6 +38,6 @@ export class GetApiPageComponent implements OnInit {
 
   public closeModal() {
     this.isSuccessResponse = false;
-    this.router.navigate(['/access-to-nft']);
+    this.router.navigate(['/dashboard']);
   }
 }

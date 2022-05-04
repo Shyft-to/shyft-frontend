@@ -26,10 +26,10 @@ export class SideNavComponent implements OnInit {
     }
   }
   toggleSideNav() {
-    if (this.isAuthenticated) {
+    // if (this.isAuthenticated) {
       this.isSidenavActive = !this,this.isSidenavActive;
       this.toggleSideNavEvent.emit(this.isSidenavActive);
-    }
+    // }
   }
   navigatePage(index: number) {
     this.page = index;
