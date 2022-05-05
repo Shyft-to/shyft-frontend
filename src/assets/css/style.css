@@ -212,7 +212,7 @@ html {
   display: inline-block;
   padding: 1.1875rem 2.125rem 1.1875rem 2.125rem;
   /* border: 0.3rem solid rgba(89, 101, 243, 0.5); */
-  border: 0.3rem solid white;
+  border: none;
   border-radius: 2.5rem;
   background-color: rgba(89, 101, 243, 0.29);
   background: linear-gradient(

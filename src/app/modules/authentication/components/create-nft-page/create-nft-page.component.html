@@ -12,11 +12,11 @@
               <form [formGroup]="createNftForm" (ngSubmit)="onSubmit()">
                   <div>
                       <label for="auth" class="form-label p-para">Authorization</label>
-                      <input type="text" formControlName="authorizationKey" class="form-control form-control-lg our-form-styles" placeholder="Authorization Key" [(ngModel)]="authorizationKey">
+                      <input type="text" formControlName="authorizationKey" (ngModelChange)='onChangeAuthorizationKey($event)' class="form-control form-control-lg our-form-styles" placeholder="Authorization Key">
                   </div>
                   <div class="pt-2">
                       <label for="mint" class="form-label p-para">Mint - to - address</label>
-                      <input type="text" formControlName="mintTo" class="form-control form-control-lg our-form-styles" placeholder="Mint-to-address" [(ngModel)]="mintTo">
+                      <input type="text" formControlName="mintTo" (ngModelChange)='onChangeMintTo($event)' class="form-control form-control-lg our-form-styles" placeholder="Mint-to-address">
                   </div>
                   <div class="pt-2">
                       <label class="form-label p-para">Upload File</label>
@@ -35,7 +35,7 @@
                                   <input type="file" name="file" class="file-up" (change)="onSelectedFile($event)">
                               </div>
                               <label class="form-label dash-para-head">Name</label>
-                              <input type="text" formControlName="name" class="form-control form-control-lg our-form-styles" placeholder="Enter Asset Name" value="Distruction">
+                              <input type="text" formControlName="name" (ngModelChange)='onChangeName($event)' class="form-control form-control-lg our-form-styles" placeholder="Enter Asset Name" value="Distruction">
                           </div>
                       </div>
                       
@@ -53,7 +53,7 @@
                   <div>
                       <label for="desc" class="form-label p-para">Description</label>
                       <p class="p-para-light">The description will be included on the item's detail page underneath its image. Markdown syntax is supported.</p>
-                      <textarea formControlName="description" class="form-control our-form-styles-textarea" rows="5" id="desc"></textarea>
+                      <textarea formControlName="description" (ngModelChange)='onChangeDescription($event)' class="form-control our-form-styles-textarea" rows="5" id="desc"></textarea>
                   </div>
                   <div class="pt-4">
                       <button class="dash-button" type="submit">Send API Request</button>
@@ -69,7 +69,7 @@
                       <div class="request-boxes mt-4">
                           <div class="heading-box"><table><tr><td class="headings" style="width: 270px; padding: 20px 20px;">Shell/cURL</td><td><button class="copy-btn">Copy</button></td></tr></table></div>
                           <div class="box-body">
-                              <textarea class="transparent-inputs"></textarea>
+                              <textarea class="transparent-inputs" [(ngModel)]="defaultCurl"></textarea>
                           </div>
                       </div>
                   </div>
@@ -77,7 +77,7 @@
                       <div class="request-boxes mt-4">
                           <div class="heading-box"><table><tr><td class="headings" style="width: 222px; padding: 20px 20px;">Response</td><td><button class="copy-btn">Copy Token ID</button></td></tr></table></div>
                           <div class="box-body">
-                              <textarea class="transparent-inputs">"response": "OK","chain": "polygon","contract_address": "0x47C7FF137D7a6644a9A96F1D44f5a6f857D9023f","transaction_hash": "0xa6869c0c2bd62f549558b68b045b834b087dec5e4644aed3841a0aa31a205e0a", "transaction_external_url": "https://polygonscan.com/tx/0xa6869c0c2bd62f549558b68b045b834b087dec5e4644aed3841a0aa31a205e0a","mint_to_address": "0xEaC2DAeB9AC99EFbb45c0Cb87f1d350eb2C552f9","name": "refer","description": "art","error": null
+                              <textarea class="transparent-inputs">{{ response }}
                               </textarea>
                           </div>
                       </div>
