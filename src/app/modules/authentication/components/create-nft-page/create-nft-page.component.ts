@@ -50,8 +50,7 @@ export class CreateNftPageComponent implements OnInit {
   onSelectedFile(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log(event.target.files);
-      var reader = new FileReader();
+      const reader = new FileReader();
 
       reader.readAsDataURL(event.target.files[0]); // read file as data url
 
