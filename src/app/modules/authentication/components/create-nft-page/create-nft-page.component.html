@@ -1,134 +1,218 @@
 <div class="outer-content-area">
   <div class="inner-content-area">
-      <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span> -->
-      <div class="row pt-5">
-          <div class="col-md-12">
-              <h1 class="dash-medium-headings">Easy minting w/file upload</h1>
-          </div>
-
+    <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span> -->
+    <div class="row pt-5">
+      <div class="col-md-12">
+        <h1 class="dash-medium-headings">Easy minting w/file upload</h1>
       </div>
-      <div class="row">
-          <div class="col-md-12 col-lg-5">
-              <form [formGroup]="createNftForm" (ngSubmit)="onSubmit()">
-                  <div>
-                      <label for="auth" class="form-label p-para">Authorization</label>
-                      <input type="text" formControlName="authorizationKey" (ngModelChange)='onChangeAuthorizationKey($event)' class="form-control form-control-lg our-form-styles" placeholder="Authorization Key">
-                  </div>
-                  <div class="pt-2">
-                      <label for="mint" class="form-label p-para">Mint - to - address</label>
-                      <input type="text" formControlName="mintTo" (ngModelChange)='onChangeMintTo($event)' class="form-control form-control-lg our-form-styles" placeholder="Mint-to-address">
-                  </div>
-                  <div class="pt-2">
-                      <label class="form-label p-para">Upload File</label>
-                      <p class="p-para-light">Image, Video or Audio<br>
-                      File types supported: JPG, PNG, GIF, MP4,  MP3. Max size: 100 MB</p>
-                  </div>
-                  <div class="pt-2">
-                      <div class="row">
-                          <div class="col-4">
-                              <!-- <img class="img-fluid" src="assets/images/Sample-image.svg" alt=""> -->
-                              <img class="img-fluid" [src]="image" alt="">
-                          </div>
-                          <div class="col-8 pt-3">
-                              <div class="file-up-container">
-                                  <button class="file-up-full">Upload File</button>
-                                  <input type="file" name="file" class="file-up" (change)="onSelectedFile($event)">
-                              </div>
-                              <label class="form-label dash-para-head">Name</label>
-                              <input type="text" formControlName="name" (ngModelChange)='onChangeName($event)' class="form-control form-control-lg our-form-styles" placeholder="Enter Asset Name" value="Distruction">
-                          </div>
-                      </div>
-                      
-                  </div>
-                  <div class="pt-2">
-                      <label for="sel-chain" class="form-label p-para">Blockchain</label>
-                      <select class="form-select our-form-styles" id="sel-chain" name="selchain">
-                          <option value="Etherium">Etherium</option>
-                          <option value="Polygon">Polygon</option>
-                          <option value="Solana">Solana</option>
-                          <option value="Celo">Celo</option>
-                      </select>
-
-                  </div>
-                  <div>
-                      <label for="desc" class="form-label p-para">Description</label>
-                      <p class="p-para-light">The description will be included on the item's detail page underneath its image. Markdown syntax is supported.</p>
-                      <textarea formControlName="description" (ngModelChange)='onChangeDescription($event)' class="form-control our-form-styles-textarea" rows="5" id="desc"></textarea>
-                  </div>
-                  <div class="pt-4">
-                      <button class="dash-button" type="submit">Send API Request</button>
-                  </div>
-              </form>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-lg-6">
+        <form [formGroup]="createNftForm" (ngSubmit)="onSubmit()">
+          <div>
+            <label for="auth" class="form-label p-para">Authorization</label>
+            <input
+              type="text"
+              formControlName="authorizationKey"
+              (ngModelChange)="onChangeAuthorizationKey($event)"
+              class="form-control form-control-lg our-form-styles"
+              placeholder="Authorization Key"
+            />
           </div>
-          <div class="col-md-12 col-lg-1">
-              <!-- Gap creator -->
+          <div class="pt-2">
+            <label for="mint" class="form-label p-para"
+              >Mint - to - address</label
+            >
+            <input
+              type="text"
+              formControlName="mintTo"
+              (ngModelChange)="onChangeMintTo($event)"
+              class="form-control form-control-lg our-form-styles"
+              placeholder="Mint-to-address"
+            />
           </div>
-          <div class="col-md-12 col-lg-5">
-              <div class="row">
-                  <div class="col-md-12 col-md-6 col-lg-12 col-xl-12 p-1">
-                      <div class="request-boxes mt-4">
-                          <div class="heading-box"><table><tr><td class="headings" style="width: 270px; padding: 20px 20px;">Shell/cURL</td><td><button class="copy-btn">Copy</button></td></tr></table></div>
-                          <div class="box-body">
-                              <textarea class="transparent-inputs" [(ngModel)]="defaultCurl"></textarea>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-12 col-md-6 col-lg-12 col-xl-12 p-1">
-                      <div class="request-boxes mt-4">
-                          <div class="heading-box"><table><tr><td class="headings" style="width: 222px; padding: 20px 20px;">Response</td><td><button class="copy-btn">Copy Token ID</button></td></tr></table></div>
-                          <div class="box-body">
-                              <textarea class="transparent-inputs">{{ response }}
-                              </textarea>
-                          </div>
-                      </div>
-                  </div>
+          <div class="pt-2">
+            <label class="form-label p-para">Upload File</label>
+            <p class="p-para-light">
+              Image, Video or Audio<br />
+              File types supported: JPG, PNG, GIF, MP4, MP3. Max size: 100 MB
+            </p>
+          </div>
+          <div class="pt-2">
+            <div class="row">
+              <div class="col-12 col-xs-12 col-md-4 text-center text-md-start">
+                <!-- <img class="img-fluid" src="assets/images/Sample-image.svg" alt=""> -->
+                <img class="img-fluid" [src]="image" alt="" />
               </div>
-              
-          </div>
-      </div>
-
-      <div class="row mt-5">
-          <div class="col-md-12 col-lg-5">
-              <p class="p-para-normal">
-                  <strong class="p-para">POST</strong>
-                  https://api.nftport.xyz
-                  /v0/mints/easy/files
-                  <p class="p-para-normal">
-                      With Easy mint, you can turn anything into an NFT in less than 5 minutes using one simple API call. If you are new to minting, see Easy minting quickstart.
-                  </p>
-                  
-                  <p class="p-para-normal">
-                  After minting, the NFT will appear in the mint_to_address wallet. If you minted to your own wallet, you can also see the minted NFT on OpenSea in your profile after a few minutes.
-                  </p>
-                  <p class="p-para-normal">
-                  You can mint up to 100 NFTs for free per chain. Maximum supported file size is 20MB. For higher limits, see pricing.
-                  </p>
-                  <p class="p-para-normal">
-                      <strong>Useful for:</strong>
-                      For turning anything into an NFT effortlessly. For all the benefits, see Your New Minting Superpowers.
-                  </p>
-                  <p class="p-para-normal">
-                      <strong>Related:</strong>
-                      If you wish to customize the minting process e.g. use your own contract, see Customizable minting.
-                      If you wish to list all your previously minted NFTs, see List all your minted NFTs.
-                  </p>
-                  <p class="p-para">Example Requests in cURL, Python & JS</p>
-                      
-                  
-
-          </div>
-          <div class="col-md-12 col-lg-1">
-
-          </div>
-          <div class="col-md-12 col-lg-5">
-              <div class="request-boxes mt-4">
-                  <div class="heading-box"><table><tr><td class="headings" style="padding: 20px 20px;">Sample Response</td></tr></table></div>
-                  <div class="box-body">
-                      <textarea class="transparent-inputs">"response": "OK","chain": "polygon","contract_address": "0x47C7FF137D7a6644a9A96F1D44f5a6f857D9023f","transaction_hash": "0xa6869c0c2bd62f549558b68b045b834b087dec5e4644aed3841a0aa31a205e0a", "transaction_external_url": "https://polygonscan.com/tx/0xa6869c0c2bd62f549558b68b045b834b087dec5e4644aed3841a0aa31a205e0a","mint_to_address": "0xEaC2DAeB9AC99EFbb45c0Cb87f1d350eb2C552f9","name": "refer","description": "art","error": null
-                      </textarea>
-                  </div>
+              <div class="col-12 col-xs-12 col-md-8 pt-3">
+                <div class="file-up-container">
+                  <button class="file-up-full">Upload File</button>
+                  <input
+                    type="file"
+                    name="file"
+                    class="file-up"
+                    (change)="onSelectedFile($event)"
+                  />
+                </div>
+                <label class="form-label dash-para-head">Name</label>
+                <input
+                  type="text"
+                  formControlName="name"
+                  (ngModelChange)="onChangeName($event)"
+                  class="form-control form-control-lg our-form-styles"
+                  placeholder="Enter Asset Name"
+                  value="Distruction"
+                />
               </div>
+            </div>
           </div>
+          <div class="pt-2">
+            <label for="sel-chain" class="form-label p-para">Blockchain</label>
+            <select
+              class="form-select our-form-styles"
+              id="sel-chain"
+              name="selchain"
+            >
+              <option value="Etherium">Etherium</option>
+              <option value="Polygon">Polygon</option>
+              <option value="Solana">Solana</option>
+              <option value="Celo">Celo</option>
+            </select>
+          </div>
+          <div>
+            <label for="desc" class="form-label p-para">Description</label>
+            <p class="p-para-light">
+              The description will be included on the item's detail page
+              underneath its image. Markdown syntax is supported.
+            </p>
+            <textarea
+              formControlName="description"
+              (ngModelChange)="onChangeDescription($event)"
+              class="form-control our-form-styles-textarea"
+              rows="5"
+              id="desc"
+            ></textarea>
+          </div>
+          <div class="pt-4">
+            <button class="dash-button" type="submit">Send API Request</button>
+          </div>
+        </form>
       </div>
+      <div class="col-md-12 col-lg-1">
+        <!-- Gap creator -->
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-12 col-xl-12 p-1">
+            <div class="request-boxes mt-4">
+              <div class="heading-box">
+                <table>
+                  <tr>
+                    <td
+                      class="headings"
+                      style="width: 270px; padding: 20px 20px"
+                    >
+                      Shell/cURL
+                    </td>
+                    <td>
+                      <button class="copy-btn" (click)="copyCurl()">
+                        Copy
+                      </button>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box-body">
+                <textarea
+                  class="transparent-inputs"
+                  [(ngModel)]="defaultCurl"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-12 col-xl-12 p-1">
+            <div class="request-boxes mt-4">
+              <div class="heading-box">
+                <table>
+                  <tr>
+                    <td
+                      class="headings"
+                      style="width: 222px; padding: 20px 20px"
+                    >
+                      Response
+                    </td>
+                    <td><button class="copy-btn" (click)="copyTokenId()">Copy Token ID</button></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box-body">
+                <textarea class="transparent-inputs"
+                  >{{ response }}
+                              </textarea
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-12 col-lg-5">
+        <p class="p-para-normal">
+          <strong class="p-para">POST</strong>
+          https://api.nftport.xyz /v0/mints/easy/files
+        </p>
+
+        <p class="p-para-normal">
+          With Easy mint, you can turn anything into an NFT in less than 5
+          minutes using one simple API call. If you are new to minting, see Easy
+          minting quickstart.
+        </p>
+
+        <p class="p-para-normal">
+          After minting, the NFT will appear in the mint_to_address wallet. If
+          you minted to your own wallet, you can also see the minted NFT on
+          OpenSea in your profile after a few minutes.
+        </p>
+        <p class="p-para-normal">
+          You can mint up to 100 NFTs for free per chain. Maximum supported file
+          size is 20MB. For higher limits, see pricing.
+        </p>
+        <p class="p-para-normal">
+          <strong>Useful for:</strong>
+          For turning anything into an NFT effortlessly. For all the benefits,
+          see Your New Minting Superpowers.
+        </p>
+        <p class="p-para-normal">
+          <strong>Related:</strong>
+          If you wish to customize the minting process e.g. use your own
+          contract, see Customizable minting. If you wish to list all your
+          previously minted NFTs, see List all your minted NFTs.
+        </p>
+        <p class="p-para">Example Requests in cURL, Python & JS</p>
+      </div>
+      <div class="col-md-12 col-lg-1"></div>
+      <div class="col-md-12 col-lg-5">
+        <div class="request-boxes mt-4">
+          <div class="heading-box">
+            <table>
+              <tr>
+                <td class="headings" style="padding: 20px 20px">
+                  Sample Response
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="box-body">
+            <textarea class="transparent-inputs">
+"response": "OK","chain": "polygon","contract_address": "0x47C7FF137D7a6644a9A96F1D44f5a6f857D9023f","transaction_hash": "0xa6869c0c2bd62f549558b68b045b834b087dec5e4644aed3841a0aa31a205e0a", "transaction_external_url": "https://polygonscan.com/tx/0xa6869c0c2bd62f549558b68b045b834b087dec5e4644aed3841a0aa31a205e0a","mint_to_address": "0xEaC2DAeB9AC99EFbb45c0Cb87f1d350eb2C552f9","name": "refer","description": "art","error": null
+                      </textarea
+            >
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<app-loader [isLoaded]="isLoaded"></app-loader>

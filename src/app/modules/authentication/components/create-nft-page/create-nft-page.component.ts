@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CreateNftService } from 'src/app/core/http/create-nft.service';
 import { environment } from 'src/environments/environment';
+import { ClipboardService } from 'ngx-clipboard';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-nft-page',
@@ -11,6 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CreateNftPageComponent implements OnInit {
   // apiKey: string | null = '';
+  isLoaded: boolean = true;
   authorizationKey: string | null = 'AUTHORIZATION_KEY';
   name: string | null = 'FILE_NAME';
   description: string | null = 'DESCRIPTION';
@@ -24,7 +27,9 @@ export class CreateNftPageComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private domSanitizer: DomSanitizer,
-    private createNftService: CreateNftService
+    private clipboardService: ClipboardService,
+    private toastr: ToastrService,
+    private createNftService: CreateNftService,
   ) {
     this.defaultCurl = `curl --location --request POST '${environment.url}' \
     --header 'Content-Type: application/json' \
@@ -67,6 +72,7 @@ export class CreateNftPageComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isLoaded = false; // on loader
     const formData = new FormData();
     formData.append('name', this.createNftForm.get('name')?.value);
     formData.append('file', this.createNftForm.get('file')?.value);
@@ -83,11 +89,13 @@ export class CreateNftPageComponent implements OnInit {
       (res: any) => {
         if (res.status === 'success') {
           this.response = JSON.stringify(res);
+          this.isLoaded = true; // off loader
         } else {
           this.fileUpload = res;
         }
       },
       (err: any) => {
+        this.isLoaded = true; // off loader
         return err;
       }
     );
@@ -117,5 +125,25 @@ export class CreateNftPageComponent implements OnInit {
     --form 'description="${this.description}"' \
     --form 'authorizationKey="${this.authorizationKey}"'`;
     return curl;
+  }
+
+  copyCurl() {
+    this.clipboardService.copyFromContent(this.defaultCurl);
+    this.toastr.success('Copied!', '', {
+      timeOut: 1500,
+    });
+  }
+
+  copyTokenId() {
+    if (this.response) {
+      this.clipboardService.copyFromContent(JSON.parse(this.response).tokenId);      
+      this.toastr.success('Copied!', '', {
+        timeOut: 1500,
+      });
+    } else { 
+      this.toastr.error('Please create NFT first!', '', {
+        timeOut: 1500,
+      });
+    }
   }
 }

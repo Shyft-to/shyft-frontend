@@ -7,6 +7,8 @@ import { ReadNftPageComponent } from './components/read-nft-page/read-nft-page.c
 import { ListNftPageComponent } from './components/list-nft-page/list-nft-page.component';
 import { AuthenticationComponent } from './authentication.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     SharedModule,
     AuthenticationRoutingModule,
+    ToastrModule.forRoot({
+      preventDuplicates: true,
+    }),
+    ClipboardModule,
   ]
 })
 export class AuthenticationModule { }

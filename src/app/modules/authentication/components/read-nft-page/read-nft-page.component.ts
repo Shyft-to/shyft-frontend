@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReadNftService } from 'src/app/core/http/read-nft.service';
 import { environment } from 'src/environments/environment';
+import { ClipboardService } from 'ngx-clipboard';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-read-nft-page',
@@ -9,6 +12,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./read-nft-page.component.scss'],
 })
 export class ReadNftPageComponent implements OnInit {
+  isLoaded: boolean = true;
   response: any;
   readNftForm!: FormGroup;
   isSubmitted: boolean = false;
@@ -20,23 +24,28 @@ export class ReadNftPageComponent implements OnInit {
   nftURI: string =
     'ipfs://bafkreiaq25jbftokfte6rg7wfox237zwukbwg5njjr2mgitowzi42d5yby';
   curl: string = `curl --location --request POST '${environment.url}/tokenURI' \
-  --header 'Content-Type: application/json' \
-  --data-raw '{
-      "tokenId" : ${this.tokenId}
-  }'`;
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "tokenId" : ${this.tokenId}
+}'`;
   constructor(
     private formBuilder: FormBuilder,
-    private readNftService: ReadNftService
+    private readNftService: ReadNftService,
+    private clipboardService: ClipboardService,
+    private toastr: ToastrService,
   ) {}
 
   ngOnInit(): void {
     this.readNftForm = this.formBuilder.group({
-      tokenId: ['', [Validators.required]],
+      tokenId: ['', [Validators.required, Validators.pattern(/\d/)]],
     });
   }
 
   readNft(body: any): void {
     this.isSubmitted = true;
+    if (this.readNftForm.valid) {
+      this.isLoaded = false; // on loader
+    }
     this.readNftService.readNft(body).subscribe(
       (response: any) => {
         this.response = JSON.stringify(response);
@@ -44,6 +53,7 @@ export class ReadNftPageComponent implements OnInit {
         const metaDataURI = `https://ipfs.io/ipfs/${tokenURI.split('/')[2]}`;
         this.readNftService.readMetaData(metaDataURI).then(
           (response: any) => {
+            this.isLoaded = true; // off loader
             this.title = response.name;
             this.image = response.image;
             this.nftURI = response.image;
@@ -53,11 +63,17 @@ export class ReadNftPageComponent implements OnInit {
           }
         );
         this.tokenId = tokenId;
-        this.readNftService.ownerOf({ tokenId }).then((response: any) => {
-          this.mintToAddress = response.owner;
-        });
+        this.readNftService.ownerOf({ tokenId }).then(
+          (response: any) => {
+            this.mintToAddress = response.owner;
+          },
+          (error: any) => {
+            throw new Error(error);
+          }
+        );
       },
       (error: any) => {
+        this.isLoaded = true; // off loader
         throw new Error(error);
       }
     );
@@ -70,14 +86,36 @@ export class ReadNftPageComponent implements OnInit {
 
   defaultCurlGenerator() {
     const curl = `curl --location --request POST '${environment.url}/tokenURI' \
-    --header 'Content-Type: application/json' \
-    --data-raw '{
-        "tokenId" : ${this.tokenId}
-    }'`;
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "tokenId" : ${this.tokenId}
+}'`;
     return curl;
   }
 
   get f() {
     return this.readNftForm.controls;
+  }
+
+  copyCurl() {
+    this.clipboardService.copyFromContent(this.curl);
+    this.toastr.success('Copied!', '', {
+      timeOut: 1500,
+    });
+  }
+
+  copyTokenId() {
+    if (this.response) {
+      this.clipboardService.copyFromContent(JSON.parse(this.response).tokenId);
+      console.log(JSON.parse(this.response).tokenId);
+      
+      this.toastr.success('Copied!', '', {
+        timeOut: 1500,
+      });
+    } else { 
+      this.toastr.error('Please create NFT first!', '', {
+        timeOut: 1500,
+      });
+    }
   }
 }

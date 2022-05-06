@@ -13,7 +13,12 @@
           Interdum netus fames viverra facilisis. Vulputate sed lectus augue
           senectus.
         </p>
-        <div class="forms-container">
+        <div
+          class="forms-container"
+          [ngClass]="{
+            'is-invalid': isSubmitted && f.tokenId.errors
+          }"
+        >
           <div class="search-boxes">
             <form
               [formGroup]="readNftForm"
@@ -21,32 +26,30 @@
               (ngSubmit)="readNft(readForm.value)"
             >
               <div class="row">
-                <div class="col-7 col-sm-8">
+                <div class="col-8">
                   <input
                     class="transparent-inputs"
                     type="text"
                     placeholder="Enter token Id"
                     formControlName="tokenId"
-                    (ngModelChange)='onChangeTokenId($event)'
-                    [ngClass]="{
-                      'is-invalid': isSubmitted && f.tokenId.errors
-                    }"
+                    (ngModelChange)="onChangeTokenId($event)"
                   />
-                  <div *ngIf="isSubmitted && f.tokenId.errors" class="invalid-feedback">
-                    <div *ngIf="f.tokenId.errors.required">Token ID is required!</div>
-                  </div>
                 </div>
-                <div class="col-5 col-sm-4">
+                <div class="col-4">
                   <button class="search-button" type="submit">Search</button>
                 </div>
               </div>
             </form>
           </div>
         </div>
+        <div *ngIf="isSubmitted && f.tokenId.errors" class="invalid-feedback">
+          <div *ngIf="f.tokenId.errors.required">Token ID is required!</div>
+          <div *ngIf="f.tokenId.errors.pattern">Numbers only!</div>
+        </div>
       </div>
     </div>
     <div class="row mt-5">
-      <div class="col-md-12 col-lg-5">
+      <div class="col-md-12 col-lg-6">
         <div class="details-container">
           <h5 class="edit-medium-headings">Token ID: {{ tokenId }}</h5>
 
@@ -72,7 +75,7 @@
           </p>
           <p class="p-para">Meta Data</p>
           <p class="p-para-normal">
-            {{ nftURI}}
+            {{ nftURI }}
           </p>
         </div>
       </div>
@@ -81,7 +84,7 @@
       </div>
       <div class="col-md-12 col-lg-5">
         <div class="row">
-          <div class="col-md-12 col-md-6 col-lg-12 col-xl-12 p-1">
+          <div class="col-sm-12 col-md-6 col-lg-12 col-xl-12 p-1">
             <div class="request-boxes mt-4">
               <div class="heading-box">
                 <table>
@@ -92,7 +95,7 @@
                     >
                       Shell/cURL
                     </td>
-                    <td><button class="copy-btn">Copy</button></td>
+                    <td><button class="copy-btn" (click)="copyCurl()">Copy</button></td>
                   </tr>
                 </table>
               </div>
@@ -101,7 +104,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-12 col-md-6 col-lg-12 col-xl-12 p-1">
+          <div class="col-sm-12 col-md-6 col-lg-12 col-xl-12 p-1">
             <div class="request-boxes mt-4">
               <div class="heading-box">
                 <table>
@@ -112,15 +115,12 @@
                     >
                       Response
                     </td>
-                    <td><button class="copy-btn">Copy Token ID</button></td>
+                    <td><button class="copy-btn" (click)="copyTokenId()">Copy Token ID</button></td>
                   </tr>
                 </table>
               </div>
               <div class="box-body">
-                <textarea class="transparent-inputs">
-                  {{ response }}
-                              </textarea
-                >
+                <textarea class="transparent-inputs">{{ response }}</textarea>
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@
     </div>
 
     <div class="row mt-5">
-      <div class="col-md-12 col-lg-5">
+      <div class="col-md-12 col-lg-6">
         <h5 class="edit-medium-headings">List all your minted NFTs</h5>
         <p class="p-para-normal">
           <strong class="p-para">GET</strong>
@@ -185,3 +185,4 @@
     </div>
   </div>
 </div>
+<app-loader [isLoaded]="isLoaded"></app-loader>

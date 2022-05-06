@@ -7,12 +7,14 @@ import { GetApiPageComponent } from './components/get-api-page/get-api-page.comp
 import { AccessToNftComponent } from './components/access-to-nft/access-to-nft.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GetApiService } from 'src/app/core/http/get-api.service';
+import { TermsComponent } from './components/terms/terms.component';
 
 @NgModule({
   declarations: [
     LandingComponent,
     GetApiPageComponent,
-    AccessToNftComponent
+    AccessToNftComponent,
+    TermsComponent
   ],
   imports: [
     CommonModule,

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 
@@ -11,12 +12,13 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    SideNavComponent
+    SideNavComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
   ],
-  exports: [HeaderComponent, FooterComponent],
+  exports: [HeaderComponent, FooterComponent, LoaderComponent],
 })
 export class SharedModule { }
