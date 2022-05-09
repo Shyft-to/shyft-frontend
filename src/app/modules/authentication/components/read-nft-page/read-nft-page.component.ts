@@ -73,6 +73,11 @@ export class ReadNftPageComponent implements OnInit {
         );
       },
       (error: any) => {
+        this.response = null;
+        this.title = '';
+        this.image = '';
+        this.mintToAddress = '';
+        this.nftURI = '';
         this.isLoaded = true; // off loader
         throw new Error(error);
       }
@@ -106,9 +111,7 @@ export class ReadNftPageComponent implements OnInit {
 
   copyTokenId() {
     if (this.response) {
-      this.clipboardService.copyFromContent(JSON.parse(this.response).tokenId);
-      console.log(JSON.parse(this.response).tokenId);
-      
+      this.clipboardService.copyFromContent(JSON.parse(this.response).tokenId);      
       this.toastr.success('Copied!', '', {
         timeOut: 1500,
       });

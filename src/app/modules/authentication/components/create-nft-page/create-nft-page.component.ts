@@ -14,11 +14,11 @@ import { ToastrService } from 'ngx-toastr';
 export class CreateNftPageComponent implements OnInit {
   // apiKey: string | null = '';
   isLoaded: boolean = true;
-  authorizationKey: string | null = 'AUTHORIZATION_KEY';
+  authorizationKey: string = 'AUTHORIZATION_KEY';
   name: string | null = 'FILE_NAME';
   description: string | null = 'DESCRIPTION';
   mintTo: string = 'WALLET_ADDRESS';
-  image: any = 'assets/images/Sample-image.svg';
+  image: any = 'assets/images/blank-img.png';
   url: string = environment.url;
   defaultCurl: string = '';
   createNftForm!: FormGroup;
@@ -47,8 +47,8 @@ export class CreateNftPageComponent implements OnInit {
       name: [''],
       file: [''],
       description: [''],
-      mintTo: [''],
-      authorizationKey: [''],
+      mintTo: [localStorage.getItem('mintTo') || ''],
+      authorizationKey: [localStorage.getItem('authorizationKey') || ''],
     });
   }
 
@@ -89,12 +89,15 @@ export class CreateNftPageComponent implements OnInit {
       (res: any) => {
         if (res.status === 'success') {
           this.response = JSON.stringify(res);
+          localStorage.setItem('authorizationKey', this.authorizationKey);
+          localStorage.setItem('mintTo', this.mintTo);
           this.isLoaded = true; // off loader
         } else {
           this.fileUpload = res;
         }
       },
       (err: any) => {
+        this.response = null;
         this.isLoaded = true; // off loader
         return err;
       }

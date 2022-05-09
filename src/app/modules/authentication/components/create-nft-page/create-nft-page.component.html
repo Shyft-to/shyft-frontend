@@ -40,8 +40,14 @@
           </div>
           <div class="pt-2">
             <div class="row">
-              <div class="col-12 col-xs-12 col-md-4 text-center text-md-start">
-                <!-- <img class="img-fluid" src="assets/images/Sample-image.svg" alt=""> -->
+              <div
+                style="
+                  width: 193px;
+                  height: 193px;
+                  overflow: hidden;
+                  margin: 0 auto;
+                "
+              >
                 <img class="img-fluid" [src]="image" alt="" />
               </div>
               <div class="col-12 col-xs-12 col-md-8 pt-3">
@@ -74,9 +80,9 @@
               name="selchain"
             >
               <option value="Etherium">Etherium</option>
-              <option value="Polygon">Polygon</option>
-              <option value="Solana">Solana</option>
-              <option value="Celo">Celo</option>
+              <option value="Polygon" [disabled]="true">Polygon</option>
+              <option value="Solana" [disabled]="true">Solana</option>
+              <option value="Celo" [disabled]="true">Celo</option>
             </select>
           </div>
           <div>
@@ -141,7 +147,11 @@
                     >
                       Response
                     </td>
-                    <td><button class="copy-btn" (click)="copyTokenId()">Copy Token ID</button></td>
+                    <td>
+                      <button class="copy-btn" (click)="copyTokenId()">
+                        Copy Token ID
+                      </button>
+                    </td>
                   </tr>
                 </table>
               </div>
