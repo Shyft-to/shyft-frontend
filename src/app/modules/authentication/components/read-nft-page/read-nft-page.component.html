@@ -3,8 +3,8 @@
     <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span> -->
     <div class="row pt-5">
       <div class="col-md-8">
-        <h1 class="dash-medium-headings">Explore Astonishing NFTs</h1>
-        <p class="p-para">
+        <h1 class="dash-medium-headings py-5">Explore Astonishing NFTs</h1>
+        <!-- <p class="p-para">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum
           netus fames viverra facilisis. Vulputate sed lectus augue senectus.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum
@@ -12,7 +12,7 @@
           senectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Interdum netus fames viverra facilisis. Vulputate sed lectus augue
           senectus.
-        </p>
+        </p> -->
         <div
           class="forms-container"
           [ngClass]="{
@@ -140,24 +140,30 @@
 
     <div class="row mt-5">
       <div class="col-md-12 col-lg-6">
-        <h5 class="edit-medium-headings">List all your minted NFTs</h5>
+        <h5 class="edit-medium-headings">Get your minted NFTs</h5>
         <p class="p-para-normal">
-          <strong class="p-para">GET</strong>
-          https://api.nftport.xyz/v0/me/mints
+          <strong class="p-para">POST</strong>
+          https://api.shyft.to/tokenURI
         </p>
 
         <p class="p-para-normal">
-          Returns a list of all the NFTs you’ve previously minted with Easy
-          minting w/URL, Easy minting w/file upload or Customizable minting. For
-          recently minted NFTs, it may take a few minutes until they appear in
-          this response.
+          Post request using <code>tokenID</code> and you'll get as response <code>tokenURI</code>.
+        </p>
+
+        <p class="p-para-normal">
+          <strong class="p-para">POST</strong>
+          https://api.shyft.to/ownerOf
+        </p>
+
+        <p class="p-para-normal">
+          Post request using <code>tokenID</code> and you'll get as response <code>owner</code>.
         </p>
 
         <p class="p-para-normal">
           <strong>Useful for:</strong>
           Retrieving your NFT minting history.
         </p>
-        <p class="p-para-normal">
+        <!-- <p class="p-para-normal">
           <strong>Related:</strong>
           To see all the contracts you've previously deployed, see List all your
           deployed contracts. To see all your previous IPFS uploads, see List
@@ -170,7 +176,7 @@
           Default: 1 page_size integer The number of results returned per page.
           Limit can range between 1 and 50, and the default is 50. >= 1 <= 50
           Default: 50
-        </p>
+        </p> -->
       </div>
       <div class="col-md-12 col-lg-1"></div>
       <div class="col-md-12 col-lg-5">
@@ -186,9 +192,8 @@
           </div>
           <div class="box-body">
             <textarea class="transparent-inputs">
-"response": "OK","chain": "polygon","contract_address": "0x47C7FF137D7a6644a9A96F1D44f5a6f857D9023f","transaction_hash": "0xa6869c0c2bd62f549558b68b045b834b087dec5e4644aed3841a0aa31a205e0a", "transaction_external_url": "https://polygonscan.com/tx/0xa6869c0c2bd62f549558b68b045b834b087dec5e4644aed3841a0aa31a205e0a","mint_to_address": "0xEaC2DAeB9AC99EFbb45c0Cb87f1d350eb2C552f9","name": "refer","description": "art","error": null
-                      </textarea
-            >
+{"tokenId":"79770","tokenURI":"ipfs://QmThq6499z9oFEDZgbxV1HecVEaXywSj7JQxHPqW7xvTnW"}
+            </textarea>
           </div>
         </div>
       </div>
