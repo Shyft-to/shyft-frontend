@@ -1,124 +1,129 @@
-<div class="outer-content-area">
-  <div class="inner-content-area add-padd">
-    <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span> -->
-    <div class="row mt-5">
-      <div class="col-md-12">
-        <div class="text-center">
-          <div class="seethrough-searchbar">
-            <div class="row">
-              <div class="col-1">
-                <div class="search-icon-container">
-                  <i class="fas fa-search"></i>
-                </div>
+<div class="outer-content-area container-fluid portfolio-section-3">
+  <div class="inner-content-area add-padd container-lg">
+    <div class="row">
+      <div class="col-sm-12 col-md-11 col-lg-9">
+        <h3 class="portfolio-heading-3">
+          Create a Portfolio for All Your NFTs
+        </h3>
+      </div>
+    </div>
+    <div class="row reversal">
+      <div class="col-sm-12 col-md-7">
+        <div class="port-text-container">
+          <p class="portfolio-para-sm">
+            * Currently, It's only available for Solana MainNet-Beta.
+          </p>
+
+          <form
+            [formGroup]="listNftForm"
+            #listForm="ngForm"
+            (ngSubmit)="listNfts(listForm.value)"
+          >
+            <div
+              [ngClass]="{
+                'is-invalid': isSubmitted && f.address.errors
+              }"
+            >
+              <input
+                type="text"
+                class="form-control form-control-lg portfolio-form-styles"
+                placeholder="Enter Your Wallet Address"
+                formControlName="address"
+              />
+              <span class="error-block"></span>
+            </div>
+            <div
+              *ngIf="isSubmitted && f.address.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.address.errors.required === true">
+                Wallet ID is required!
               </div>
+            </div>
+            <div>
+              <label for="sel-chain" class="form-label p-para-form-heads"
+                >Blockchain</label
+              >
+              <select
+                class="form-select portfolio-form-styles-left"
+                id="sel-chain"
+                name="selchain"
+              >
+                <option [disabled]="true" value="Etherium">Etherium</option>
+                <option [disabled]="true" value="Polygon">Polygon</option>
+                <option value="Solana" [selected]="true">Solana</option>
+                <option [disabled]="true" value="Celo">Celo</option>
+              </select>
+            </div>
+            <div class="submit-button-cont text-center text-md-start">
+              <button type="submit" class="port-faded-reg port-faded-active">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-5">
+        <div class="port-img-container text-center">
+          <img
+            class="port-img"
+            src="assets/images/man-using-social-media-1.png"
+            alt="Wallet PortFolio"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Cards Section -->
+  <div [ngClass]="isResponse === ResponseStatus.success ? 'container-lg': 'hide'">
+    <div class="row mt-5 pt-2">
+      <div class="col-sm-12">
+        <div class="text-center text-md-end">
+          <div class="small-form-container">
+            <div class="row">
               <div class="col-11">
-                <div class="search-input-container">
-                  <input
-                    type="text"
-                    class="search-input"
-                    placeholder="Search"
-                  />
-                </div>
+                <select
+                  class="form-select portfolio-form-styles-small"
+                  id="sort-order"
+                  name="sortOrder"
+                >
+                  <option value="ra">Recently Added</option>
+                  <option value="asc">Ascending</option>
+                  <option value="desc">Descending</option>
+                </select>
+              </div>
+              <div class="col-1 pt-2">
+                <i class="fas fa-list" style="font-size: 30px"></i>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row mt-5 mb-5">
-      <div class="col-md-6"></div>
-      <div class="col-md-6">
-        <select
-          class="form-select search-form-styles"
-          id="sel-chain"
-          name="selchain"
-        >
-          <option value="0xeac2daeb9ac99efbb45c0cb87f1d350eb2c552f9">
-            0xeac2daeb9ac99efbb45c0cb87f1d350eb2c552f9
-          </option>
-          <option value="0xeac2daeb9ac99efbb45c0cb87f1d350eb2c552f9">
-            0xeac2daeb9ac99efbb45c0cb87f1d350eb2c552f9
-          </option>
-          <option value="0xeac2daeb9ac99efbb45c0cb87f1d350eb2c552f9">
-            0xeac2daeb9ac99efbb45c0cb87f1d350eb2c552f9
-          </option>
-        </select>
+    <div class="d-flex flex-row justify-content-center flex-wrap mt-2 mb-3">
+      <div class="" *ngFor="let nft of nftList">
+        <div class="cards-outer-2">
+          <div class="inner-box">
+            <div class="nft-img-container">
+              <img [src]="nft.image" />
+            </div>
+            <p class="gall-para-2">{{ nft.tokenId }}</p>
+            <p class="gall-para-2" *ngIf="!nft.tokenId">Nan</p>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="d-flex flex-row justify-content-center flex-wrap mb-3">
-      <div class="p-3">
-        <div class="cards-outer">
-          <div class="inner-box">
-            <img src="assets/images/unsplash_bwface.png" />
-            <p class="gall-para">Token ID: 32452</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-3">
-        <div class="cards-outer">
-          <div class="inner-box">
-            <img src="assets/images/unsplash_colorface.png" />
-            <p class="gall-para">Token ID: 32452</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-3">
-        <div class="cards-outer">
-          <div class="inner-box">
-            <img src="assets/images/unsplash_face.png" />
-            <p class="gall-para">Token ID: 32452</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-3">
-        <div class="cards-outer">
-          <div class="inner-box">
-            <img src="assets/images/unsplash_bwface.png" />
-            <p class="gall-para">Token ID: 32452</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-3">
-        <div class="cards-outer">
-          <div class="inner-box">
-            <img src="assets/images/unsplash_colorface.png" />
-            <p class="gall-para">Token ID: 32452</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-3">
-        <div class="cards-outer">
-          <div class="inner-box">
-            <img src="assets/images/unsplash_face.png" />
-            <p class="gall-para">Token ID: 32452</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-3">
-        <div class="cards-outer">
-          <div class="inner-box">
-            <img src="assets/images/unsplash_bwface.png" />
-            <p class="gall-para">Token ID: 32452</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-3">
-        <div class="cards-outer">
-          <div class="inner-box">
-            <img src="assets/images/unsplash_colorface.png" />
-            <p class="gall-para">Token ID: 32452</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-3">
-        <div class="cards-outer">
-          <div class="inner-box">
-            <img src="assets/images/unsplash_face.png" />
-            <p class="gall-para">Token ID: 32452</p>
-          </div>
-        </div>
+</div>
+  <div [ngClass]="isResponse === ResponseStatus.failed ? 'container-lg': 'hide'">
+    <div class="d-flex flex-row justify-content-center flex-wrap mt-2 mb-3">
+      <div class="p-5 text-center">
+        <img
+          src="assets/images/DataNotFound.png"
+          style="width: 80%; margin-bottom: -30px"
+        />
+        <p class="p-para-form-heads">No Data Found</p>
       </div>
     </div>
   </div>
 </div>
+<app-loader [isLoaded]="isLoaded"></app-loader>
