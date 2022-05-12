@@ -11,7 +11,7 @@ enum IsResponse {
   notInitiated,
 }
 interface Nft {
-  tokenId: number;
+  name: string;
   image: string;
 }
 interface Wallet {
@@ -74,12 +74,15 @@ export class ListNftPageComponent implements OnInit {
   }
 
   async listNfts(walletId: Wallet): Promise<any> {
+    this.nftList = [];
     this.isSubmitted = true;
     this.isLoaded = false;
     
     const connection = new Connection('mainnet-beta');
     // const ownerPublickey = '8g8ej28R8A9p3SRKhcMjBqyD6NvXaKDLkVFJoyD6bvKe';
     const nftsmetadata = await Metadata.findDataByOwner(connection, walletId.address);
+    console.log('nftMetaData', nftsmetadata);
+    
     this.nftsMetaData = nftsmetadata;
     if (this.nftsMetaData.length === 0) { 
       this.isResponse = IsResponse.failed;
@@ -88,7 +91,7 @@ export class ListNftPageComponent implements OnInit {
     this.nftsMetaData.map((nft) => {
       this.readNftService.readMetaData(nft.data.uri).then(
         (response: any) => {
-          this.nftList.push({ tokenId: response.tokenId, image: response.image });
+          this.nftList.push({ name: response.name, image: response.image });
           this.isResponse = IsResponse.success;
           this.isLoaded = true;
         },
@@ -99,6 +102,7 @@ export class ListNftPageComponent implements OnInit {
         }
       );
     });
+    console.log('nftList', this.nftList);
   }
 
   get f() { return this.listNftForm.controls; }

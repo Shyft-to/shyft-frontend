@@ -14,10 +14,10 @@ import { ToastrService } from 'ngx-toastr';
 export class CreateNftPageComponent implements OnInit {
   // apiKey: string | null = '';
   isLoaded: boolean = true;
-  authorizationKey: string = 'AUTHORIZATION_KEY';
+  authorizationKey: string = '';
   name: string | null = 'FILE_NAME';
   description: string | null = 'DESCRIPTION';
-  mintTo: string = 'WALLET_ADDRESS';
+  mintTo: string = '';
   image: any = 'assets/images/blank-img.png';
   url: string = environment.url;
   defaultCurl: string = '';

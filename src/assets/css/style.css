@@ -639,14 +639,29 @@ html {
 }
 
 .partner-with-container {
+  background-color: #d6edff;
+  background: url(../images/Blue-bottom-ellipse.png),
+    url(../images/Last-section-bottom-white.png),
+    url(../images/bottom-donut-shape.png), #d6edff;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: 0% 120%, 0% 101%, 100% 85%;
+  background-size: auto auto, 100% auto, auto auto;
+  padding-top: 10px;
+  padding-bottom: 150px;
+  margin-bottom: -1px;
+}
+.why-us-background {
   background-color: #fff;
   background: url(../images/capsule-shape.png), url(../images/section3-top.png),
-    url(../images/mid-ellipse.png), url(../images/Last-section-bottom.png), #fff;
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-  background-position: right top, left top, right center, left bottom;
-  background-size: auto auto, 100% auto, auto auto, 100% auto;
-  padding-top: 150px;
-  padding-bottom: 150px;
+    url(../images/mid-ellipse.png), url(../images/capsule-shape-straight.png),
+    url(../images/Last-section-bottom-2.png), #fff;
+  /* background-size: 100% auto; */
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: right top, left top, right center, left bottom,
+    left bottom;
+  background-size: auto auto, 100% auto, auto auto, auto auto, 100% auto;
+  padding-top: 200px;
+  padding-bottom: 250px;
 }
 .logo-section-container {
   padding-bottom: 10rem;
@@ -723,8 +738,17 @@ html {
     width: 410px;
   }
   .partner-with-container {
-    background-position: right top, left top, right center, left bottom;
-    background-size: auto 10%, 100% auto, auto auto, 100% auto;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: -1% 120%, 0% 101%, 100% 85%;
+    background-size: auto 40%, 100% auto, auto 25%;
+    padding-top: 1px;
+    padding-bottom: 150px;
+  }
+  .why-us-background {
+    background-position: 100% -1%, left top, 100% 50%, left bottom, left bottom;
+    background-size: 15% auto, 100% auto, 30% auto, 18% auto, 101% auto;
+    padding-top: 10px;
+    padding-bottom: 150px;
   }
 }
 @media (max-width: 576px) {
@@ -747,8 +771,25 @@ html {
     margin-top: 2rem;
   }
   .partner-with-container {
-    background-position: right top, left top, right 450px, left bottom;
-    background-size: auto 5%, 100% auto, auto 20%, 100% auto;
+    background: url(../images/Blue-bottom-ellipse.png),
+      url(../images/Mobile-angles-3-new-white.png),
+      url(../images/bottom-donut-shape.png), #d6edff;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: -120px 105%, 0% 101%, 100% 50%;
+    background-size: auto 30%, 100% auto, auto 15%;
+    padding-top: 1px;
+    padding-bottom: 150px;
+  }
+  .why-us-background {
+    background: url(../images/capsule-shape.png),
+      url(../images/Mobile-angles-2.png), url(../images/mid-ellipse.png),
+      url(../images/capsule-shape-straight.png),
+      url(../images/Mobile-angles-3.png), #fff;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    background-position: 100% -1%, left top, 100% 15%, left bottom, left bottom;
+    background-size: 20% auto, 100% auto, 70% auto, 25% auto, 101% auto;
+    padding-top: 5px;
+    padding-bottom: 100px;
   }
 }
 @media (max-width: 600px) {
@@ -789,6 +830,11 @@ html {
     width: 55%;
     left: -70px;
     top: 320px;
+  }
+}
+@media (max-width: 400px) {
+  .image-marketer {
+    left: 15px;
   }
 }
 
@@ -1978,4 +2024,75 @@ button:disabled {
   font: 500 1rem/1.8125rem "Poppins", sans-serif;
   letter-spacing: 0.1em;
   margin-top: 1rem;
+}
+
+.time-taking-cards {
+  background-color: transparent;
+  border: none;
+  padding: 60px 10px 30px 10px;
+}
+.time-taking-cards .top-img-container {
+  height: 170px;
+  width: 100%;
+  margin: 0 auto;
+}
+.time-taking-cards .card-img-top {
+  width: 45%;
+  margin: 0 auto;
+}
+.time-taking-cards .title-container {
+  height: 100px;
+}
+.time-taking-cards .card-title {
+  font: 700 24px/32px "Poppins", sans-serif;
+  letter-spacing: 0.1em;
+  color: #112f4a;
+  padding-bottom: 30px;
+  padding-top: 10px;
+}
+.time-taking-cards .card-text {
+  font: 600 16px/24px "Poppins", sans-serif;
+  letter-spacing: 0.1em;
+  color: #112f4a;
+  padding: 0px 25px;
+}
+@media (max-width: 1200px) {
+  .time-taking-cards .card-title {
+    font: 700 16px/24px "Poppins", sans-serif;
+  }
+  .time-taking-cards {
+    background-color: transparent;
+    border: none;
+    padding: 20px 5px;
+  }
+  .time-taking-cards .top-img-container {
+    height: 100px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .time-taking-cards .card-text {
+    font: 700 0.8rem/1.15rem "Poppins", sans-serif;
+    padding: 0px 5px;
+  }
+  .time-taking-cards .title-container {
+    height: 80px;
+  }
+}
+@media (max-width: 576px) {
+  .time-taking-cards {
+    background-color: transparent;
+    border: none;
+    padding: 30px 10px;
+  }
+  .time-taking-cards .top-img-container {
+    height: 140px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .time-taking-cards .card-text {
+    padding: 0px 5px;
+  }
+  .time-taking-cards .title-container {
+    height: 70px;
+  }
 }
