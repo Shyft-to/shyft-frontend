@@ -1,129 +1,260 @@
-<div class="outer-content-area container-fluid portfolio-section-3">
-  <div class="inner-content-area add-padd container-lg">
-    <div class="row">
-      <div class="col-sm-12 col-md-11 col-lg-9">
-        <h3 class="portfolio-heading-3">
-          Create a Portfolio for All Your NFTs
-        </h3>
+<div class="outer-content-area-2" [ngSwitch]="isViewMode">
+  <div class="inner-content-area-2" *ngSwitchCase="false">
+    <div class="portfolio-content-container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3 class="port-heading">Create a Portfolio for All Your NFTs</h3>
+        </div>
       </div>
-    </div>
-    <div class="row reversal">
-      <div class="col-sm-12 col-md-7">
-        <div class="port-text-container">
-          <p class="portfolio-para-sm">
-            * Currently, It's only available for Solana MainNet-Beta.
-          </p>
-
-          <form
-            [formGroup]="listNftForm"
-            #listForm="ngForm"
-            (ngSubmit)="listNfts(listForm.value)"
-          >
-            <div
-              [ngClass]="{
-                'is-invalid': isSubmitted && f.address.errors
-              }"
+      <div class="row reversal-2">
+        <div class="col-sm-12 col-md-12 col-lg-6">
+          <div class="port-form-container">
+            <form
+              [formGroup]="listNftForm"
+              #listForm="ngForm"
+              (ngSubmit)="listNfts(listForm.value)"
             >
-              <input
-                type="text"
-                class="form-control form-control-lg portfolio-form-styles"
-                placeholder="Enter Your Wallet Address"
-                formControlName="address"
-              />
-              <span class="error-block"></span>
-            </div>
-            <div
-              *ngIf="isSubmitted && f.address.errors"
-              class="invalid-feedback"
-            >
-              <div *ngIf="f.address.errors.required === true">
-                Wallet ID is required!
+              <div
+                [ngClass]="{
+                  'is-invalid': isSubmitted && f.address.errors
+                }"
+              >
+                <input
+                  type="text"
+                  class="form-control form-control-lg portfolio-form-styles"
+                  placeholder="Enter Your Wallet Address"
+                  formControlName="address"
+                />
+                <span class="error-block"></span>
               </div>
-            </div>
-            <div>
-              <label for="sel-chain" class="form-label p-para-form-heads"
-                >Blockchain</label
+              <div
+                *ngIf="isSubmitted && f.address.errors"
+                class="invalid-feedback"
               >
-              <select
-                class="form-select portfolio-form-styles-left"
-                id="sel-chain"
-                name="selchain"
-              >
-                <option [disabled]="true" value="Etherium">Etherium</option>
-                <option [disabled]="true" value="Polygon">Polygon</option>
-                <option value="Solana" [selected]="true">Solana</option>
-                <option [disabled]="true" value="Celo">Celo</option>
-              </select>
-            </div>
-            <div class="submit-button-cont text-center text-md-start">
-              <button type="submit" class="port-faded-reg port-faded-active">
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-5">
-        <div class="port-img-container text-center">
-          <img
-            class="port-img"
-            src="assets/images/man-using-social-media-1.png"
-            alt="Wallet PortFolio"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Cards Section -->
-  <div [ngClass]="isResponse === ResponseStatus.success ? 'container-lg': 'hide'">
-    <div class="row mt-5 pt-2">
-      <div class="col-sm-12">
-        <div class="text-center text-md-end">
-          <div class="small-form-container">
-            <div class="row">
-              <div class="col-11">
-                <select
-                  class="form-select portfolio-form-styles-small"
-                  id="sort-order"
-                  name="sortOrder"
+                <div *ngIf="f.address.errors.required === true">
+                  Wallet ID is required!
+                </div>
+              </div>
+              <div>
+                <label for="sel-chain" class="form-label p-port-form-heads"
+                  >Blockchain</label
                 >
-                  <option value="ra">Recently Added</option>
-                  <option value="asc">Ascending</option>
-                  <option value="desc">Descending</option>
+                <select
+                  class="form-select port-form-styles-left"
+                  id="sel-chain"
+                  name="selchain"
+                >
+                  <option [disabled]="true" value="Etherium">Etherium</option>
+                  <option [disabled]="true" value="Polygon">Polygon</option>
+                  <option value="Solana" [selected]="true">Solana</option>
+                  <option [disabled]="true" value="Celo">Celo</option>
                 </select>
               </div>
-              <div class="col-1 pt-2">
-                <i class="fas fa-list" style="font-size: 30px"></i>
+              <div class="submit-button-cont text-center text-md-start">
+                <button type="submit" class="port-faded-reg port-faded-active">
+                  Show Portfolio
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-1"></div>
+        <div class="col-sm-12 col-md-12 col-lg-5">
+          <div class="port-picture-container mx-auto">
+            <img
+              class="port-picture"
+              src="assets/images/man-using-social-media-1.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="black-div-container"
+      [ngClass]="
+        isResponse === ResponseStatus.success ? 'container-fluid' : 'hide'
+      "
+    >
+      <div class="port-black-div">
+        <div class="row">
+          <div class="col-5 col-xs-5 col-sm-6 col-md-7 col-lg-9">
+            <h5>Collection: NW</h5>
+            <h6>{{ nftList.length }} Nfts</h6>
+          </div>
+          <div class="col-2 col-xs-2 col-sm-2 col-md-2 col-lg-1 text-center">
+            <h6>Name</h6>
+            <h5>NW</h5>
+          </div>
+          <div class="col-2 col-xs-2 col-sm-2 col-md-1 col-lg-1 text-center">
+            <h6>Owns</h6>
+            <h5>{{ nftList.length }}</h5>
+          </div>
+          <div class="col-3 col-xs-3 col-sm-2 col-md-2 col-lg-1 text-center">
+            <h6>Symbol</h6>
+            <h5>NW</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="port-cards-container">
+      <div
+        class="row"
+      >
+        <div class="col-6 col-xs-6 col-sm-4 col-md-4 port-cust-padding" *ngFor="let nft of nftList; let i = index">
+          <div class="cards-outer-port">
+            <div class="inner-box">
+              <div class="inner-box-img-container">
+                <img [src]="nft.image" (click)="nftView(i)" />
+              </div>
+              <p class="port-para-2">{{ nft.name }}</p>
+              <p class="port-para-2" *ngIf="!nft.name">Nan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NFT view -->
+  <div class="inner-content-area-2" *ngSwitchCase="true">
+    <div class="portdet-content-container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3 class="portdet-heading">{{ selectedNft.name }}</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="det-img-container">
+            <img class="img-fluid" [src]="selectedNft.image" alt="" />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="det-desc-container">
+            <p class="desc-title">Description</p>
+            <p>
+              <span [ngClass]="isShowLess ? 'desc-desc': 'desc-desc-showmore'">{{selectedNft.description }}</span
+              ><strong style="margin-left: 5px;" (click)="showMoreLess()">{{ isShowLess ? 'Show more' : 'Show less' }}</strong>
+            </p>
+            <p class="desc-link">
+              <a [href]="selectedNft.image">{{ selectedNft.image }}</a>
+            </p>
+            <div class="desc-royalty">
+              <div class="row">
+                <div class="col-8">Royalty</div>
+                <div class="col-4 text-end">3%</div>
+              </div>
+            </div>
+            <div class="desc-details">
+              <div class="row">
+                <div class="col-8">Performance</div>
+                <div class="col-4 text-end">28</div>
+              </div>
+              <div class="row">
+                <div class="col-8">Fortune</div>
+                <div class="col-4 text-end">20</div>
+              </div>
+              <div class="row">
+                <div class="col-8">Regeneration</div>
+                <div class="col-4 text-end">26</div>
+              </div>
+              <div class="row">
+                <div class="col-8">Quality</div>
+                <div class="col-4 text-end">Rare</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="d-flex flex-row justify-content-center flex-wrap mt-2 mb-3">
-      <div class="" *ngFor="let nft of nftList">
-        <div class="cards-outer-2">
-          <div class="inner-box">
-            <div class="nft-img-container">
-              <img [src]="nft.image" />
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="port-request-boxes mt-5">
+            <div class="heading-box">
+              <table>
+                <tr>
+                  <td class="headings" style="width: 222px; padding: 20px 20px">
+                    Metadata
+                  </td>
+                </tr>
+              </table>
             </div>
-            <p class="gall-para-2">{{ nft.name }}</p>
-            <p class="gall-para-2" *ngIf="!nft.name">Nan</p>
+            <div class="box-body">
+              <textarea class="transparent-inputs">{{
+                selectedNft | json
+              }}</textarea>
+            </div>
           </div>
+          <!-- <div class="port-request-boxes mt-5">
+            <div class="heading-box">
+              <table>
+                <tr>
+                  <td class="headings" style="width: 222px; padding: 20px 20px">
+                    Token Data
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="box-body">
+              <textarea class="transparent-inputs">
+curl --request POST \
+                                --url 'https://api.nftport.xyz/v0/mints/easy/files?chain=polygon&name=refer&description=art&mint_to_address=0xEaC2DAeB9AC99EFbb45c0Cb87f1d350eb2C552f9' \
+                                --header 'Authorization: af314eba-6c32-4d56-8503-a2984411d7be' \
+                                --header 'Content-Type: multipart/form-data' \
+                                --header 'content-type: multipart/form-data; boundary=---011000010111000001101001' \
+                                  --form file=@q4.svg
+                            </textarea
+              >
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="port-cards-container mt-5 pb-3">
+        <div>
+          <p class="custom-desc-title text-center text-md-start">
+            More NFTs from collection
+          </p>
+        </div>
+        <div
+          class="d-flex flex-row justify-content-around align-content-center flex-wrap"
+          >
+          <div class="pt-3" style="align-items: center" *ngFor="let nft of similarNftList; let i = index;">
+            <div class="cards-outer-port-2">
+              <div class="inner-box">
+                <div class="inner-box-img-container">
+                  <img [src]="nft.image" (click)="showDetail(i)"/>
+                </div>
+
+                <p class="port-para-3">{{nft.name}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <p class="custom-desc-title text-center text-md-end">
+            <a (click)="changeView()">Explore More NFTs</a>
+          </p>
         </div>
       </div>
     </div>
-</div>
-  <div [ngClass]="isResponse === ResponseStatus.failed ? 'container-lg': 'hide'">
-    <div class="d-flex flex-row justify-content-center flex-wrap mt-2 mb-3">
-      <div class="p-5 text-center">
-        <img
-          src="assets/images/DataNotFound.png"
-          style="width: 80%; margin-bottom: -30px"
-        />
-        <p class="p-para-form-heads">No Data Found</p>
+    <!-- NFT view end -->
+    <div
+      [ngClass]="isResponse === ResponseStatus.failed ? 'container-lg' : 'hide'"
+    >
+      <div class="d-flex flex-row justify-content-center flex-wrap mt-2 mb-3">
+        <div class="p-5 text-center">
+          <img
+            src="assets/images/DataNotFound.png"
+            style="width: 80%; margin-bottom: -30px"
+          />
+          <p class="p-para-form-heads">No Data Found</p>
+        </div>
       </div>
     </div>
   </div>
+
+  <app-loader [isLoaded]="isLoaded"></app-loader>
 </div>
-<app-loader [isLoaded]="isLoaded"></app-loader>

@@ -93,7 +93,7 @@ export class CreateNftPageComponent implements OnInit {
     this.createNftService.createNft(formData).subscribe(
       (res: any) => {
         if (res.status === 'success') {
-          this.response = JSON.stringify(res);
+          this.response = res;
           localStorage.setItem('authorizationKey', this.authorizationKey);
           this.isLoaded = true; // off loader
         } else {
@@ -143,7 +143,7 @@ export class CreateNftPageComponent implements OnInit {
 
   copyTokenId() {
     if (this.response) {
-      this.clipboardService.copyFromContent(JSON.parse(this.response).tokenId);      
+      this.clipboardService.copyFromContent(this.response.tokenId);      
       this.toastr.success('Copied!', '', {
         timeOut: 1500,
       });

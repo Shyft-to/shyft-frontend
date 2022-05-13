@@ -48,7 +48,7 @@ export class ReadNftPageComponent implements OnInit {
     }
     this.readNftService.readNft(body).subscribe(
       (response: any) => {
-        this.response = JSON.stringify(response);
+        this.response = response;
         const { tokenId, tokenURI } = response;
         const metaDataURI = `https://ipfs.io/ipfs/${tokenURI.split('/')[2]}`;
         this.readNftService.readMetaData(metaDataURI).then(
@@ -111,7 +111,7 @@ export class ReadNftPageComponent implements OnInit {
 
   copyTokenId() {
     if (this.response) {
-      this.clipboardService.copyFromContent(JSON.parse(this.response).tokenId);      
+      this.clipboardService.copyFromContent(this.response.tokenId);      
       this.toastr.success('Copied!', '', {
         timeOut: 1500,
       });
