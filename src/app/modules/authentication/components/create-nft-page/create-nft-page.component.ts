@@ -40,15 +40,20 @@ export class CreateNftPageComponent implements OnInit {
     --form 'authorizationKey="${this.authorizationKey}"'`;
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<any> {
     // this.apiKey = localStorage.getItem("api_key");
     this.response = null;
     this.createNftForm = this.formBuilder.group({
       name: [''],
       file: [''],
       description: [''],
-      mintTo: [localStorage.getItem('mintTo') || ''],
+      mintTo: [this.mintTo || ''],
       authorizationKey: [localStorage.getItem('authorizationKey') || ''],
+    });
+    this.checkMetamask();
+    await this.connectAccount();
+    this.createNftForm.patchValue({
+      mintTo: this.mintTo,
     });
   }
 
@@ -90,7 +95,6 @@ export class CreateNftPageComponent implements OnInit {
         if (res.status === 'success') {
           this.response = JSON.stringify(res);
           localStorage.setItem('authorizationKey', this.authorizationKey);
-          localStorage.setItem('mintTo', this.mintTo);
           this.isLoaded = true; // off loader
         } else {
           this.fileUpload = res;
@@ -148,5 +152,29 @@ export class CreateNftPageComponent implements OnInit {
         timeOut: 1500,
       });
     }
+  }
+
+  checkMetamask() {
+    if (typeof window.ethereum !== 'undefined') {
+      console.log('MetaMask is installed!');
+    } else {
+      console.log('MetaMask is not installed!');
+    }
+  }
+
+  async connectAccount() {
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    this.mintTo = accounts[0];
+    console.log('Metamask Address', this.mintTo);
+    let balance = await window.ethereum.request({ method: 'eth_getBalance', params: [accounts[0],"latest"] });
+    balance = ((parseInt(balance, 16)) / 1000000000000000000);
+    console.log('Metamask Balance', balance);
+    
+  }
+}
+
+declare global {
+  interface Window {
+    ethereum: any;
   }
 }
