@@ -14,6 +14,16 @@ interface Nft {
   name: string;
   image: string;
   description: string;
+  symbol: string;
+  attributes: any[];
+  properties: {
+    creators: [
+      {
+        address: string;
+        share: number;
+      }
+    ]
+  }
 }
 interface Wallet {
   address: string;
@@ -62,7 +72,7 @@ export class ListNftPageComponent implements OnInit {
 
   async connectWallet(): Promise<any> {
     try {
-      const network = 'mainnet-beta';
+      const network = 'devnet';
       const resp = await window.solana.connect();
       this.wallet = { address: resp.publicKey.toString() };
       const rpcUrl = solanaWeb3.clusterApiUrl(network);
@@ -92,7 +102,7 @@ export class ListNftPageComponent implements OnInit {
     this.isSubmitted = true;
     this.isLoaded = false;
 
-    const connection = new Connection('mainnet-beta');
+    const connection = new Connection('devnet');
     // const ownerPublickey = '8g8ej28R8A9p3SRKhcMjBqyD6NvXaKDLkVFJoyD6bvKe';
     const nftsmetadata = await Metadata.findDataByOwner(
       connection,
@@ -112,6 +122,9 @@ export class ListNftPageComponent implements OnInit {
             name: response.name,
             image: response.image,
             description: response.description,
+            symbol: response.symbol,
+            attributes: response.attributes,
+            properties: response.properties,
           });
           this.isResponse = IsResponse.success;
           this.isLoaded = true;

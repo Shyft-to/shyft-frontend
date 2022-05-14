@@ -21,8 +21,11 @@ export class SideNavComponent implements OnInit {
     if (this.router.url.includes('/read-nft')) {
       this.page = 2;
     }
-    if (this.router.url.includes('/list-nft')) {
+    if (this.router.url.includes('/create-nft-solana')) {
       this.page = 3;
+    }
+    if (this.router.url.includes('/list-nft')) {
+      this.page = 4;
     }
   }
   toggleSideNav() {

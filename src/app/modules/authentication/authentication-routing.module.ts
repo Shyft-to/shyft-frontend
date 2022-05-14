@@ -5,6 +5,7 @@ import { CreateNftPageComponent } from './components/create-nft-page/create-nft-
 import { ReadNftPageComponent } from './components/read-nft-page/read-nft-page.component';
 import { ListNftPageComponent } from './components/list-nft-page/list-nft-page.component';
 import { AuthenticationComponent } from './authentication.component';
+import { SolanaCreateNftPageComponent } from './components/solana-create-nft-page/solana-create-nft-page.component';
 
 const routes: Routes = [
   {
@@ -24,8 +25,12 @@ const routes: Routes = [
         component: ListNftPageComponent,
       },
       {
+        path: 'create-nft-solana',
+        component: SolanaCreateNftPageComponent,
+      },
+      {
         path: '',
-        redirectTo: '/dashboard/create-nft',
+        redirectTo: '/dashboard/create-nft-solana',
         pathMatch: 'full',
       }
     ]

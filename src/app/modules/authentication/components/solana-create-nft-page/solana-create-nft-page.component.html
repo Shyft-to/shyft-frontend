@@ -1,0 +1,129 @@
+<div class="outer-content-area">
+  <div class="inner-content-area">
+    <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span> -->
+    <div class="row pt-5">
+      <div class="col-md-12">
+        <h1 class="dash-medium-headings">Easy minting w/file upload</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-lg-6">
+        <form [formGroup]="createNftForm" (ngSubmit)="onSubmit()">
+          <!-- <div>
+            <label for="auth" class="form-label p-para">Authorization</label>
+            <input
+              type="text"
+              formControlName="authorizationKey"
+              class="form-control form-control-lg our-form-styles"
+              placeholder="Authorization Key"
+            />
+          </div> -->
+          <div class="pt-2">
+            <label for="mint" class="form-label p-para"
+              >Wallet address *</label
+            >
+            <input
+              type="text"
+              formControlName="address"
+              class="form-control form-control-lg our-form-styles"
+              placeholder="Mint-to-address"
+            />
+          </div>
+          <div class="pt-2">
+            <label class="form-label p-para">Upload File *</label>
+            <p class="p-para-light">
+              Image<br />
+              File types supported: JPG, PNG
+            </p>
+          </div>
+          <div class="pt-2">
+            <div class="row">
+              <div
+                style="
+                  width: 193px;
+                  height: 193px;
+                  overflow: hidden;
+                  margin: 0 auto;
+                "
+              >
+                <img class="img-fluid" [src]="image" alt="" />
+              </div>
+              <div class="col-12 col-xs-12 col-md-8 pt-3">
+                <div class="file-up-container">
+                  <button class="file-up-full">Upload File *</button>
+                  <input
+                    type="file"
+                    name="file"
+                    class="file-up"
+                    (change)="onSelectedFile($event)"
+                  />
+                </div>
+                <label class="form-label dash-para-head">Name *</label>
+                <input
+                  type="text"
+                  formControlName="name"
+                  class="form-control form-control-lg our-form-styles"
+                  placeholder="Enter Asset Name"
+                  value="Distruction"
+                />
+                <label class="form-label dash-para-head">Symbol *</label>
+                <input
+                  type="text"
+                  formControlName="symbol"
+                  class="form-control form-control-lg our-form-styles my-2"
+                  placeholder="e.g., NW"
+                  oninput="this.value = this.value.toUpperCase()"
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <label for="desc" class="form-label p-para">Description *</label>
+            <p class="p-para-light">
+              The description will be included on the item's detail page
+              underneath its image. Markdown syntax is supported.
+            </p>
+            <textarea
+              formControlName="description"
+              class="form-control our-form-styles-textarea"
+              rows="5"
+              id="desc"
+            ></textarea>
+          </div>
+          <div class="pt-4">
+            <button class="dash-button" type="submit">Send API Request</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-12 col-lg-1">
+        <!-- Gap creator -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div [ngClass]="isSuccessResponse ? 'modal fade show active-modal': 'modal fade'" id="myModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-2 pl-5" style="border-radius: 20px">
+      <!-- Modal Header -->
+      <div class="modal-header border-0" style="height: 50px">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          (click)="closeModal()"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body pb-5">
+        <h3 class="modal-heads">Yayy!!! You NFT is created!!</h3>
+        <h3 class="modal-heads">CHECK YOUR WALLET</h3>
+        <p class="p-para-normal">
+          Also, you can check <a routerLink="/dashboard/list-nft">here</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<app-loader [isLoaded]="isLoaded"></app-loader>

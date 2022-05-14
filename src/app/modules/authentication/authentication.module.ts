@@ -9,6 +9,7 @@ import { AuthenticationComponent } from './authentication.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { ClipboardModule } from 'ngx-clipboard';
+import { SolanaCreateNftPageComponent } from './components/solana-create-nft-page/solana-create-nft-page.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ClipboardModule } from 'ngx-clipboard';
     ReadNftPageComponent,
     ListNftPageComponent,
     AuthenticationComponent,
+    SolanaCreateNftPageComponent,
   ],
   imports: [
     CommonModule,
