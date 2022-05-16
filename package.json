@@ -26,6 +26,7 @@
     "buffer": "^6.0.3",
     "nft.storage": "^6.2.0",
     "ngx-clipboard": "^15.1.0",
+    "ngx-google-analytics": "^13.0.1",
     "ngx-toastr": "^14.3.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
