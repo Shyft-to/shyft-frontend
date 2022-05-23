@@ -129,6 +129,9 @@
           <div class="det-img-container">
             <img class="img-fluid" [src]="selectedNft.image" alt="" />
           </div>
+          <div class="my-1">
+            <button class="port-faded-reg port-faded-active" (click)="burnNft()" [disabled]="isDeletedNft"><span>{{isDeletedNft  ? 'Deleted' : 'Delete'}} <i class="fa fa-spinner fa-spin" *ngIf="isDeletingNft"></i></span></button>
+          </div>
         </div>
         <div class="col-lg-6">
           <div class="det-desc-container">

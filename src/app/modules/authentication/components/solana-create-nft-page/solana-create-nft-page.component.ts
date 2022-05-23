@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CreateNftService } from 'src/app/core/http/create-nft.service';
-import * as solanaWeb3 from '@solana/web3.js';
+import { LAMPORTS_PER_SOL, clusterApiUrl, PublicKey, Connection } from '@solana/web3.js';
 import { actions } from '@metaplex/js';
-import { Metadata } from '@metaplex-foundation/mpl-token-metadata';
-import { NFTStorage, File } from 'nft.storage';
+import { NFTStorage } from 'nft.storage';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
 
 const storageClient = new NFTStorage({
@@ -14,7 +13,7 @@ const storageClient = new NFTStorage({
 });
 
 interface Wallet {
-  address: string | undefined;
+  address: string;
 }
 
 interface IpfsUploadResponse {
@@ -133,20 +132,20 @@ export class SolanaCreateNftPageComponent implements OnInit {
       console.log(this.resp.publicKey?.toString());
 
       this.wallet = { address: this.resp.publicKey?.toString() };
-      const rpcUrl = solanaWeb3.clusterApiUrl(network);
-      this.connection = new solanaWeb3.Connection(rpcUrl, 'confirmed');
+      const rpcUrl = clusterApiUrl(network);
+      this.connection = new Connection(rpcUrl, 'confirmed');
       console.log(this.resp);
 
       if (this.wallet.address) {
         const accountInfo = await this.connection.getAccountInfo(
-          new solanaWeb3.PublicKey(this.wallet.address),
+          new PublicKey(this.wallet.address),
           'confirmed'
         );
         const balance = await this.connection.getBalance(
-          new solanaWeb3.PublicKey(this.wallet.address),
+          new PublicKey(this.wallet.address),
           'confirmed'
         );
-        console.log('Balance', balance / solanaWeb3.LAMPORTS_PER_SOL);
+        console.log('Balance', balance / LAMPORTS_PER_SOL);
         console.log('Wallet', this.wallet);
         console.log('Account info', accountInfo);
       }
