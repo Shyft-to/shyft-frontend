@@ -1,13 +1,10 @@
 <app-header></app-header>
-<!-- Hero Section -->
 <div class="container-fluid hero-section">
   <div class="container-lg pt-1 pb-3">
     <div class="row">
       <div class="col-sm-12 col-md-6 col-lg-8">
         <div class="hero-text-box">
-          <h1 class="text-uppercase hero-heading gradient-text-hero">
-            shyft<sup class="gradient-text-hero" style="text-transform: none; font-size: 0.3em; top: -2em; line-height: 0;">(α)</sup>
-          </h1>
+          <h1 class="text-uppercase hero-heading gradient-text-hero">shyft</h1>
           <h3 class="hero-sub-heading">
             APIs For Frictionless NFT integration
           </h3>
@@ -18,17 +15,27 @@
             </p>
           </div>
           <div class="hero-button-container">
-            <a routerLink="/dashboard"
-              ><button class="btn-solid-reg">Try Shift for Free</button></a
-            >
-            <!-- <p class="p-para-normal">
-              If you already have an API key,
-              <a class="gradient-text" routerLink="/dashboard"
-                ><b>click here</b></a
-              >
-              to continue
-            </p> -->
+            <button class="btn-solid-reg" routerLink="/get-api-key">
+              Try Shift for Free
+            </button>
+            <div class="btn-outline-gradient-button">
+              <div class="inner-white-area">
+                <a
+                  style="text-decoration: none"
+                  href="https://docs.shyft.to"
+                  target="_blank"
+                  >Read Docs</a
+                >
+              </div>
+            </div>
           </div>
+          <p class="p-para-normal">
+            If you already have an API key,
+            <a class="black-green-text" routerLink="/dashboard"
+              ><b>click here</b></a
+            >
+            to continue
+          </p>
         </div>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-4">
@@ -48,16 +55,15 @@
           </div>
         </div>
         <div class="hero-button-container-2 text-center">
-          <a routerLink="/dashboard"
-            ><button class="btn-solid-reg">Try Shift for Free</button></a
-          >
-          <!-- <p class="p-para-normal">
+          <button class="btn-solid-reg">Try Shift for Free</button>
+          <div class="btn-outline-gradient-button">
+            <div class="inner-white-area">Read Docs</div>
+          </div>
+          <p class="p-para-normal">
             If you already have an API key,
-            <a class="gradient-text" routerLink="/dashboard"
-              ><b>click here</b></a
-            >
-            to continue
-          </p> -->
+            <a class="black-green-text" href="#"><b>click here</b></a> to
+            continue
+          </p>
         </div>
       </div>
     </div>
@@ -79,65 +85,69 @@
           <div class="card time-taking-cards">
             <div class="top-img-container text-center">
               <img
-                class="card-img-top"
-                src="assets/images/Complex-blockchain.png"
-                alt="Card image"
-              />
-            </div>
-            <div class="card-body">
-              <div class="title-container">
-                <h4 class="card-title text-center">Complex Blockchain</h4>
-              </div>
-
-              <p class="card-text text-center">
-                Grasping Solidity, Web3.js, GraphQL, nodes, IPFS, etc. is
-                hard, time-ingesting and commonly desires a crew to cowl all
-                the skills.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-4">
-          <div class="card time-taking-cards">
-            <div class="top-img-container text-center">
-              <img
-                class="card-img-top"
-                src="assets/images/Manage-nfts.png"
-                alt="Card image"
-              />
-            </div>
-
-            <div class="card-body">
-              <div class="title-container">
-                <h4 class="card-title text-center">Manage NFTs</h4>
-              </div>
-
-              <p class="card-text text-center">
-                Our hardworking team puts extra efforts managing nodes,
-                creating indexes and try to reevaluate the wheel
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-4">
-          <div class="card time-taking-cards">
-            <div class="top-img-container text-center">
-              <img
-                class="card-img-top"
-                src="assets/images/market-research-1.png"
+                class="card-img-top img-fluid"
+                src="assets/images/nft-blockchain-3.png"
                 alt="Card image"
               />
             </div>
             <div class="card-body">
               <div class="title-container">
                 <h4 class="card-title text-center">
-                  Slow Go Market and Its Risk
+                  Blockchain stack is still nascent and complex
+                </h4>
+              </div>
+
+              <p class="card-text text-center">
+                Launching a scalable NFT app involves multiple moving parts in
+                on-chain (SDKs, IPFS, RPC nodes, smart contracts, wallets) and
+                off-chain (caching, DBs, auto-scaling) logic, with rapidly
+                changing protocols and documentation.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4">
+          <div class="card time-taking-cards">
+            <div class="top-img-container text-center">
+              <img
+                class="card-img-top"
+                src="assets/images/development-high.png"
+                alt="Card image"
+              />
+            </div>
+
+            <div class="card-body">
+              <div class="title-container">
+                <h4 class="card-title text-center">Development cost is high</h4>
+              </div>
+
+              <p class="card-text text-center">
+                This usually requires a team of highly skilled and diverse
+                developers, increasing the development cost by a huge margin.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4">
+          <div class="card time-taking-cards">
+            <div class="top-img-container text-center">
+              <img
+                class="card-img-top"
+                src="assets/images/analytics-1.png"
+                alt="Card image"
+              />
+            </div>
+            <div class="card-body">
+              <div class="title-container">
+                <h4 class="card-title text-center">
+                  Slow go to Market is the biggest risk
                 </h4>
               </div>
               <p class="card-text text-center">
-                Utilizing intensely rate-limited, moderate and fragmented
-                APIs to slow down in an amazingly competitive market,
-                driving to losing clients and revenue.
+                Teams spend a significant amount of time reinventing the wheel
+                (caching, making NFTs queryable, etc.) instead of focusing on
+                product and business logic, increasing the go-to-market time for
+                web3 apps.
               </p>
             </div>
           </div>
@@ -154,83 +164,233 @@
         <h3 class="section-sub-heading">Why Us?</h3>
       </div>
     </div>
-    <div class="icon-points">
-      <div class="row gx-1 gy-1">
-        <div class="col-sm-12 col-md-6 col-lg-6">
-          <div class="row pt-5">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
-              <div class="why-us-img-container">
-                <img
-                  src="assets/images/MultiChainSupport.png"
-                  alt="Multi Support Chain"
-                />
-              </div>
+
+    <div class="icon-cards-container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card icon-cards">
+            <div class="icon-image-container">
+              <img
+                class="img-fluid mx-auto icon-card-image"
+                src="assets/images/Supercharge-nft.png"
+                alt=""
+              />
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
-              <div class="why-us-text-features text-center text-md-start">
-                <h6 class="why-us-text-headings">Multi-chain support</h6>
-                <p class="p-para-normal">
-                  Single API and code base for building magic on different
-                  blockchains. (Currently, Solana and polygon more coming soon)
-                </p>
-              </div>
+            <div class="icon-title-container">
+              <h6>
+                Supercharged NFT<br />
+                Reads
+              </h6>
+            </div>
+            <div class="subtitle-container">
+              <p>
+                All your NFTs are cached by default for superior UX and stored
+                in a DB for those complex business queries.
+              </p>
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-6">
-          <div class="row pt-5">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
-              <div class="why-us-img-container">
-                <img
-                  src="assets/images/Money-bag-man.png"
-                  alt="Cost Effective"
-                />
-              </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card icon-cards">
+            <div class="icon-image-container">
+              <img
+                class="mx-auto icon-card-image"
+                src="assets/images/database-network.png"
+                alt=""
+              />
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
-              <div class="why-us-text-features text-center text-md-start">
-                <h6 class="why-us-text-headings">Cost Effective</h6>
-                <p class="p-para-normal">
-                  No prior web 3 development experience
-                </p>
-              </div>
+            <div class="icon-title-container">
+              <h6>Decentralized Storage Simplified</h6>
+            </div>
+            <div class="subtitle-container">
+              <p>
+                Automatically creates blockchain-specific metadata and uploads
+                it to IPFS/arweave. Also copying it to CDNs for instant access.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card icon-cards">
+            <div class="icon-image-container">
+              <img
+                class="img-fluid mx-auto icon-card-image"
+                src="assets/images/brainstorm-2.png"
+                alt=""
+              />
+            </div>
+            <div class="icon-title-container">
+              <h6>
+                CRUD<br />
+                on NFT
+              </h6>
+            </div>
+            <div class="subtitle-container">
+              <p>
+                Automate complex operations with our dead simple crud/NFT apis.
+              </p>
             </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-6">
-          <div class="row pt-5">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
-              <div class="why-us-img-container">
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card icon-cards">
+            <div class="icon-image-container">
+              <img
+                class="img-fluid mx-auto icon-card-image"
+                src="assets/images/public-blockchain.png"
+                alt=""
+              />
+            </div>
+            <div class="icon-title-container">
+              <h6>Web3 Infra</h6>
+            </div>
+            <div class="subtitle-container">
+              <p>
+                All your API calls are routed through private RPC nodes with
+                generous rate limits.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card icon-cards">
+            <div class="icon-image-container">
+              <img
+                class="mx-auto icon-card-image"
+                src="assets/images/nft-monitoring.png"
+                alt=""
+              />
+            </div>
+            <div class="icon-title-container">
+              <h6>Dashboard</h6>
+            </div>
+            <div class="subtitle-container">
+              <p>
+                Project dashboard to create, show, update and delete your NFTs
+                with detailed analytics and transaction history.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card icon-cards">
+            <div class="icon-image-container">
+              <img
+                class="img-fluid mx-auto icon-card-image"
+                src="assets/images/nft-wallet.png"
+                alt=""
+              />
+            </div>
+            <div class="icon-title-container">
+              <h6>Fungible Tokens</h6>
+            </div>
+            <div class="subtitle-container">
+              <p>
+                Mint/Burn APIs for your project’s fungible token, with custom
+                distribution logic among wallets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid things-with-shyft market-blue-background">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-sm-10">
+        <h3 class="section-sub-heading">
+          Some of The Things You Can Build With Shyft APIs
+        </h3>
+      </div>
+    </div>
+    <div class="market-cards-container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 px-5">
+          <div class="card market-cards">
+            <div class="card-inner">
+              <div class="market-img-container">
                 <img
-                  src="assets/images/business-marketing-dashboard.png"
-                  alt="Dashboard"
+                  class="img-fluid"
+                  src="assets/images/Nft-Marketplace.png"
+                  alt=""
                 />
               </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
-              <div class="why-us-text-features text-center text-md-start">
-                <h6 class="why-us-text-headings">Dashboard</h6>
-                <p class="p-para-normal">GUI for managing your product NFTs</p>
+              <div class="market-heading">
+                <h6>NFT Marketplace</h6>
+              </div>
+              <div class="market-body">
+                <p>
+                  Build your own NFT Marketplace like Opensea/Magiceden or build
+                  in app marketplace like Stepn. Everything is easy to build and
+                  scale! To make one get in touch with us
+                </p>
+              </div>
+              <div class="text-center">
+                <a href="mailto:team@shyft.to" class="btn-solid-reg"
+                  >Contact Us</a
+                >
               </div>
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-6">
-          <div class="row pt-5">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
-              <div class="why-us-img-container">
-                <img src="assets/images/Brain-Storm.png" alt="Crud" />
+        <div class="col-sm-12 col-md-6 col-lg-4 px-5">
+          <div class="card market-cards">
+            <div class="card-inner">
+              <div class="market-img-container">
+                <img
+                  class="img-fluid"
+                  src="assets/images/nft-storefront.png"
+                  alt=""
+                />
+              </div>
+              <div class="market-heading">
+                <h6>NFT Storefront</h6>
+              </div>
+              <div class="market-body">
+                <p>
+                  We make it easy for independent artists and collectors to
+                  showcase their art with no code solution. Start your NFT
+                  storefront in minutes using Shyft APIs! Get in touch to know
+                  more.
+                </p>
+              </div>
+              <div class="text-center">
+                <a class="btn-solid-reg" href="mailto:team@shyft.to"
+                  >Contact Us</a
+                >
               </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
-              <div class="why-us-text-features text-center text-md-start">
-                <h6 class="why-us-text-headings">Crud</h6>
-                <p class="p-para-normal">
-                  Automate complex operations with our dead simple crud/NFT
-                  apis.
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4 px-5">
+          <div class="card market-cards">
+            <div class="card-inner">
+              <div class="market-img-container">
+                <img
+                  class="img-fluid"
+                  src="assets/images/nft-game.png"
+                  alt=""
+                />
+              </div>
+              <div class="market-heading">
+                <h6>Game NFT</h6>
+              </div>
+              <div class="market-body">
+                <p>
+                  Shyft APIs can make your games future ready by converting
+                  digital assets as NFT. Build custom logic and call our APIs to
+                  manage transactions. Get in touch to know more
                 </p>
+              </div>
+              <div class="text-center">
+                <a class="btn-solid-reg" href="mailto:team@shyft.to"
+                  >Contact Us</a
+                >
               </div>
             </div>
           </div>
@@ -239,113 +399,344 @@
     </div>
   </div>
 </div>
-<div class="container-fluid partner-with-container">
-  <div class="container-lg">
-    <div class="support-chain">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="pt-5 pb-5">
-            <h3 class="section-sub-heading">Our Support Chain</h3>
+<div class="support-chain-background">
+  <div class="container-fluid">
+    <div class="container-lg">
+      <div class="support-chain">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="pt-3 pb-5">
+              <h3 class="section-sub-heading">Our Support Chain</h3>
+              <p class="p-para">
+                Single API and code base for building magic on different
+                blockchains.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row text-center">
-        <div class="col-3">
-          <img
-            class="img-fluid blockchain-img"
-            src="assets/images/ethereum.png"
-            alt="Ethereum"
-          />
-          <p class="p-caption">Ethereum</p>
-        </div>
-        <div class="col-3">
-          <img
-            class="img-fluid blockchain-img"
-            src="assets/images/polygon.png"
-            alt="Polygon"
-          />
-          <p class="p-caption">Polygon</p>
-        </div>
-        <div class="col-3">
-          <img
-            class="img-fluid blockchain-img"
-            src="assets/images/solana-sol-cryptocurrency.png"
-            alt="Solana"
-          />
-          <p class="p-caption">Solana</p>
-        </div>
-        <div class="col-3">
-          <img
-            class="img-fluid blockchain-img"
-            src="assets/images/celo.png"
-            alt="Celo"
-          />
-          <p class="p-caption">Celo</p>
+        <div
+          class="wall-icon-cont text-center d-flex flex-wrap justify-content-center"
+        >
+          <div class="wall-icon">
+            <img
+              class="img-fluid"
+              src="assets/images/ethereum.png"
+              alt="Ethereum"
+            />
+            <p class="p-caption">Ethereum</p>
+          </div>
+          <div class="wall-icon">
+            <img
+              class="img-fluid"
+              src="assets/images/polygon.png"
+              alt="Polygon"
+            />
+            <p class="p-caption">Polygon</p>
+          </div>
+          <div class="wall-icon">
+            <img
+              class="img-fluid"
+              src="assets/images/solana-sol-cryptocurrency.png"
+              alt="Solana"
+            />
+            <p class="p-caption">Solana</p>
+          </div>
+          <div class="wall-icon">
+            <img class="img-fluid" src="assets/images/celo.png" alt="Celo" />
+            <p class="p-caption">Celo</p>
+          </div>
+          <div class="wall-icon">
+            <img
+              class="img-fluid"
+              src="assets/images/cosmos.png"
+              alt="Cosmos"
+            />
+            <p class="p-caption">Cosmos</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="container-lg">
-    <div class="engage-section">
+
+  <div id="the_pricing" class="container-fluid our-pricing-section">
+    <div class="container-lg">
       <div class="row">
-        <div class="col-sm-12">
-          <div class="pt-5">
-            <h3 class="section-sub-heading">Engage With Us</h3>
+        <div class="col-sm-10">
+          <h3 class="section-sub-heading">Our Pricing</h3>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+          <div class="pricing-cards-container">
+            <div class="pricing-cards text-center">
+              <div class="pricing-cards-inner">
+                <div class="blue-band">
+                  <h6>Starter</h6>
+                </div>
+                <div class="black-container">
+                  <h6>Free</h6>
+                </div>
+                <div class="icon1-list-container">
+                  <div class="row icon-list d-flex align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/Vector-ticks.svg" alt="" />
+                    </div>
+                    <div class="col-10 text-start pt-1">
+                      <h6>Handle scaling on your own</h6>
+                    </div>
+                  </div>
+                  <div class="row icon-list d-flex align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/Vector-ticks.svg" alt="" />
+                    </div>
+                    <div class="col-10 text-start pt-1">
+                      <h6>Public RPC nodes</h6>
+                    </div>
+                  </div>
+                  <div class="row icon-list d-flex align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/Vector-ticks.svg" alt="" />
+                    </div>
+                    <div class="col-10 text-start pt-1">
+                      <h6>Devnet, Main net and testnet</h6>
+                    </div>
+                  </div>
+                  <div class="row icon-list d-flex align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/Vector-ticks.svg" alt="" />
+                    </div>
+                    <div class="col-10 text-start pt-1">
+                      <h6>Deploy and scale your own</h6>
+                    </div>
+                  </div>
+                  <div class="row icon-list d-flex align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/Vector-ticks.svg" alt="" />
+                    </div>
+                    <div class="col-10 text-start pt-1">
+                      <h6>Raise issues on github</h6>
+                    </div>
+                  </div>
+                  <div class="row icon-list d-flex align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/Vector-ticks.svg" alt="" />
+                    </div>
+                    <div class="col-10 text-start pt-1"><h6>Hobbyist</h6></div>
+                  </div>
+                </div>
+                <div
+                  class="text-center btn-contains d-flex flex-wrap justify-content-center align-content-end padder-free"
+                >
+                  <button
+                    class="btn-solid-reg"
+                    style="width: 85%"
+                    routerLink="/get-api-key"
+                  >
+                    Get Started for Free
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+          <div class="pricing-cards-container">
+            <div class="pricing-cards text-center">
+              <div class="container__corner--tl">
+                <div class="inner">
+                  <div>
+                    <h6>50% off</h6>
+                    <h6>Early Bird Offer</h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pricing-cards-inner">
+                <div class="blue-band">
+                  <h6>Growth</h6>
+                </div>
+                <div class="black-container">
+                  <h6><s>199$</s> <small>Now Only At</small> 99$</h6>
+                </div>
+                <div class="icon1-list-container">
+                  <div class="row icon-list d-flex align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/Vector-ticks.svg" alt="" />
+                    </div>
+                    <div class="col-10 text-start pt-1">
+                      <h6>Auto scaling API</h6>
+                    </div>
+                  </div>
+                  <div class="row icon-list d-flex align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/Vector-ticks.svg" alt="" />
+                    </div>
+                    <div class="col-10 text-start pt-1">
+                      <h6>Private RPC nodes</h6>
+                    </div>
+                  </div>
+                  <div class="row icon-list d-flex align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/Vector-ticks.svg" alt="" />
+                    </div>
+                    <div class="col-10 text-start pt-1"><h6>All Net</h6></div>
+                  </div>
+                  <div class="row icon-list d-flex align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/Vector-ticks.svg" alt="" />
+                    </div>
+                    <div class="col-10 text-start pt-1">
+                      <h6>Private caching and DB instances</h6>
+                    </div>
+                  </div>
+                  <div class="row icon-list d-flex align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/Vector-ticks.svg" alt="" />
+                    </div>
+                    <div class="col-10 text-start pt-1">
+                      <h6>Access to private decentralized storage nodes</h6>
+                    </div>
+                  </div>
+                  <div class="row icon-list d-flex align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/Vector-ticks.svg" alt="" />
+                    </div>
+                    <div class="col-10 text-start pt-1">
+                      <h6>Detailed analytics</h6>
+                    </div>
+                  </div>
+                  <div class="row icon-list d-flex align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/Vector-ticks.svg" alt="" />
+                    </div>
+                    <div class="col-10 text-start pt-1">
+                      <h6>Enterprise customer</h6>
+                    </div>
+                  </div>
+                  <div class="row icon-list d-flex align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/Vector-ticks.svg" alt="" />
+                    </div>
+                    <div class="col-10 text-start pt-1">
+                      <h6>Premium customer support</h6>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="text-center btn-contains d-flex flex-wrap justify-content-center align-content-end padder-grow"
+                >
+                  <button
+                    class="btn-solid-reg"
+                    style="width: 85%"
+                    routerLink="/get-api-key"
+                  >
+                    Get Started
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+          <div class="pricing-cards-container">
+            <div class="pricing-cards text-center">
+              <div class="pricing-cards-inner">
+                <div class="blue-band">
+                  <h6>Starter</h6>
+                </div>
+
+                <div class="icon1-list-container">
+                  <div class="row icon-list d-flex align-items-center pt-5">
+                    <h6 class="pt-3">
+                      NFT products time to go-to-market is very crucial. Shyft
+                      helps you to launch faster with minimum resources. We are
+                      here to help you to grow fast by building solutions for
+                      your custom needs. We are just one click away!
+                    </h6>
+                  </div>
+                </div>
+                <div
+                  class="text-center btn-contains d-flex flex-wrap justify-content-center align-content-end padder-enter"
+                >
+                  <button class="btn-solid-reg" style="width: 85%">
+                    <a
+                      href="mailto:team@shyft.to"
+                      style="text-decoration: none; color: #fff"
+                      >Contact Us</a
+                    >
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="row reversal">
-        <div class="col-sm-12 col-md-6 col-lg-6">
-          <div class="pt-3 text-center text-md-start">
-            <span class="inline-image"
-              ><a href="https://discord.gg/UypKpEH9" target="_blank"
-                ><img
-                  src="assets/images/Icons/discord.svg"
-                  alt="Shyft Discord"
-                /><span>Discord</span></a
-              ></span
-            >
-          </div>
-          <p class="p-para text-center text-md-start">
-            Get in touch to our discord community, know more about Shyft,
-            request features and get support on our channel.
-          </p>
-          <div class="text-center text-md-start">
-            <a href="https://discord.gg/UypKpEH9" target="_blank"
-              ><button class="btn-solid-reg">Join community</button></a
-            >
-          </div>
-          <p class="p-para text-center text-md-start">
-            Show some love on our social handles...Follow us
-          </p>
-          <div class="text-center text-md-start">
-            <span class="icon"
-              ><a href="https://twitter.com/shyft_to" target="_blank"
-                ><img
-                  src="assets/images/Icons/twitter.svg"
-                  alt="Shyft Twitter" /></a
-            ></span>
-            <span class="icon"
-              ><a href="https://github.com/Shyft-to" target="_blank"
-                ><img
-                  src="assets/images/Icons/github.svg"
-                  alt="Shyft GitHub" /></a
-            ></span>
-          </div>
-          <p class="p-para text-center text-md-start">
-            Discuss your project’s NFT requirements.
-          </p>
-          <div class="text-center text-md-start">
-            <button class="btn-solid-reg">E mail Us</button>
+    </div>
+    <div class="container-lg">
+      <div class="engage-section">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="pt-5 pb-3">
+              <h3 class="section-sub-heading">Engage With Us</h3>
+            </div>
           </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-6">
-          <div class="img-news">
-            <img
-              class="img-fluid floater-img"
-              src="assets/images/newsletter-1.png"
-              alt="Subscribe"
-            />
+        <div class="row reversal">
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="pt-3 text-center text-md-start">
+              <span class="inline-image"
+                ><a href="https://discord.com/invite/BvqNeDSY" target="_blank"
+                  ><img src="assets/images/Icons/discord.svg" alt="" /><span
+                    >Discord</span
+                  ></a
+                ></span
+              >
+            </div>
+            <p class="p-para text-center text-md-start">
+              Get in touch to our discord community, know more about Shyft,
+              request features and get support on our channel.
+            </p>
+            <div class="text-center text-md-start">
+              <a class="btn-solid-reg" href="https://discord.com/invite/BvqNeDSY" target="_blank">Join community</a>
+            </div>
+            <p class="p-para text-center text-md-start">
+              Show some love on our social handles...Follow us
+            </p>
+            <div class="text-center text-md-start">
+              <span class="icon"
+                ><a href="https://twitter.com/shyft_to" target="_blank"
+                  ><img
+                    src="assets/images/Icons/twitter.svg"
+                    alt="shyft_twitter" /></a
+              ></span>
+              <span class="icon"
+                ><a href="https://github.com/Shyft-to" target="_blank"
+                  ><img
+                    src="assets/images/Icons/github.svg"
+                    alt="shyft_github" /></a
+              ></span>
+            </div>
+            <p class="p-para text-center text-md-start">
+              Discuss your project’s NFT requirements.
+            </p>
+            <div class="text-center text-md-start">
+              <button class="btn-solid-reg">
+                <a
+                  href="mailto:team@shyft.to"
+                  style="text-decoration: none; color: #fff"
+                  >E mail Us</a
+                >
+              </button>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="img-news">
+              <img
+                class="img-fluid floater-img"
+                src="assets/images/newsletter-1.png"
+                alt="Subscribe"
+              />
+            </div>
           </div>
         </div>
       </div>

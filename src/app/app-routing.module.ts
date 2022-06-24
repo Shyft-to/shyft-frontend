@@ -19,10 +19,10 @@ const routes: Routes = [
     path: 'access-to-nft',
     component: AccessToNftComponent,
   },
-  // {
-  //   path: 'terms',
-  //   component: TermsComponent,
-  // },
+  {
+    path: 'terms',
+    component: TermsComponent,
+  },
   {
     path: 'dashboard',
     loadChildren: () => import('./modules/authentication/authentication.module')

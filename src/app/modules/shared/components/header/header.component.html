@@ -6,7 +6,9 @@
 <nav class="navbar navbar-expand fixed-top our-navbar">
   <div class="container-fluid contained-nav">
     <!-- Navbar brand -->
-    <a class="navbar-brand me-2" routerLink="/"><img src="assets/images/shyft_logo.svg" style="width: 40px;" alt="Shyft"></a>
+    <a class="navbar-brand me-2" routerLink="/"
+      ><img src="assets/images/shyft_logo_2.svg" style="width: 80px" alt="Shyft"
+    /></a>
 
     <button
       class="navbar-toggler"
@@ -24,15 +26,13 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
 
       <div class="d-flex align-items-center">
-        <!-- <a type="button" class="btn btn-link px-3 me-2"> Why Us </a>
-        <a type="button" class="btn btn-link px-3 me-2"> Partner With Us </a> -->
+        <a type="button" class="btn btn-link px-3 me-2" href="https://api.shyft.to/sol/api/explore" target="_blank"> APIs </a>
+        <a type="button" href="#the_pricing" class="btn btn-link px-3 me-2"> Pricing </a>
+        <a type="button" class="btn btn-link px-3 me-2" href="https://docs.shyft.to" target="_blank"> Docs </a>
         <button
           id="side-panel"
           [ngStyle]="{
-            display:
-              isDashboardUrl && isMenuActive
-                ? 'block'
-                : 'none'
+            display: isDashboardUrl && isMenuActive ? 'block' : 'none'
           }"
           type="button"
           class="btn btn-primary me-3"
