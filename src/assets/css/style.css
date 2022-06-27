@@ -667,26 +667,30 @@ html {
   }
   .style-circle-container {
     position: relative;
-    padding-top: 200px;
+    padding-top: 40px;
     max-width: 100%;
   }
   .style-circle {
     background-color: #4e58cd;
     background: linear-gradient(201.93deg, #4e58cd 13.09%, #97d2ff 88.9%);
-    height: 500px;
-    width: 500px;
-    position: relative;
+    height: 400px;
+    width: 400px;
+    position: absolute;
     border-radius: 50%;
-    float: right;
+    /* float: right; */
+    left: 61px;
   }
   .image-rocket {
     position: absolute;
     z-index: 2;
     width: 100%;
+    /* height: 459px;  */
+    /* left: -275px;  */
     left: -75px;
     top: -52px;
   }
   .image-investor {
+    /* margin-top: -9rem;  */
     position: absolute;
     width: 60%;
     z-index: 3;
@@ -695,6 +699,8 @@ html {
     left: 51px;
   }
   .image-marketer {
+    /* display: none; */
+    /* margin-top: -9rem;  */
     position: absolute;
     z-index: 3;
     width: 50%;
@@ -722,6 +728,12 @@ html {
   }
 }
 @media (max-width: 576px) {
+  .style-circle-container {
+    position: relative;
+    padding-top: 130px;
+    max-width: 100%;
+    margin-top: -60px;
+  }
   .money-bag-man-img {
     position: absolute;
     z-index: 7;
@@ -766,11 +778,6 @@ html {
   .custom-padding-10 {
     padding-top: 120px !important;
   }
-  .style-circle-container {
-    position: relative;
-    padding-top: 130px;
-    max-width: 100%;
-  }
   .style-circle {
     background-color: #4e58cd;
     background: linear-gradient(201.93deg, #4e58cd 13.09%, #97d2ff 88.9%);
@@ -784,6 +791,7 @@ html {
     position: absolute;
     z-index: 2;
     width: 100%;
+    
     left: -56px;
     top: -80px;
   }
@@ -795,6 +803,7 @@ html {
     right: 0;
   }
   .image-marketer {
+    
     position: absolute;
     z-index: 3;
     width: 55%;
@@ -2000,7 +2009,7 @@ button:disabled {
   padding: 60px 10px 30px 10px;
 }
 .time-taking-cards .top-img-container {
-  height: 170px;
+  /* height: 170px; */
   width: 100%;
   margin: 0 auto;
 }
@@ -2034,7 +2043,7 @@ button:disabled {
     padding: 20px 5px;
   }
   .time-taking-cards .top-img-container {
-    height: 100px;
+    /* height: 100px; */
     width: 100%;
     margin: 0 auto;
   }
@@ -2071,6 +2080,11 @@ button:disabled {
   {
     height: 50px;
   }
+  .style-circle-container
+  {
+    padding-top: 90px;
+    padding-bottom: 30px;
+  }
 }
 @media (max-width: 576px) {
   .time-taking-cards {
@@ -2079,7 +2093,7 @@ button:disabled {
     padding: 30px 10px;
   }
   .time-taking-cards .top-img-container {
-    height: 140px;
+    /* height: 140px; */
     width: 100%;
     margin: 0 auto;
   }
@@ -2701,16 +2715,15 @@ p.custom-desc-title a::before {
 
 @media (min-width: 577px) and (max-width: 767px) {
   .time-taking-cards .top-img-container {
-    padding-bottom: 80px;
-
+    padding-bottom: 30px;
     height: 100%;
   }
   .time-taking-cards .top-img-container img {
-    width: 20%;
-    padding-bottom: 40px;
+    width: 30%;
+    padding-bottom: 5px;
   }
   .time-taking-cards .card-title {
-    padding-top: 40px;
+    padding-top: 10px;
   }
 }
 
