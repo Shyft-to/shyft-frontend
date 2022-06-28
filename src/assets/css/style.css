@@ -634,12 +634,17 @@ html {
 .logo-section-container {
   padding-bottom: 10rem;
 }
+.cstm-footer-links
+{
+  padding-top: 30px;
+}
 .footer-link-container {
   font-family: Poppins, sans-serif;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 0.1em;
   color: #112f4a;
+  padding-top: 20px;
 }
 .footer-link-container a {
   text-decoration: none !important;
@@ -724,7 +729,7 @@ html {
     background-position: 100% -1%, left top, 100% 50%, left bottom, left bottom;
     background-size: 15% auto, 100% auto, 30% auto, 18% auto, 101% auto;
     padding-top: 10px;
-    padding-bottom: 150px;
+    padding-bottom: 60px;
   }
 }
 @media (max-width: 576px) {
@@ -771,7 +776,7 @@ html {
     background-position: 100% -1%, left top, 100% 15%, left bottom, left bottom;
     background-size: 20% auto, 100% auto, 70% auto, 25% auto, 101% auto;
     padding-top: 5px;
-    padding-bottom: 100px;
+    padding-bottom: 30px;
   }
 }
 @media (max-width: 600px) {
@@ -2728,7 +2733,7 @@ p.custom-desc-title a::before {
 }
 
 .things-with-shyft {
-  padding: 120px 0px;
+  padding: 60px 0px;
 }
 .things-with-shyft .section-sub-heading {
   margin-bottom: 80px;
@@ -2987,6 +2992,9 @@ p.custom-desc-title a::before {
     background-size: 60% auto, 100% auto, 40% auto, 60% auto, 100% auto;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
   }
+  .things-with-shyft {
+    padding: 60px 0px;
+  }
 }
 
 .padder-free {
@@ -3108,4 +3116,15 @@ a.btn-solid-reg:hover
 .hover-on-white:hover
 {
   color: #112f4a;
+}
+@media (max-width: 576px)
+{
+  .custom-nav-links
+  {
+    padding-top: 3px;
+  }
+  .custom-nav-links a
+  {
+    font: 500 12px/0 "Poppins", sans-serif;
+  }
 }
