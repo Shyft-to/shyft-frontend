@@ -1475,7 +1475,7 @@ button:disabled {
   pointer-events: all !important;
 }
 .engage-section {
-  padding-top: 10px;
+  padding-top: 60px;
 }
 
 .engage-section .section-sub-heading {
@@ -1970,6 +1970,14 @@ button:disabled {
     width: 100%;
     height: 120px;
     overflow: hidden;
+  }
+  .engage-section .section-sub-heading {
+    font: 700 2.5rem/3.75rem "Montserrat", sans-serif;
+    letter-spacing: 4px;
+    color: #112f4a;
+  }
+  .our-pricing-section .section-sub-heading {
+    padding-bottom: 8px;
   }
 }
 
