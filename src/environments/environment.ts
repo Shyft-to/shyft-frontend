@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: "https://api.shyft.to",
+  url: "https://api.shyft.to/sol/v1",
 };
 
 /*

@@ -1,10 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CreateNftService } from 'src/app/core/http/create-nft.service';
 import { environment } from 'src/environments/environment';
 import { ClipboardService } from 'ngx-clipboard';
 import { ToastrService } from 'ngx-toastr';
+
+interface Attribute {
+  trait_type: string;
+  value: string | number;
+}
 
 @Component({
   selector: 'app-create-nft-page',
@@ -13,12 +23,19 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CreateNftPageComponent implements OnInit {
   // apiKey: string | null = '';
+  isSubmitted: boolean = false;
   isLoaded: boolean = true;
   authorizationKey: string = '';
   name: string | null = 'FILE_NAME';
   description: string | null = 'DESCRIPTION';
-  mintTo: string = '';
+  private_key: string = '';
+  symbol: string = '';
+  network: string = 'devnet';
+  max_supply: number = 1;
+  royalty: number = 5;
   image: any = 'assets/images/blank-img.png';
+  external_url: string = '';
+  attributes: Attribute[] = [{ trait_type: 'edification', value: '100' }];
   url: string = environment.url;
   defaultCurl: string = '';
   createNftForm!: FormGroup;
@@ -29,31 +46,54 @@ export class CreateNftPageComponent implements OnInit {
     private domSanitizer: DomSanitizer,
     private clipboardService: ClipboardService,
     private toastr: ToastrService,
-    private createNftService: CreateNftService,
+    private createNftService: CreateNftService
   ) {
-    this.defaultCurl = `curl --location --request POST '${environment.url}' \
-    --header 'Content-Type: application/json' \
-    --form 'file=@"/path-to-your-file/${this.name}"' \
-    --form 'mintTo="${this.mintTo}"' \
-    --form 'name="wallet"' \
-    --form 'description="${this.description}"' \
-    --form 'authorizationKey="${this.authorizationKey}"'`;
+    // this.defaultCurl = `curl --location --request POST '${environment.url}' \
+    // --header 'Content-Type: application/json' \
+    // --form 'file=@"/path-to-your-file/${this.name}"' \
+    // --form 'mintTo="${this.mintTo}"' \
+    // --form 'name="wallet"' \
+    // --form 'description="${this.description}"' \
+    // --form 'authorizationKey="${this.authorizationKey}"'`;
+    this.defaultCurl = `curl -X 'POST' \
+    'https://api.shyft.to/sol/v1/nft/create' \
+    -H 'accept: application/json' \
+    -H 'x-api-key: ${this.authorizationKey}' \
+    -H 'Content-Type: multipart/form-data' \
+    -F 'private_key=5GGZQpoiDHuWwt3GmwVGZPRJLwMonq4ozgMXyiQ5grbPzgF3k35dkBXywXvBBKbxvNq76L3teJcJ53Emsda92D5v' \
+    -F 'max_supply=${this.max_supply}' \
+    -F 'name=${this.name}' \
+    -F 'royalty=${this.royalty}' \
+    -F 'network=${this.network}' \
+    -F 'attributes=${this.attributes}' \
+    -F 'symbol=${this.symbol}' \
+    -F 'external_url=${this.external_url}' \
+    -F 'file=@1i8x_panda.jpeg;type=image/jpeg' \
+    -F 'description=${this.description}'`;
   }
 
   async ngOnInit(): Promise<any> {
     // this.apiKey = localStorage.getItem("api_key");
-    this.response = null;
     this.createNftForm = this.formBuilder.group({
-      name: [''],
-      file: [''],
-      description: [''],
-      mintTo: [this.mintTo || ''],
-      authorizationKey: [localStorage.getItem('authorizationKey') || ''],
+      name: ['', Validators.required],
+      symbol: ['', Validators.required],
+      file: ['', Validators.required],
+      description: ['', Validators.required],
+      attributes: [JSON.stringify(this.attributes), Validators.required],
+      max_supply: [this.max_supply, Validators.required],
+      royalty: [this.royalty, Validators.required],
+      external_url: [''],
+      private_key: [this.private_key, Validators.required],
+      authorizationKey: [
+        localStorage.getItem('authorizationKey') || '',
+        Validators.required,
+      ],
+      network: [this.network, Validators.required],
     });
-    this.checkMetamask();
-    await this.connectAccount();
+    // this.checkMetamask();
+    // await this.connectAccount();
     this.createNftForm.patchValue({
-      mintTo: this.mintTo,
+      private_key: this.private_key,
     });
   }
 
@@ -77,23 +117,42 @@ export class CreateNftPageComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isSubmitted = true;
+    if (this.createNftForm.invalid) {
+      return;
+    }
     this.isLoaded = false; // on loader
     const formData = new FormData();
     formData.append('name', this.createNftForm.get('name')?.value);
+    formData.append('symbol', this.createNftForm.get('symbol')?.value);
     formData.append('file', this.createNftForm.get('file')?.value);
-    formData.append('mintTo', this.createNftForm.get('mintTo')?.value);
+    formData.append(
+      'private_key',
+      this.createNftForm.get('private_key')?.value
+    );
+    formData.append('network', this.createNftForm.get('network')?.value);
+    formData.append('attributes', this.createNftForm.get('attributes')?.value);
+    formData.append('max_supply', this.createNftForm.get('max_supply')?.value);
+    formData.append('royalty', this.createNftForm.get('royalty')?.value);
+    formData.append(
+      'external_url',
+      this.createNftForm.get('external_url')?.value
+    );
     formData.append(
       'description',
       this.createNftForm.get('description')?.value
     );
-    formData.append(
-      'authorizationKey',
-      this.createNftForm.get('authorizationKey')?.value
-    );
-    this.createNftService.createNft(formData).subscribe(
+    
+    // formData.append(
+    //   'authorizationKey',
+    //   this.createNftForm.get('authorizationKey')?.value
+    // );
+    this.createNftService.createNft(this.authorizationKey, formData).subscribe(
       (res: any) => {
         if (res.status === 'success') {
           this.response = res;
+          console.log(this.response);
+
           localStorage.setItem('authorizationKey', this.authorizationKey);
           this.isLoaded = true; // off loader
         } else {
@@ -107,8 +166,8 @@ export class CreateNftPageComponent implements OnInit {
       }
     );
   }
-  onChangeMintTo(event: string) {
-    this.mintTo = event;
+  onChangePrivateKey(event: string) {
+    this.private_key = event;
     this.defaultCurl = this.defaultCurlGenerator();
   }
   onChangeDescription(event: string) {
@@ -119,18 +178,46 @@ export class CreateNftPageComponent implements OnInit {
     this.name = event;
     this.defaultCurl = this.defaultCurlGenerator();
   }
+  onChangeSymbol(event: string) {
+    this.symbol = event.toUpperCase();
+    this.defaultCurl = this.defaultCurlGenerator();
+  }
   onChangeAuthorizationKey(event: string) {
     this.authorizationKey = event;
     this.defaultCurl = this.defaultCurlGenerator();
   }
+  onChangeAttributes(event: string) {
+    this.attributes = JSON.parse(event);
+    this.defaultCurl = this.defaultCurlGenerator();
+  }
+  onChangeMaxSupply(event: string) {
+    this.max_supply = parseInt(event);
+    this.defaultCurl = this.defaultCurlGenerator();
+  }
+  onChangeRoyalty(event: string) {
+    this.royalty = parseInt(event);
+    this.defaultCurl = this.defaultCurlGenerator();
+  }
+  onChangeExternalUrl(event: string) {
+    this.external_url = event;
+    this.defaultCurl = this.defaultCurlGenerator();
+  }
   defaultCurlGenerator() {
-    const curl = `curl --location --request POST '${this.url}' \
-    --header 'Content-Type: application/json' \
-    --form 'file=@"/path-to-your-file/${this.name}"' \
-    --form 'mintTo="${this.mintTo}"' \
-    --form 'name="wallet"' \
-    --form 'description="${this.description}"' \
-    --form 'authorizationKey="${this.authorizationKey}"'`;
+    const curl = `curl -X 'POST' \
+    'https://api.shyft.to/sol/v1/nft/create' \
+    -H 'accept: application/json' \
+    -H 'x-api-key: ${this.authorizationKey}' \
+    -H 'Content-Type: multipart/form-data' \
+    -F 'private_key=5GGZQpoiDHuWwt3GmwVGZPRJLwMonq4ozgMXyiQ5grbPzgF3k35dkBXywXvBBKbxvNq76L3teJcJ53Emsda92D5v' \
+    -F 'max_supply=${this.max_supply}' \
+    -F 'name=${this.name}' \
+    -F 'royalty=${this.royalty}' \
+    -F 'network=${this.network}' \
+    -F 'attributes=${this.attributes}' \
+    -F 'symbol=${this.symbol}' \
+    -F 'external_url=${this.external_url}' \
+    -F 'file=@1i8x_panda.jpeg;type=image/jpeg' \
+    -F 'description=${this.description}'`;
     return curl;
   }
 
@@ -143,34 +230,38 @@ export class CreateNftPageComponent implements OnInit {
 
   copyTokenId() {
     if (this.response) {
-      this.clipboardService.copyFromContent(this.response.tokenId);      
+      this.clipboardService.copyFromContent(this.response.tokenId);
       this.toastr.success('Copied!', '', {
         timeOut: 1500,
       });
-    } else { 
+    } else {
       this.toastr.error('Please create NFT first!', '', {
         timeOut: 1500,
       });
     }
   }
 
-  checkMetamask() {
-    if (typeof window.ethereum !== 'undefined') {
-      console.log('MetaMask is installed!');
-    } else {
-      console.log('MetaMask is not installed!');
-    }
+  get f(): { [key: string]: AbstractControl } {
+    return this.createNftForm.controls;
   }
 
-  async connectAccount() {
-    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-    this.mintTo = accounts[0];
-    console.log('Metamask Address', this.mintTo);
-    let balance = await window.ethereum.request({ method: 'eth_getBalance', params: [accounts[0],"latest"] });
-    balance = ((parseInt(balance, 16)) / 1000000000000000000);
-    console.log('Metamask Balance', balance);
-    
-  }
+  // checkMetamask() {
+  //   if (typeof window.ethereum !== 'undefined') {
+  //     console.log('MetaMask is installed!');
+  //   } else {
+  //     console.log('MetaMask is not installed!');
+  //   }
+  // }
+
+  // async connectAccount() {
+  //   const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+  //   this.mintTo = accounts[0];
+  //   console.log('Metamask Address', this.mintTo);
+  //   let balance = await window.ethereum.request({ method: 'eth_getBalance', params: [accounts[0],"latest"] });
+  //   balance = ((parseInt(balance, 16)) / 1000000000000000000);
+  //   console.log('Metamask Balance', balance);
+
+  // }
 }
 
 declare global {

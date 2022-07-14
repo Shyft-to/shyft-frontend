@@ -30,7 +30,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/dashboard/create-nft-solana',
+        redirectTo: '/dashboard/create-nft',
         pathMatch: 'full',
       }
     ]

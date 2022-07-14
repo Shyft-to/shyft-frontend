@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {
   HttpClient,
   HttpErrorResponse,
-  HttpEvent,
   HttpEventType,
+  HttpHeaders,
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -20,9 +20,10 @@ export class CreateNftService {
     this.progress = 1;
   }
 
-  public createNft(formData: any): Observable<any> {
+  public createNft(authorizationKey: string, formData: any): Observable<any> {
     return this._http
-      .post<any>(`${this._url}/createNft`, formData, {
+      .post<any>(`${this._url}/nft/create`, formData, {
+        headers: new HttpHeaders({ 'x-api-key': authorizationKey }),
         reportProgress: true,
         observe: 'events',
         responseType: 'json',

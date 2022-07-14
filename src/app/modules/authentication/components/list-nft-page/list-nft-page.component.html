@@ -12,21 +12,41 @@
             <form
               [formGroup]="listNftForm"
               #listForm="ngForm"
-              (ngSubmit)="listNfts(listForm.value)"
+              (ngSubmit)="onSubmit()"
             >
+            <label for="authorization" class="form-label p-port-form-heads"
+                  >Authorization Key</label
+                >
+                <input
+                  type="text"
+                  class="form-control form-control-lg portfolio-form-styles"
+                  placeholder="Enter Your Wallet Address"
+                  formControlName="authorizationKey"
+                  (ngModelChange)="onChangeAuthorizationKey($event)"
+                  [ngClass]="{
+                    'is-invalid': isSubmitted && f.authorizationKey.errors
+                  }"
+                />
               <div
-                [ngClass]="{
-                  'is-invalid': isSubmitted && f.address.errors
-                }"
+                *ngIf="isSubmitted && f.authorizationKey.errors"
+                class="invalid-feedback"
               >
+                <div *ngIf="f.authorizationKey.errors.required === true">
+                  API key is required!
+                </div>
+              </div>
+              <label for="authorization" class="form-label p-port-form-heads"
+                  >Wallet Address</label
+                >
                 <input
                   type="text"
                   class="form-control form-control-lg portfolio-form-styles"
                   placeholder="Enter Your Wallet Address"
                   formControlName="address"
+                  [ngClass]="{
+                    'is-invalid': isSubmitted && f.address.errors
+                  }"
                 />
-                <span class="error-block"></span>
-              </div>
               <div
                 *ngIf="isSubmitted && f.address.errors"
                 class="invalid-feedback"
@@ -35,19 +55,39 @@
                   Wallet ID is required!
                 </div>
               </div>
+              <label for="authorization" class="form-label p-port-form-heads"
+              >Update Authority</label
+            >
+            <input
+              type="text"
+              class="form-control form-control-lg portfolio-form-styles"
+              placeholder="Update Authority Address"
+              formControlName="update_authority"
+              [ngClass]="{
+                'is-invalid': isSubmitted && f.update_authority.errors
+              }"
+            />
+          <div
+            *ngIf="isSubmitted && f.update_authority.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.update_authority.errors.required === true">
+              update_authority is required!
+            </div>
+          </div>
               <div>
                 <label for="sel-chain" class="form-label p-port-form-heads"
-                  >Blockchain</label
+                  >Network</label
                 >
                 <select
                   class="form-select port-form-styles-left"
                   id="sel-chain"
-                  name="selchain"
+                  name="network"
+                  formControlName="network"
                 >
-                  <option [disabled]="true" value="Etherium">Etherium</option>
-                  <option [disabled]="true" value="Polygon">Polygon</option>
-                  <option value="Solana" [selected]="true">Solana</option>
-                  <option [disabled]="true" value="Celo">Celo</option>
+                  <option value="devnet" [selected]="true">Devnet</option>
+                  <option value="testnet">Testnet</option>
+                  <option value="mainnet-beta">Mainnet (Beta)</option>
                 </select>
               </div>
               <div class="submit-button-cont text-center text-md-start">
@@ -105,7 +145,7 @@
           <div class="cards-outer-port">
             <div class="inner-box">
               <div class="inner-box-img-container">
-                <img [src]="nft.image" (click)="nftView(i)" />
+                <img [src]="nft.image_uri" (click)="nftView(i)" />
               </div>
               <p class="port-para-2">{{ nft.name }}</p>
               <p class="port-para-2" *ngIf="!nft.name">Nan</p>
@@ -127,10 +167,10 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="det-img-container">
-            <img class="img-fluid" [src]="selectedNft.image" alt="" />
+            <img class="img-fluid" [src]="selectedNft.image_uri" alt="" />
           </div>
           <div class="my-1">
-            <button class="port-faded-reg port-faded-active" (click)="burnNft()" [disabled]="isDeletedNft"><span>{{isDeletedNft  ? 'Deleted' : 'Delete'}} <i class="fa fa-spinner fa-spin" *ngIf="isDeletingNft"></i></span></button>
+            <!-- <button class="port-faded-reg port-faded-active" (click)="burnNft()" [disabled]="isDeletedNft"><span>{{isDeletedNft  ? 'Deleted' : 'Delete'}} <i class="fa fa-spinner fa-spin" *ngIf="isDeletingNft"></i></span></button> -->
           </div>
         </div>
         <div class="col-lg-6">
@@ -141,7 +181,7 @@
               ><strong style="margin-left: 5px;" (click)="showMoreLess()">{{ isShowLess ? 'Show more' : 'Show less' }}</strong>
             </p>
             <p class="desc-link">
-              <a [href]="selectedNft.image">{{ selectedNft.image }}</a>
+              <a [href]="selectedNft.image_uri">{{ selectedNft.image_uri }}</a>
             </p>
             <div class="desc-royalty">
               <div class="row">
@@ -227,7 +267,7 @@ curl --request POST \
             <div class="cards-outer-port-2">
               <div class="inner-box">
                 <div class="inner-box-img-container">
-                  <img [src]="nft.image" (click)="showDetail(i)"/>
+                  <img [src]="nft.image_uri" (click)="showDetail(i)"/>
                 </div>
 
                 <p class="port-para-3">{{nft.name}}</p>

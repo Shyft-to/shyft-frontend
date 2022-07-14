@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-md-12 col-lg-6">
         <form [formGroup]="createNftForm" (ngSubmit)="onSubmit()">
-          <div>
+          <div class="form-group">
             <label for="auth" class="form-label p-para">Authorization</label>
             <input
               type="text"
@@ -17,19 +17,41 @@
               (ngModelChange)="onChangeAuthorizationKey($event)"
               class="form-control form-control-lg our-form-styles"
               placeholder="Authorization Key"
+              [ngClass]="{
+                'is-invalid': isSubmitted && f.authorizationKey.errors
+              }"
             />
+            <div
+              *ngIf="isSubmitted && f.authorizationKey.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.authorizationKey.errors.required">
+                Authorization key is required
+              </div>
+            </div>
           </div>
           <div class="pt-2">
-            <label for="mint" class="form-label p-para"
-              >Mint - to - address</label
+            <label for="private_key" class="form-label p-para"
+              >Private Key</label
             >
             <input
               type="text"
-              formControlName="mintTo"
-              (ngModelChange)="onChangeMintTo($event)"
+              formControlName="private_key"
+              (ngModelChange)="onChangePrivateKey($event)"
               class="form-control form-control-lg our-form-styles"
-              placeholder="Mint-to-address"
+              placeholder="private_key"
+              [ngClass]="{
+                'is-invalid': isSubmitted && f.private_key.errors
+              }"
             />
+            <div
+              *ngIf="isSubmitted && f.private_key.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.private_key.errors.required">
+                Private key is required
+              </div>
+            </div>
           </div>
           <div class="pt-2">
             <label class="form-label p-para">Upload File</label>
@@ -58,7 +80,16 @@
                     name="file"
                     class="file-up"
                     (change)="onSelectedFile($event)"
+                    [ngClass]="{
+                      'is-invalid': isSubmitted && f.file.errors
+                    }"
                   />
+                  <div
+                    *ngIf="isSubmitted && f.file.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f.file.errors.required">File is required</div>
+                  </div>
                 </div>
                 <label class="form-label dash-para-head">Name</label>
                 <input
@@ -68,36 +99,137 @@
                   class="form-control form-control-lg our-form-styles"
                   placeholder="Enter Asset Name"
                   value="Distruction"
+                  [ngClass]="{
+                    'is-invalid': isSubmitted && f.name.errors
+                  }"
                 />
+                <div
+                  *ngIf="isSubmitted && f.name.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.name.errors.required">Name is required</div>
+                </div>
+                <label class="form-label dash-para-head">Symbol</label>
+                <input
+                  type="text"
+                  formControlName="symbol"
+                  [(ngModel)]="symbol"
+                  (ngModelChange)="onChangeSymbol($event)"
+                  class="form-control form-control-lg our-form-styles"
+                  placeholder="Enter Asset Symbol"
+                  value="SHY"
+                  [ngClass]="{
+                    'is-invalid': isSubmitted && f.symbol.errors
+                  }"
+                />
+                <div
+                  *ngIf="isSubmitted && f.symbol.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.symbol.errors.required">Symbol is required</div>
+                </div>
               </div>
             </div>
           </div>
           <div class="pt-2">
-            <label for="sel-chain" class="form-label p-para">Blockchain</label>
+            <label for="sel-chain" class="form-label p-para">Network</label>
             <select
               class="form-select our-form-styles"
               id="sel-chain"
-              name="selchain"
+              name="network"
+              formControlName="network"
             >
-              <option value="Etherium">Etherium</option>
-              <option value="Polygon" [disabled]="true">Polygon</option>
-              <option value="Solana" [disabled]="true">Solana</option>
-              <option value="Celo" [disabled]="true">Celo</option>
+              <option value="devnet">Devnet</option>
+              <option value="testnet">Testnet</option>
+              <option value="mainnet-beta">Mainnet (Beta)</option>
             </select>
           </div>
           <div>
             <label for="desc" class="form-label p-para">Description</label>
-            <p class="p-para-light">
+            <!-- <p class="p-para-light">
               The description will be included on the item's detail page
               underneath its image. Markdown syntax is supported.
-            </p>
+            </p> -->
             <textarea
               formControlName="description"
               (ngModelChange)="onChangeDescription($event)"
               class="form-control our-form-styles-textarea"
               rows="5"
               id="desc"
+              [ngClass]="{
+                'is-invalid': isSubmitted && f.description.errors
+              }"
             ></textarea>
+            <div
+              *ngIf="isSubmitted && f.description.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.description.errors.required">
+                Description is required
+              </div>
+            </div>
+            <label for="desc" class="form-label p-para">Attributes</label>
+            <textarea
+              formControlName="attributes"
+              (ngModelChange)="onChangeAttributes($event)"
+              class="form-control our-form-styles-textarea"
+              rows="2"
+              id="desc"
+              [ngClass]="{
+                'is-invalid': isSubmitted && f.attributes.errors
+              }"
+            ></textarea>
+            <div
+              *ngIf="isSubmitted && f.attributes.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.attributes.errors.required">
+                Attributes are required
+              </div>
+            </div>
+            <label class="form-label dash-para-head">Max Supply</label>
+            <input
+              type="text"
+              formControlName="max_supply"
+              (ngModelChange)="onChangeMaxSupply($event)"
+              class="form-control form-control-lg our-form-styles"
+              [value]="max_supply"
+              [ngClass]="{
+                'is-invalid': isSubmitted && f.max_supply.errors
+              }"
+            />
+            <div
+              *ngIf="isSubmitted && f.max_supply.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.max_supply.errors.required">
+                Max supply is required
+              </div>
+            </div>
+            <label class="form-label dash-para-head">Royalty</label>
+            <input
+              type="text"
+              formControlName="royalty"
+              (ngModelChange)="onChangeRoyalty($event)"
+              class="form-control form-control-lg our-form-styles"
+              [value]="royalty"
+              [ngClass]="{
+                'is-invalid': isSubmitted && f.royalty.errors
+              }"
+            />
+            <div
+              *ngIf="isSubmitted && f.royalty.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.royalty.errors.required">Royalty is required</div>
+            </div>
+            <label class="form-label dash-para-head">External URL</label>
+            <input
+              type="text"
+              formControlName="external_url"
+              (ngModelChange)="onChangeExternalUrl($event)"
+              class="form-control form-control-lg our-form-styles"
+            />
           </div>
           <div class="pt-4">
             <button class="dash-button" type="submit">Send API Request</button>
@@ -112,16 +244,17 @@
           <div class="col-sm-12 col-md-6 col-lg-12 col-xl-12 p-1">
             <div class="request-boxes mt-4">
               <div class="heading-box">
-                <table style="width: 100%;">
+                <table style="width: 100%">
                   <tr>
-                    <td
-                      class="headings"
-                      style="width: 73%; padding: 20px 20px"
-                    >
+                    <td class="headings" style="width: 73%; padding: 20px 20px">
                       Shell/cURL
                     </td>
-                    <td style="width: 30%; position: relative;">
-                      <button class="copy-btn" style="position: absolute; right: 10px; bottom:10px;" (click)="copyCurl()">
+                    <td style="width: 30%; position: relative">
+                      <button
+                        class="copy-btn"
+                        style="position: absolute; right: 10px; bottom: 10px"
+                        (click)="copyCurl()"
+                      >
                         Copy
                       </button>
                     </td>
@@ -139,16 +272,17 @@
           <div class="col-sm-12 col-md-6 col-lg-12 col-xl-12 p-1">
             <div class="request-boxes mt-4">
               <div class="heading-box">
-                <table style="width: 100%;">
+                <table style="width: 100%">
                   <tr>
-                    <td
-                      class="headings"
-                      style="width: 55%; padding: 20px 20px"
-                    >
+                    <td class="headings" style="width: 55%; padding: 20px 20px">
                       Response
                     </td>
-                    <td style="width: 30%; position: relative;">
-                      <button class="copy-btn" style="position: absolute; right: 10px; bottom:10px;" (click)="copyTokenId()">
+                    <td style="width: 30%; position: relative">
+                      <button
+                        class="copy-btn"
+                        style="position: absolute; right: 10px; bottom: 10px"
+                        (click)="copyTokenId()"
+                      >
                         Copy Token ID
                       </button>
                     </td>
@@ -156,8 +290,9 @@
                 </table>
               </div>
               <div class="box-body">
-                <textarea class="transparent-inputs"
-                  >{{ response | json }}</textarea>
+                <textarea class="transparent-inputs">{{
+                  response | json
+                }}</textarea>
               </div>
             </div>
           </div>
@@ -169,13 +304,13 @@
       <div class="col-md-12 col-lg-5">
         <p class="p-para-normal">
           <strong class="p-para">POST</strong>
-          https://api.shyft.to/createNft
+          https://api.shyft.to/sol/v1/nft/create
         </p>
 
         <p class="p-para-normal">
-          You can turn anything into an NFT in less than 2
-          minutes using one simple API call. If you are new to minting, see Easy
-          minting quickstart.
+          You can turn anything into an NFT in less than 2 minutes using one
+          simple API call. If you are new to minting, see Easy minting
+          quickstart.
         </p>
 
         <p class="p-para-normal">
@@ -213,7 +348,7 @@
           </div>
           <div class="box-body">
             <textarea class="transparent-inputs">
-{"transaction_hash":"0x3c375a1bc02b39eeb306b0e5ddf3f30e3f1433f0609b145a9c0df8e97fe2b08c","mint_to_address":"0x48295f586c5A078876438C16200c1F2600010d32","contract_address":"0x48295f586c5A078876438C16200c1F2600010d32","tokenId":"46","name":"Screenshot 2022-04-11 at 11.17.35 AM.png","description":"des","status":"success"}
+{"success":true,"message":"NFT created successfully","result":{"txId":"5QwKpJt1M8FMSyXcPCzk1vmExGdM14GRboqJFSqWFQEbbVzkHjLsZCgFNv3BeGYz6aETnSBPwKNfBSWPUAVGQ5S6","mint":"3bVBmw4TATG32ng34zZrPjWgNtJaQUGxjHHCehSzvRAC","metadata":"DzVi1r2Q78vRzrg2b66A9Fozzt7C1apGyjvJuvpWL3fS","edition":"AD6xHHUdpYJJdr9wMFdMZ9M7mopkde7Trkoh3ZV1mYmi"}}
             </textarea>
           </div>
         </div>
