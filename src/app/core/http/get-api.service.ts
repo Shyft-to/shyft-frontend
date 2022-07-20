@@ -15,7 +15,7 @@ export class GetApiService {
 
   public getApiKey(body: any): Observable<any> {
     return this._http.post<any>(
-      `${this._url}/signup`,
+      `${this._url}/get_api_key`,
       body,
     );
   }

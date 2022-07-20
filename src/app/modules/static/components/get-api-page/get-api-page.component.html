@@ -22,13 +22,13 @@
             <input
               type="email"
               class="form-control form-control-lg our-form-styles"
-              formControlName="emailId"
-              [ngClass]="{ 'is-invalid': isSubmitted && f.emailId.errors }"
+              formControlName="email"
+              [ngClass]="{ 'is-invalid': isSubmitted && f.email.errors }"
               placeholder="Enter email address"
             />
-            <div *ngIf="isSubmitted && f.emailId.errors" class="invalid-feedback">
-              <div *ngIf="f.emailId.errors.required">Email is required</div>
-              <div *ngIf="f.emailId.errors.email">
+            <div *ngIf="isSubmitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.email">
                 Email must be a valid email address
               </div>
             </div>
