@@ -21,8 +21,15 @@
               </button>
             </div>
             <div class="btns">
-              <div class="btn-outline-gradient-button" (click)="talkToAnExpert()">
-                <div class="inner-white-area text-center">Talk to an Expert</div>
+              <div class="btn-outline-gradient-button">
+                <a
+                  class="hover-on-white"
+                  style="text-decoration: none"
+                  href="https://docs.shyft.to"
+                  target="_blank"
+                >
+                  <div class="inner-white-area text-center">Read Docs</div>
+                </a>
               </div>
             </div>
           </div>
@@ -54,19 +61,21 @@
         <div class="hero-button-container-2 text-center">
           <button class="btn-solid-reg-2 mb-3">Try Shyft for Free</button>
           <div class="btn-outline-gradient-button">
-            <!-- <a
+            <a
               class="hover-on-white"
               style="text-decoration: none"
               href="https://docs.shyft.to"
               target="_blank"
             >
               <div class="inner-white-area">Read Docs</div>
-            </a> -->
-            <div class="btns">
+            </a>
+            <!-- <div class="btns">
               <div class="" (click)="talkToAnExpert()">
-                <div class="inner-white-area text-center">Talk to an Expert</div>
+                <div class="inner-white-area text-center">
+                  Talk to an Expert
+                </div>
               </div>
-            </div>
+            </div> -->
           </div>
           <p class="p-para-normal">
             If you already have an API key,
@@ -769,4 +778,29 @@
   </div>
 </div>
 <div class="calendly-popup-widget" data-auto-load="false"></div>
+
+<div
+  style="
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    border-radius: 50px;
+    text-align: center;
+  " (click)="talkToAnExpert()"
+>
+  <i
+    class="fa fa-solid fa-comments fa-4x"
+    style="
+      background: linear-gradient(
+        90.8deg,
+        rgba(224, 73, 155, 1) 3.34%,
+        rgba(89, 101, 243, 1) 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    "
+  ></i>
+</div>
+
 <app-footer></app-footer>

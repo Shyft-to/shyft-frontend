@@ -10,6 +10,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { StaticModule } from './modules/static/static.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     AuthenticationModule,
     NgxGoogleAnalyticsModule.forRoot('G-TY55466GK8'),
     NgxGoogleAnalyticsRouterModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
