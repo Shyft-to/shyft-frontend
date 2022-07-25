@@ -779,16 +779,8 @@
 </div>
 <div class="calendly-popup-widget" data-auto-load="false"></div>
 
-<div
-  style="
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    border-radius: 50px;
-    text-align: center;
-  " (click)="talkToAnExpert()"
->
-  <i
+<div class="chat-outer" (click)="talkToAnExpert()">
+  <!-- <i
     class="fa fa-solid fa-comments fa-4x"
     style="
       background: linear-gradient(
@@ -800,7 +792,12 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     "
-  ></i>
+  ></i> -->
+  <img class="img-fluid pc-img" src="assets/images/Icons/chat_2.svg" alt="">
+  <div class="row mob-img">
+    <div class="col-10 chat-text text-start">Talk to us</div>
+    <div class="col-2"><img class="img-fluid" src="assets/images/Icons/mobile-chat.svg" alt=""></div>
+  </div>
 </div>
 
 <app-footer></app-footer>

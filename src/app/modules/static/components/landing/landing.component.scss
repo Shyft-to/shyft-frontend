@@ -1,0 +1,55 @@
+.chat-outer {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  border-radius: 50px;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(90.8deg, rgba(224, 73, 155, 1) 3.34%, rgba(89, 101, 243, 1) 100%);
+  height: 80px;
+  width: 80px;
+}
+.chat-outer .pc-img
+{
+    height: 100%;
+    width: 100%;
+}
+.chat-outer .mob-img
+  {
+    display: none;
+  }
+
+@media only screen and (max-width: 500px) {
+  .chat-outer {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    border-radius: 0px;
+    text-align: center;
+    padding: 20px;
+    background: #112F4ACC;
+    height: 60px;
+    width: 100%;
+    z-index: 99;
+  }
+  .chat-outer .pc-img
+  {
+    display: none;
+  }
+  .chat-outer .mob-img
+  {
+    display: flex;
+  }
+  .chat-outer .mob-img img
+  {
+    margin-top: -8px;
+  }
+  .chat-outer .mob-img .chat-text
+  {
+    font: 500 0.9rem/1.8125rem "Poppins", sans-serif;
+    color: #fff;
+    margin-top: -4px;
+    letter-spacing: 0.1em;
+  }
+}
+
