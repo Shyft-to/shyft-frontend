@@ -4,15 +4,21 @@
   right: 40px;
   border-radius: 50px;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   background: linear-gradient(90.8deg, rgba(224, 73, 155, 1) 3.34%, rgba(89, 101, 243, 1) 100%);
-  height: 80px;
-  width: 80px;
+  height: 50px;
+  width: 200px;
 }
 .chat-outer .pc-img
 {
     height: 100%;
     width: 100%;
+}
+.chat-outer .pc-text
+{
+    font: 400 0.9rem/1.8125rem "Poppins", sans-serif;
+    color: #fff;
+    letter-spacing: 0.1em;
 }
 .chat-outer .mob-img
   {
@@ -27,12 +33,16 @@
     border-radius: 0px;
     text-align: center;
     padding: 20px;
-    background: #112F4ACC;
+    background: #ffffffaa;
     height: 60px;
     width: 100%;
     z-index: 99;
   }
   .chat-outer .pc-img
+  {
+    display: none;
+  }
+  .chat-outer .pc-text
   {
     display: none;
   }
@@ -46,10 +56,10 @@
   }
   .chat-outer .mob-img .chat-text
   {
-    font: 500 0.9rem/1.8125rem "Poppins", sans-serif;
-    color: #fff;
+    font: 600 1rem/1.8125rem "Poppins", sans-serif;
+    color: #112F4A;
     margin-top: -4px;
-    letter-spacing: 0.1em;
+    letter-spacing: 2px;
   }
 }
 
