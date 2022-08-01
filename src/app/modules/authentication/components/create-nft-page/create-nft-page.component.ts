@@ -48,13 +48,6 @@ export class CreateNftPageComponent implements OnInit {
     private toastr: ToastrService,
     private createNftService: CreateNftService
   ) {
-    // this.defaultCurl = `curl --location --request POST '${environment.url}' \
-    // --header 'Content-Type: application/json' \
-    // --form 'file=@"/path-to-your-file/${this.name}"' \
-    // --form 'mintTo="${this.mintTo}"' \
-    // --form 'name="wallet"' \
-    // --form 'description="${this.description}"' \
-    // --form 'authorizationKey="${this.authorizationKey}"'`;
     this.defaultCurl = `curl -X 'POST' \
     'https://api.shyft.to/sol/v1/nft/create' \
     -H 'accept: application/json' \
@@ -73,7 +66,7 @@ export class CreateNftPageComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<any> {
-    // this.apiKey = localStorage.getItem("api_key");
+    this.authorizationKey = localStorage.getItem('authorizationKey') || '';
     this.createNftForm = this.formBuilder.group({
       name: ['', Validators.required],
       symbol: ['', Validators.required],
@@ -84,16 +77,12 @@ export class CreateNftPageComponent implements OnInit {
       royalty: [this.royalty, Validators.required],
       external_url: [''],
       private_key: [this.private_key, Validators.required],
-      authorizationKey: [
-        localStorage.getItem('authorizationKey') || '',
-        Validators.required,
-      ],
+      authorizationKey: [this.authorizationKey, Validators.required],
       network: [this.network, Validators.required],
     });
-    // this.checkMetamask();
-    // await this.connectAccount();
+
     this.createNftForm.patchValue({
-      private_key: this.private_key,
+      authorizationKey: this.authorizationKey,
     });
   }
 
@@ -143,10 +132,10 @@ export class CreateNftPageComponent implements OnInit {
       this.createNftForm.get('description')?.value
     );
     
-    // formData.append(
-    //   'authorizationKey',
-    //   this.createNftForm.get('authorizationKey')?.value
-    // );
+    formData.append(
+      'authorizationKey',
+      this.createNftForm.get('authorizationKey')?.value
+    );
     this.createNftService.createNft(this.authorizationKey, formData).subscribe(
       (res: any) => {
         if (res.status === 'success') {
@@ -243,29 +232,5 @@ export class CreateNftPageComponent implements OnInit {
 
   get f(): { [key: string]: AbstractControl } {
     return this.createNftForm.controls;
-  }
-
-  // checkMetamask() {
-  //   if (typeof window.ethereum !== 'undefined') {
-  //     console.log('MetaMask is installed!');
-  //   } else {
-  //     console.log('MetaMask is not installed!');
-  //   }
-  // }
-
-  // async connectAccount() {
-  //   const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-  //   this.mintTo = accounts[0];
-  //   console.log('Metamask Address', this.mintTo);
-  //   let balance = await window.ethereum.request({ method: 'eth_getBalance', params: [accounts[0],"latest"] });
-  //   balance = ((parseInt(balance, 16)) / 1000000000000000000);
-  //   console.log('Metamask Balance', balance);
-
-  // }
-}
-
-declare global {
-  interface Window {
-    ethereum: any;
   }
 }
