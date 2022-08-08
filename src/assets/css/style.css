@@ -1329,7 +1329,7 @@ html {
 .our-navbar {
   background-color: rgba(213, 255, 251, 0.4);
   opacity: 1;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(20px);
 }
 .our-navbar a {
   text-decoration: none;
@@ -3105,8 +3105,13 @@ a.btn-solid-reg-2
 }
 .custom-nav-links a
 {
-  font: 500 16px/0 "Poppins", sans-serif;
+  font: 600 16px/0 "Poppins", sans-serif;
   letter-spacing: 0.1em;
+}
+.custom-nav-links a:focus
+{
+  border: none;
+  box-shadow: none;
 }
 
 @media (max-width: 1200px)
