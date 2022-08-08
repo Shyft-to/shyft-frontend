@@ -1322,7 +1322,10 @@ html {
 .request-boxes .box-body {
   height: 300px;
 }
-
+.navbar-nav
+{
+  margin-left: 8%;
+}
 .our-navbar {
   background-color: rgba(213, 255, 251, 0.4);
   opacity: 1;
@@ -1734,6 +1737,10 @@ button:disabled {
 }
 
 @media (max-width: 1200px) {
+  .navbar-nav
+  {
+    margin-left: 40px;
+  }
   .portfolio-section-3 {
     padding-top: 5rem;
     padding-bottom: 4rem;
@@ -1827,6 +1834,11 @@ button:disabled {
   }
 }
 @media (max-width: 576px) {
+  .navbar-nav
+  {
+    margin-left: auto;
+    margin-right: 0px;
+  }
   .portfolio-para-sm {
     display: none;
   }
@@ -3133,6 +3145,6 @@ a.btn-solid-reg:hover
   }
   .custom-nav-links a
   {
-    font: 500 12px/0 "Poppins", sans-serif;
+    font: 500 12px/16px "Poppins", sans-serif;
   }
 }
