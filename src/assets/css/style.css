@@ -5,12 +5,12 @@ html {
 .hero-section {
   padding-top: 12rem;
   padding-bottom: 11rem;
-  background-color: #fff;
-  background: url(../images/Top-ellipse.png),
-    url(../images/hero-bottom-angle.png), #fff;
+  background-color: #111111 !important;
+  background: url(../images/dark-assets/Top-ellipse.png),
+    url(../images/dark-assets/hero-bottom-angle.png), #fff;
   background-repeat: no-repeat, no-repeat;
   background-position: left top, right bottom;
-  background-size: auto 85%, 100% auto;
+  background-size: auto 65%, 100% auto;
 }
 
 
@@ -18,18 +18,18 @@ html {
   font: 700 6.25rem/9.25rem "Montserrat", sans-serif;
   text-transform: uppercase;
   letter-spacing: 6px;
-  color: #112f4a;
+  color: #fff;
 }
 .hero-sub-heading {
   font: 700 3.75rem/5.5rem "Montserrat", sans-serif;
-  letter-spacing: 4px;
-  color: #112f4a;
+  letter-spacing: 1px;
+  color: #fff;
 }
 .hero-padded-section {
   padding-right: 100px;
 }
 .p-para-hero {
-  color: #112f4a;
+  color: #fff;
   font: 500 14px/20px "Poppins", sans-serif;
   letter-spacing: 0.1em;
   margin-top: 1rem;
@@ -44,7 +44,7 @@ html {
     padding-top: 12rem;
     padding-bottom: 8rem;
     background-color: #fff;
-    background: url(../images/Top-ellipse.png),
+    background: url(../images/dark-assets/Top-ellipse.png),
       url(../images/hero-bottom-angle.png), #fff;
     background-repeat: no-repeat, no-repeat;
     background-position: left top, right bottom;
@@ -52,7 +52,7 @@ html {
     border-bottom: none;
   }
   .hero-section .p-para-hero {
-    color: #112f4a;
+    color: #fff;
     font: 500 14px/20px "Poppins", sans-serif;
     letter-spacing: 0.1em;
     margin-top: 1rem;
@@ -89,8 +89,8 @@ html {
   }
   .hero-sub-heading {
     font: 700 25px/32px "Montserrat", sans-serif;
-    letter-spacing: 2px;
-    color: #112f4a;
+    letter-spacing: 1px;
+    color: #fff;
   }
   .hero-padded-section {
     padding-right: 0px;
@@ -100,8 +100,8 @@ html {
   }
   .engage-section .section-sub-heading {
     font: 700 3.125rem/4rem "Montserrat", sans-serif;
-    letter-spacing: 4px;
-    color: #112f4a;
+    letter-spacing: 1px;
+    color: #fff;
   }
   .engage-section .btn-solid-reg {
     display: inline-block;
@@ -129,7 +129,7 @@ html {
     font: 500 0.8rem/1.15rem "Poppins", sans-serif;
   }
   .engage-section .p-para-normal {
-    color: #112f4a;
+    color: #fff;
     font: 500 0.8rem/1.2rem "Poppins", sans-serif;
     letter-spacing: 0.1em;
     /* margin-top: 2rem; */
@@ -159,8 +159,8 @@ html {
   }
   .hero-sub-heading {
     font: 700 2.5rem/3.125rem "Montserrat", sans-serif;
-    letter-spacing: 4px;
-    color: #112f4a;
+    letter-spacing: 1px;
+    color: #fff;
   }
   .hero-padded-section {
     padding-right: auto;
@@ -170,8 +170,8 @@ html {
   }
   .engage-section .section-sub-heading {
     font: 700 2.5rem/3.75rem "Montserrat", sans-serif;
-    letter-spacing: 4px;
-    color: #112f4a;
+    letter-spacing: 1px;
+    color: #fff;
   }
   .hero-button-container {
     display: none;
@@ -216,7 +216,7 @@ html {
 
 .style-circle {
   background-color: #4e58cd;
-  background: linear-gradient(201.93deg, #4e58cd 13.09%, #97d2ff 88.9%);
+  background: linear-gradient(-23.96deg, #2C37BA -38.73%, #5965F3 23.99%, rgba(151, 210, 255, 0) 87.24%, rgba(232, 245, 255, 0) 87.24%);
   height: 800px;
   width: 800px;
   position: absolute;
@@ -435,7 +435,7 @@ html {
   letter-spacing: 0.1em;
 }
 .support-chain .p-caption-heads {
-  color: #112f4a;
+  color: #fff;
   font: 500 20px/26px "Poppins", sans-serif;
   margin-top: 2rem;
   letter-spacing: 0.1em;
@@ -468,27 +468,27 @@ html {
 
 .section-sub-heading {
   font: 700 3.75rem/5.625rem "Montserrat", sans-serif;
-  letter-spacing: 4px;
-  color: #112f4a;
+  letter-spacing: 1px;
+  color: #fff;
 }
 @media (max-width: 1200px) {
   .section-sub-heading {
     font: 700 3.125rem/4rem "Montserrat", sans-serif;
-    letter-spacing: 4px;
-    color: #112f4a;
+    letter-spacing: 1px;
+    color: #fff;
   }
 }
 
 @media (max-width: 576px) {
   .section-sub-heading {
     font: 700 2.5rem/3.75rem "Montserrat", sans-serif;
-    letter-spacing: 4px;
-    color: #112f4a;
+    letter-spacing: 1px;
+    color: #fff;
   }
 }
 .donut-background {
-  background-color: #d6edff;
-  background: url(../images/donut-shape.svg),
+  background-color: #181818 !important;
+  background: url(../images/dark-assets/donut-shape.png),
     url(../images/capsule-shape-top.png), #d6edff;
   background-repeat: no-repeat, no-repeat;
   background-position: 0rem 4rem, right bottom;
@@ -620,10 +620,10 @@ html {
   margin-bottom: -1px;
 }
 .why-us-background {
-  background-color: #fff;
-  background: url(../images/capsule-shape.png), url(../images/section3-top.png),
+  background-color: #111111 !important;
+  background: url(../images/capsule-shape.png), url(../images/dark-assets/section3-top.png),
     url(../images/mid-ellipse.png), url(../images/capsule-shape-straight.png),
-    url(../images/Last-section-bottom-2.png), #fff;
+    url(../images/dark-assets/Last-section-bottom-2.png), #111111;
   /* background-size: 100% auto; */
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
   background-position: 100% 0%, 0% 0%, 100% 50%, 0% 100%, 0% 100%;
@@ -1061,8 +1061,8 @@ html {
   }
 }
 .p-para-normal {
-  color: #112f4a;
-  font: 500 1rem/1.8125rem "Poppins", sans-serif;
+  color: #fff;
+  font: 400 1rem/1.8125rem "Poppins", sans-serif !important;
   /* letter-spacing: 0.1em; */
   letter-spacing: 1px;
   margin-top: 2rem;
@@ -1537,6 +1537,7 @@ button:disabled {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: 0px !important;
 }
 
 /* Screens for Portfolio Styles */
@@ -1969,10 +1970,10 @@ button:disabled {
     line-height: 2.125rem;
     /* text-transform: uppercase; */
     letter-spacing: 3px;
-    color: #112f4a;
+    color: #fff;
   }
   .details-container .p-para-normal {
-    color: #112f4a;
+    color: #fff;
     font: 500 13px/17px "Poppins", sans-serif;
     /* letter-spacing: 0.1em; */
     letter-spacing: 1px;
@@ -2047,16 +2048,17 @@ button:disabled {
 }
 .time-taking-cards .card-title {
   font: 600 24px/32px "Poppins", sans-serif;
-  letter-spacing: 0.1em;
-  color: #112f4a;
+  /* letter-spacing: 0.1em; */
+  color: #fff;
   padding-bottom: 30px;
   padding-top: 10px;
 }
 .time-taking-cards .card-text {
-  font: 400 16px/24px "Poppins", sans-serif;
-  letter-spacing: 0.1em;
-  color: #112f4a;
-  padding: 0px 25px;
+  font: 300 16px/24px "Poppins", sans-serif;
+  /* letter-spacing: 0.1em; */
+  letter-spacing: 1px;
+  color: #fff;
+  padding: 0px 10px;
 }
 @media (max-width: 1200px) {
   .time-taking-cards .card-title {
@@ -2703,7 +2705,7 @@ p.custom-desc-title a::before {
 }
 
 .black-green-text {
-  color: #112f4a;
+  color: #E0499B;
 }
 
 .btn-outline-gradient-button
@@ -2725,7 +2727,8 @@ p.custom-desc-title a::before {
 }
 .btn-outline-gradient-button .inner-white-area {
   padding: 0.8rem 2.125rem 0.8rem 2.125rem;
-  background-color: #fff;
+  background-color: #181818;
+  color: #fff;
   border-radius: 2.5rem;
   transition: all 0.2s;
 }
@@ -2780,18 +2783,22 @@ p.custom-desc-title a::before {
 .icon-cards .icon-image-container .icon-card-image {
   display: block;
   margin: 0 auto;
+  width: 35%;
   padding-bottom: 20px;
 }
+
 .icon-cards .icon-title-container h6 {
-  font: 600 24px/32px "Poppins", sans-serif;
-  letter-spacing: 0.1em;
+  font: 400 24px/32px "Poppins", sans-serif;
+  letter-spacing: 1px;
   text-align: center;
+  color: #fff !important;
 }
 .icon-cards .subtitle-container p {
-  font: 500 16px/24px "Poppins", sans-serif;
+  font: 300 14px/18px "Poppins", sans-serif !important;
   letter-spacing: 1px;
   text-align: center;
   padding: 10px 30px;
+  color: #fff !important;
 }
 @media (max-width: 1200px)
 {
@@ -2807,7 +2814,22 @@ p.custom-desc-title a::before {
     padding: 0px 5px;
     
   }
+  .icon-cards .icon-image-container .icon-card-image {
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+    padding-bottom: 20px;
+  }
 
+}
+@media (max-width: 600px)
+{
+  .icon-cards .icon-image-container .icon-card-image {
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    padding-bottom: 20px;
+  }
 }
 
 .market-cards {
@@ -2875,7 +2897,7 @@ p.custom-desc-title a::before {
   position: relative;
 }
 .pricing-cards .pricing-cards-inner {
-  background-color: #fff;
+  background-color: #111111;
   border-radius: 17px;
   padding: 3px;
   height: 100%;
@@ -2885,7 +2907,7 @@ p.custom-desc-title a::before {
   height: 68%;
 }
 .pricing-cards .pricing-cards-inner .blue-band {
-  background-color: #d6edff;
+  background-color: #181818;
   padding: 10px 10px;
   padding-top: 15px;
   border-top-left-radius: 15px;
@@ -2893,18 +2915,20 @@ p.custom-desc-title a::before {
 }
 .pricing-cards .pricing-cards-inner .blue-band h6 {
   font: 700 1.1rem/1.6rem "Montserrat", sans-serif;
+  color: #fff !important;
+  letter-spacing: 2px;
 }
 .pricing-cards .pricing-cards-inner .black-container {
   padding: 10px 10px;
   padding-top: 15px;
-  background-color: #112f4a;
+  background-color: #fff;
   border-radius: 12px;
   margin: 20px auto 40px;
   width: 90%;
 }
 .pricing-cards .pricing-cards-inner .black-container h6 {
   font: 600 1rem/1.2rem "Poppins", sans-serif;
-  color: #fff;
+  color: #000;
   letter-spacing: 1px;
 }
 .pricing-cards .pricing-cards-inner .icon1-list-container {
@@ -2912,7 +2936,7 @@ p.custom-desc-title a::before {
   margin: 0 auto;
 }
 .pricing-cards .pricing-cards-inner .icon1-list-container .icon-list {
-  border-bottom: 1px solid #112f4a66;
+  border-bottom: 1px solid #ffffff66;
   width: 95%;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -2926,9 +2950,10 @@ p.custom-desc-title a::before {
 }
 .pricing-cards .pricing-cards-inner .icon1-list-container h6
 {
-  font: 400 0.9rem/1.2rem "Poppins", sans-serif;
+  font: 300 0.9rem/1.2rem "Poppins", sans-serif;
   letter-spacing: 1px;
   padding-top: 7px;
+  color: #fff;
 }
 .pricing-cards .pricing-cards-inner .icon1-list-container h6.custom-h6
 {
@@ -2976,15 +3001,16 @@ p.custom-desc-title a::before {
 }
 
 .market-blue-background {
-  background-color: #d6edff;
-  background-image: url("../images/bottom-donut-shape.png");
+  background-color: #111111;
+  background-image: url("../images/dark-assets/bottom-donut-shape.png");
   background-position: 100% 100%;
   background-repeat: no-repeat;
 }
 .support-chain-background {
-  background-image: url("../images/Blue-bottom-ellipse.png"),
-    url("../images/section3-top.png"), url("../images/donut-shape.png"),
-    url("../images/bottom-red.png"), url("../images/full-container.png");
+  background-color: #181818;
+  background-image: url("../images/dark-assets/Blue-bottom-ellipse.png"),
+    url("../images/dark-assets/section3-top.png"), url("../images/dark-assets/donut-shape.png"),
+    url("../images/bottom-red.png"), url("../images/dark-assets/full-container.png");
   background-position: 0% 0%, 0% 0%, 0% 90%, 100% 100%, 0% 100%;
   background-size: auto auto, 100% auto, 20% auto, auto auto, 100% auto;
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
@@ -3152,4 +3178,47 @@ a.btn-solid-reg:hover
   {
     font: 500 12px/16px "Poppins", sans-serif;
   }
+}
+
+
+.why-box-outer {
+  background: linear-gradient(102.4deg, #0AEEFF -1.46%, #E0499B -1.45%, #5965F3 98.76%);
+  width: 100%;
+  /* max-width: 300px; */
+  min-height: 160px;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 1px;
+}
+
+.why-box-outer .why-box-inner {
+  position: relative;
+  width: 100%;
+  min-height: 195px;
+  border-radius: 15px;
+  background-color: #111111;
+  color: #fff;
+  padding: 32px 25px 10px;
+}
+
+.why-box-outer .why-box-inner h3 {
+  font: 700 24px "Montserrat", sans-serif;
+  letter-spacing: 1px;
+}
+
+.why-box-outer .why-box-inner .tag-img {
+  position: absolute;
+  z-index: 3;
+  top: -30px;
+  left: -28px;
+
+}
+.why-box-outer .why-box-inner .tag-img img
+{
+  width: 70%;
+}
+.p-para-2 {
+  font: 300 14px/18px "Poppins", sans-serif;
+  letter-spacing: 1px;
+  color: #fff;
 }
