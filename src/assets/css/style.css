@@ -45,7 +45,7 @@ html {
     padding-bottom: 8rem;
     background-color: #fff;
     background: url(../images/dark-assets/Top-ellipse.png),
-      url(../images/hero-bottom-angle.png), #fff;
+      url(../images/dark-assets/hero-bottom-angle.png), #fff;
     background-repeat: no-repeat, no-repeat;
     background-position: left top, right bottom;
     background-size: auto 50%, 100% auto;
@@ -146,7 +146,7 @@ html {
     padding-bottom: 0px;
     background-color: #fff;
     background: url(../images/Top-ellipse.png),
-      url(../images/Mobile-angles-1.png), #fff;
+      url(../images/dark-assets/Mobile-angles-1.png), #fff;
     background-repeat: no-repeat, no-repeat;
     background-position: left top, right bottom;
     background-size: auto 35%, 100% auto;
@@ -759,7 +759,7 @@ html {
   }
   .partner-with-container {
     background: url(../images/Blue-bottom-ellipse.png),
-      url(../images/Mobile-angles-3-new-white.png),
+      url(../images/dark-assets/Mobile-angles-3-new-white.png),
       url(../images/bottom-donut-shape.png), #d6edff;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-position: -120px 105%, 0% 101%, 100% 50%;
@@ -769,9 +769,9 @@ html {
   }
   .why-us-background {
     background: url(../images/capsule-shape.png),
-      url(../images/Mobile-angles-2.png), url(../images/mid-ellipse.png),
+      url(../images/dark-assets/Mobile-angles-2.png), url(../images/mid-ellipse.png),
       url(../images/capsule-shape-straight.png),
-      url(../images/Mobile-angles-3-new.png), #fff;
+      url(../images/dark-assets/Mobile-angles-3-new.png), #fff;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: 100% -1%, left top, 100% 15%, left bottom, left bottom;
     background-size: 20% auto, 100% auto, 70% auto, 25% auto, 101% auto;
@@ -1992,6 +1992,7 @@ button:disabled {
   .our-pricing-section .section-sub-heading {
     padding-bottom: 8px;
   }
+
 }
 
 /* Terms Screens */
@@ -2755,11 +2756,15 @@ p.custom-desc-title a::before {
   }
 }
 
-.things-with-shyft {
+/* .things-with-shyft {
   padding: 60px 0px;
+} */
+.things-with-shyft {
+  padding-bottom: 40px;
+  padding-top: 80px;
 }
 .things-with-shyft .section-sub-heading {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .cards-top-title {
@@ -2777,14 +2782,16 @@ p.custom-desc-title a::before {
 }
 .icon-cards .icon-image-container {
   width: 100%;
-  height: 150px;
+  max-height: 130px;
   margin: 0 auto;
+  margin-top: 30px;
+  padding-bottom: 20px;
 }
 .icon-cards .icon-image-container .icon-card-image {
   display: block;
   margin: 0 auto;
   width: 35%;
-  padding-bottom: 20px;
+  
 }
 
 .icon-cards .icon-title-container h6 {
@@ -2797,7 +2804,7 @@ p.custom-desc-title a::before {
   font: 300 14px/18px "Poppins", sans-serif !important;
   letter-spacing: 1px;
   text-align: center;
-  padding: 10px 30px;
+  padding: 10px 5px;
   color: #fff !important;
 }
 @media (max-width: 1200px)
@@ -3007,13 +3014,13 @@ p.custom-desc-title a::before {
   background-repeat: no-repeat;
 }
 .support-chain-background {
-  background-color: #181818;
+  background-color: #111111;
   background-image: url("../images/dark-assets/Blue-bottom-ellipse.png"),
-    url("../images/dark-assets/section3-top.png"), url("../images/dark-assets/donut-shape.png"),
-    url("../images/bottom-red.png"), url("../images/dark-assets/full-container.png");
-  background-position: 0% 0%, 0% 0%, 0% 90%, 100% 100%, 0% 100%;
-  background-size: auto auto, 100% auto, 20% auto, auto auto, 100% auto;
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+     url("../images/dark-assets/bottom-donut-shape.png"),
+    url("../images/bottom-red.png"), url("../images/dark-assets/full-container-2.png");
+  background-position: 0% 0%, 100% 30%, 100% 100%, 0% 0%;
+  background-size: auto auto, 20% auto, auto auto, 100% auto;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
 }
 
 .our-pricing-section {
@@ -3021,6 +3028,7 @@ p.custom-desc-title a::before {
 }
 .our-pricing-section .section-sub-heading {
   padding-bottom: 60px;
+  padding-top: 60px;
 }
 @media (max-width: 576px) {
   .market-blue-background {
@@ -3032,14 +3040,14 @@ p.custom-desc-title a::before {
   }
   .support-chain-background {
     background-image: url("../images/Blue-bottom-ellipse.png"),
-      url("../images/Mobile-angles-3.png"), url("../images/donut-shape.png"),
-      url("../images/bottom-red.png"), url("../images/Rectangle-back.png");
+      url("../images/dark-assets/Mobile-angles-3.png"), url("../images/dark-assets/donut-shape.png"),
+      url("../images/bottom-red.png"), url("../images/dark-assets/Rectangle-back.png");
     background-position: 0% 10%, 0% 0%, 0% 60%, 100% 100%, 0% 100%;
     background-size: 60% auto, 100% auto, 40% auto, 60% auto, 100% auto;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
   }
   .things-with-shyft {
-    padding: 60px 0px;
+    padding: 30px 0px;
   }
 }
 
@@ -3221,4 +3229,50 @@ a.btn-solid-reg:hover
   font: 300 14px/18px "Poppins", sans-serif;
   letter-spacing: 1px;
   color: #fff;
+}
+
+
+.book-demo {
+  display: inline-block;
+  position: fixed;
+  z-index: 99;
+  bottom: 20px;
+  right: 20px;
+  /* padding: 0.8rem 2.5rem 0.8rem 2.5rem; */
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 2.5rem;
+  background-color: rgba(89, 101, 243, 0.29);
+  background: url('../images/dark-assets/call-phone.svg'),linear-gradient(180deg, #0AEEFF 0%, #04ADFF 100%);
+  background-position: center,center;
+  background-repeat: no-repeat,no-repeat;
+  background-size: 40%,cover;
+  color: #fff;
+  font: 600 0.8rem/1.2rem "Poppins", sans-serif;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-decoration: none !important;
+  transition: all 0.2s;
+}
+@media (max-width: 576px)
+{
+  .book-demo
+  {
+      width: 100%;
+      background: #000000bb;
+      backdrop-filter: blur(6px);
+      color: #fff;
+      border-radius: 0px;
+      font-weight: 300;
+      padding: 16px 0px;
+      bottom: 0;
+      right: 0;
+  }
+  .book-demo::before
+  {
+      content: 'Book A Demo';
+  }
 }
