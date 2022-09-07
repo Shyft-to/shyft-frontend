@@ -13,7 +13,9 @@ import { DarkFooterComponent } from './components/dark-footer/dark-footer.compon
 @NgModule({
   declarations: [
     HeaderComponent,
+    DarkHeaderComponent,
     FooterComponent,
+    DarkFooterComponent,
     SideNavComponent,
     LoaderComponent,
     DarkHeaderComponent,
@@ -23,6 +25,12 @@ import { DarkFooterComponent } from './components/dark-footer/dark-footer.compon
     CommonModule,
     RouterModule,
   ],
-  exports: [HeaderComponent, FooterComponent, LoaderComponent],
+  exports: [
+    HeaderComponent,
+    DarkHeaderComponent,
+    FooterComponent,
+    DarkFooterComponent,
+    LoaderComponent,
+  ],
 })
 export class SharedModule { }
