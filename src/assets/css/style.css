@@ -651,6 +651,23 @@ html {
   transition: color 0.5s ease-out;
   color: #112f4a;
 }
+.cstm-dark-footer-links
+{
+  padding-top: 30px;
+}
+.footer-dark-link-container {
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: #fff;
+  padding-top: 20px;
+}
+.footer-dark-link-container a {
+  text-decoration: none !important;
+  transition: color 0.5s ease-out;
+  color: #fff;
+}
 .footer-link-container a:hover {
   color: #00c9db;
 }
@@ -2782,7 +2799,7 @@ p.custom-desc-title a::before {
 }
 .icon-cards .icon-image-container {
   width: 100%;
-  max-height: 130px;
+  max-height: 150px;
   margin: 0 auto;
   margin-top: 30px;
   padding-bottom: 20px;
@@ -3275,4 +3292,56 @@ a.btn-solid-reg:hover
   {
       content: 'Book A Demo';
   }
+}
+
+
+.footer-2-dark .footer-logo {
+  font: 600 24px/35px "Poppins", sans-serif;
+  letter-spacing: 2px;
+}
+.footer-2-dark .footer-icons {
+  padding-right: 10px;
+}
+.cstm-dark-footer-links
+{
+  padding-top: 30px;
+}
+.footer-dark-link-container {
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: #fff;
+  padding-top: 20px;
+}
+.footer-dark-link-container a {
+  text-decoration: none !important;
+  transition: color 0.5s ease-out;
+  color: #fff;
+}
+.footer-dark-link-container a:hover {
+  color: #00c9db;
+}
+.bg-darker
+{
+  background-color: #000 !important;
+}
+
+.text-green-blue-22
+{
+  color: #112f4a !important;
+}
+.our-navbar-dark {
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  backdrop-filter: blur(20px);
+}
+.our-navbar-dark a {
+  text-decoration: none;
+  color: #fff;
+  font: 400 0.9rem/1.75rem "Poppins", sans-serif;
+}
+.our-navbar-dark a:hover
+{
+  color: #04ADFF;
 }
