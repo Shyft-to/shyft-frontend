@@ -489,7 +489,7 @@ html {
 .donut-background {
   background-color: #181818 !important;
   background: url(../images/dark-assets/donut-shape.png),
-    url(../images/capsule-shape-top.png), #d6edff;
+     #d6edff;
   background-repeat: no-repeat, no-repeat;
   background-position: 0rem 4rem, right bottom;
   background-size: 32% auto, auto 20%;
@@ -621,13 +621,13 @@ html {
 }
 .why-us-background {
   background-color: #111111 !important;
-  background: url(../images/capsule-shape.png), url(../images/dark-assets/section3-top.png),
-    url(../images/mid-ellipse.png), url(../images/capsule-shape-straight.png),
+  background:  url(../images/dark-assets/section3-top.png),
+    url(../images/mid-ellipse.png),
     url(../images/dark-assets/Last-section-bottom-2.png), #111111;
   /* background-size: 100% auto; */
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-  background-position: 100% 0%, 0% 0%, 100% 50%, 0% 100%, 0% 100%;
-  background-size: auto auto, 100% auto, 20% auto, auto auto ,100% auto;
+  background-repeat:  no-repeat, no-repeat, no-repeat;
+  background-position:  0% 0%, 100% 50%, 0% 100%;
+  background-size:  100% auto, 20% auto ,100% auto;
   padding-top: 70px;
   padding-bottom: 50px;
 }
@@ -726,8 +726,8 @@ html {
     padding-bottom: 150px;
   }
   .why-us-background {
-    background-position: 100% -1%, left top, 100% 50%, left bottom, left bottom;
-    background-size: 15% auto, 100% auto, 30% auto, 18% auto, 101% auto;
+    background-position:  left top, 100% 50%, left bottom;
+    background-size:  100% auto, 30% auto, 101% auto;
     padding-top: 10px;
     padding-bottom: 60px;
   }
