@@ -5,11 +5,12 @@
 ></app-side-nav>
 <nav class="navbar navbar-expand fixed-top our-navbar-dark">
   <div class="container-fluid contained-nav">
-  
     <a class="navbar-brand me-2" routerLink="/"
-      ><img src="assets/images/dark-assets/shyft-logo.svg" style="width: 80px" alt="Shyft"
+      ><img
+        src="assets/images/dark-assets/shyft-logo.svg"
+        style="width: 80px"
+        alt="Shyft"
     /></a>
-    
 
     <button
       class="navbar-toggler"
@@ -22,15 +23,34 @@
     >
       <i class="fas fa-bars"></i>
     </button>
-    
+
     <div class="collapse navbar-collapse" id="navbarButtonsExample">
       <ul class="navbar-nav mb-2 mb-lg-0"></ul>
 
       <div class="d-flex align-items-center custom-nav-links">
-        <a type="button" class="btn btn-link px-3 me-2" href="https://api.shyft.to/sol/api/explore" target="_blank"> APIs </a>
-        
-        <a type="button" class="btn btn-link px-3 me-2" href="https://www.getpostman.com/collections/eb766924a309c10d6d7e" target="_blank"> Import Postman </a>
-        <a type="button" class="btn btn-link px-3 me-2" href="https://docs.shyft.to" target="_blank"> Docs </a>
+        <a
+          type="button"
+          class="btn btn-link px-3 me-2"
+          href="https://docs.shyft.to"
+          target="_blank"
+        >
+          Dev Docs
+        </a>
+        <a
+          type="button"
+          class="btn btn-link px-3 me-4"
+          href="https://api.shyft.to/sol/api/explore"
+          target="_blank"
+        >
+          APIs
+        </a>
+        <div
+          class="postman-run-button"
+          data-postman-action="collection/fork"
+          data-postman-var-1="18419720-f8e4000d-066d-4476-9790-01620490471b"
+          data-postman-collection-url="entityId=18419720-f8e4000d-066d-4476-9790-01620490471b&entityType=collection&workspaceId=8d164192-365d-4e69-8eec-54da86979a9e"
+          data-postman-param="env%5BShyft%5D=W3sia2V5IjoidXJsIiwidmFsdWUiOiJodHRwczovL2FwaS5zaHlmdC50by9zb2wvdjEiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoiZGVmYXVsdCJ9XQ=="
+        ></div>
         <button
           id="side-panel"
           [ngStyle]="{
