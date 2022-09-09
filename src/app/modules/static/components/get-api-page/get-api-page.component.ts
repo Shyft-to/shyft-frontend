@@ -30,6 +30,15 @@ export class GetApiPageComponent implements OnInit {
     }
     this._getApiService.getApiKey(body).subscribe((res) => {
       console.log(res);
+      if (this.isSuccessResponse) {
+        setTimeout(() => {
+          setTimeout(() => {
+            this.router.navigate(['/get-api-key']).then(() => {
+              window.location.href = 'https://docs.shyft.to';
+            });
+          });
+        }, 3000);
+      }
     }, (errors: any) => {
       console.log(errors);
     });
